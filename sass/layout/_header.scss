@@ -1,0 +1,20 @@
+.top{
+    width: 100%;
+
+    @include screen_max(tablet){
+        height: 20px;
+}
+}
+
+.logo_nav{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    align-content: space-around;
+    width: 80%;
+
+    @include screen_max(tablet){
+        display: contents;
+        width: 85%;
+    }
+}

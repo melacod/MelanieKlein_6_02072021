@@ -1,0 +1,28 @@
+// colors
+
+$color-primary: #d3573c;
+$color-primary-font: #901c1c;
+
+$color-secondary: #901C1C;
+$color-secondary-font: #D3573C;
+
+$color-gray: #525252;
+
+// breakpoints
+
+$breakpoints: (
+  mobile: (
+    max: 767px,
+  ),
+  tablet: (
+    min: 768px,
+    max: 991px,
+  ),
+  desktop: (
+    min: 992px,
+    max: 1199px,
+  ),
+  large: (
+    min: 1200px,
+  ),
+);

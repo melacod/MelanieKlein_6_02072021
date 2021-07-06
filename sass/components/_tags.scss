@@ -1,0 +1,13 @@
+label{
+    @include font_tags;
+    font-weight: 600;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    vertical-align: middle ;
+
+    @include screen_max(tablet){
+        
+}
+}
