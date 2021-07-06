@@ -1,0 +1,28 @@
+{
+  "name": "fisheye",
+  "version": "1.0.0",
+  "description": "Projet 6 OpenClassrooms FishEye",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --style expanded --watch ./sass/main.scss:./public/css/style.css",
+    "compress": "sass --style compressed --no-source-map ./sass/main.scss:./public/css/style.css",
+    "prefix": "postcss ./public/css/style.css --use autoprefixer --replace"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/melacod/MelanieKlein_6_02072021.git"
+  },
+  "keywords": [
+    "html",
+    "css",
+    "sass",
+    "js"
+  ],
+  "author": "Mélanie Klein",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/melacod/MelanieKlein_6_02072021/issues"
+  },
+  "homepage": "https://github.com/melacod/MelanieKlein_6_02072021#readme",
+  "browserslist": "last 4 versions"
+}
