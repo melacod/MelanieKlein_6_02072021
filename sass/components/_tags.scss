@@ -1,29 +1,49 @@
-label {
-    @include font_tags;
-    font-size: 0.8em;
-    font-weight: 700;
-    padding-left: 0.7em;
-    padding-right: 0.8em;
-    padding-top: 0.25em;
-    padding-bottom: 0.2em;
-    vertical-align: middle;
-    margin: 0.1em;
+.tags {
 
-    @include screen_max(tablet) {
-        margin-right: 0.3em;
-        margin-bottom: 0.5em;
-    }
-}
-
-nav {
     display: flex;
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
     margin-left: 2em;
 
-        @include screen_max(tablet) {
-        
+    @include screen_max(tablet) {
         width: 86%;
+    }
+
+    .tag {
+
+        span {
+            @include font-texte; 
+        
+            border: $color-gray 0.1em solid;
+            border-radius: 1.5em;
+            font-size: 0.8em;
+            font-weight: 900;
+            padding-left: 0.75em;
+            padding-right: 0.75em;
+            padding-top: 0.2em;
+            padding-bottom: 0.2em;
+            margin: 0.1em;
+            cursor: pointer;
+    
+            @include screen_max(tablet) {
+                margin-right: 0.3em;
+                margin-bottom: 0.5em;
+            }
+        }
+
+        input {
+            display: none;
+
+            &:checked ~ span {
+                color: white;
+                background-color: $color-secondary;
+            }
+
+            &:not(:checked) ~ span {
+                color: $color-secondary;
+                background-color: white;
+            }
+        }
     }
 }

@@ -1,0 +1,54 @@
+.cards {
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    width: 100%;
+    
+
+    .card {
+
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        width: 30%;
+        margin-bottom: 2em;
+        
+        &--image {
+            height: 10em;
+            width: 100%;
+            object-fit: cover;
+            border-radius: 100%;
+        }
+
+        &--name {
+            color: $color-primary;
+            @include font-texte;
+            font-size: 2em;
+        }
+        
+        &--localisation {
+            color: $color-secondary;
+            @include font-texte;
+            font-size: 1em;
+        }
+        
+        &--description {
+            color: black;
+            @include font-texte;
+            font-size: 0.6em;
+        }
+        
+        &--price {
+            color: $color-gray;
+            @include font-texte;
+            font-size: 0.4em;
+        }
+    }
+    
+
+}

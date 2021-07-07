@@ -41,12 +41,10 @@ html {
 }
 
 body {
-  /* 12px */
   font-size: 1.2em;
 }
 
 h1 {
-  /* 24px */
   font-size: 1.8em;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: #901C1C;
@@ -57,65 +55,7 @@ h1 {
   right: 3em;
 }
 
-.name {
-  color: #d3573c;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 2em;
-}
-
-.localisation {
-  color: #901C1C;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 1em;
-}
-
-.description {
-  color: black;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 0.6em;
-}
-
-.price {
-  color: #525252;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 0.4em;
-}
-
-.logo > img {
-  height: 5em;
-  margin-left: 2em;
-}
-@media screen and (max-width: 991px) {
-  .logo > img {
-    margin: 1em;
-    height: 4em;
-  }
-}
-
-label {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  color: #901C1C;
-  border: #525252 0.1em solid;
-  border-radius: 15px;
-  font-size: 0.8em;
-  font-weight: 900;
-  font-size: 0.8em;
-  font-weight: 700;
-  padding-left: 0.7em;
-  padding-right: 0.8em;
-  padding-top: 0.25em;
-  padding-bottom: 0.2em;
-  vertical-align: middle;
-  margin: 0.1em;
-}
-@media screen and (max-width: 991px) {
-  label {
-    margin-right: 0.3em;
-    margin-bottom: 0.5em;
-  }
-}
-
-nav {
+.tags {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -123,9 +63,83 @@ nav {
   margin-left: 2em;
 }
 @media screen and (max-width: 991px) {
-  nav {
+  .tags {
     width: 86%;
   }
+}
+.tags .tag span {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border: #525252 0.1em solid;
+  border-radius: 1.5em;
+  font-size: 0.8em;
+  font-weight: 900;
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  margin: 0.1em;
+  cursor: pointer;
+}
+@media screen and (max-width: 991px) {
+  .tags .tag span {
+    margin-right: 0.3em;
+    margin-bottom: 0.5em;
+  }
+}
+.tags .tag input {
+  display: none;
+}
+.tags .tag input:checked ~ span {
+  color: white;
+  background-color: #901C1C;
+}
+.tags .tag input:not(:checked) ~ span {
+  color: #901C1C;
+  background-color: white;
+}
+
+.cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  width: 100%;
+}
+.cards .card {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 30%;
+  margin-bottom: 2em;
+}
+.cards .card--image {
+  height: 10em;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 100%;
+}
+.cards .card--name {
+  color: #d3573c;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 2em;
+}
+.cards .card--localisation {
+  color: #901C1C;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1em;
+}
+.cards .card--description {
+  color: black;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 0.6em;
+}
+.cards .card--price {
+  color: #525252;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 0.4em;
 }
 
 .container {
@@ -139,15 +153,11 @@ nav {
   border: 1px solid black;
 }
 
-header {
-  width: 84%;
-}
-
 .top {
   width: 100%;
 }
 
-.logo_nav {
+header.index {
   display: flex;
   align-items: center;
   flex-direction: row;
@@ -155,37 +165,20 @@ header {
   width: 80%;
 }
 @media screen and (max-width: 991px) {
-  .logo_nav {
+  header.index {
     display: contents;
     width: 85%;
   }
 }
-
-main img {
-  height: 10em;
-  object-fit: cover;
-  border-radius: 100%;
+header.index .logo img {
+  height: 5em;
+  margin-left: 2em;
 }
-
-.photographers {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: baseline;
-  justify-content: space-between;
-  width: 100%;
-}
-
-.vignette {
-  width: 30%;
-}
-
-.presentation {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
+@media screen and (max-width: 991px) {
+  header.index .logo img {
+    margin: 1em;
+    height: 4em;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

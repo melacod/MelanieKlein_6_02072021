@@ -69,28 +69,11 @@
     }
 }
 
-
 @mixin font-texte {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-@mixin font-gray{
-    color: #525252;
-    background-color: #FAFAFA;
+@mixin font-gray {
+    color: $color-gray;
+    background-color: $color-gray-light;
 }
-
-@mixin font_tags{
-    @include font-texte; 
-    color: $color-secondary;
-    border: $color-gray 0.1em solid;
-    border-radius: 15px;
-    font-size: 0.8em;
-    font-weight: 900;
-}
-
-@mixin img_main{
-    height: 10em;
-    object-fit: cover;
-    border-radius: 100%;
-}
-

@@ -4,12 +4,10 @@ html {
 }
 
 body {
-    /* 12px */
     font-size: 1.2em;
 }
 
 h1 {
-    /* 24px */
     font-size: 1.8em;
     @include font-texte;
     color: $color-secondary;
@@ -18,29 +16,4 @@ h1 {
     position: relative;
     top: -2em;
     right: 3em;
-}
-
-.name {
-    color: $color-primary;
-    @include font-texte;
-    font-size: 2em;
-    ;
-}
-
-.localisation {
-    color: $color-secondary;
-    @include font-texte;
-    font-size: 1em;
-}
-
-.description {
-    color: black;
-    @include font-texte;
-    font-size: 0.6em;
-}
-
-.price {
-    color: $color-gray;
-    @include font-texte;
-    font-size: 0.4em;
 }

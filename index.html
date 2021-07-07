@@ -13,109 +13,268 @@
   <!-- Une feuille de style général et une feuille par support: desktop / tablet / mobile -->
   <link rel="stylesheet" type="text/css" href="public/css/style.css" />
 
+  <!-- Tous les modules javascript et le main javasript -->
+  <script src="./public/js/modules/data.js" type="module"></script>
+  <script src="./public/js/index.js" type="module" ></script>
+
 </head>
 
 <body>
   <div class="container">
 
+    <div class="top sr-only"></div>
 
-    <header>
-      <div class="top sr-only"></div>
-      <div class="logo_nav">
-        <div class="logo"><img alt="logoIcon" src="./public/img/fisheyeLogo.png" /></div>
-        <nav>
-          <label>#Portrait</label> <label>#Art</label> <label>#Fashion</label> <label>#Architecture</label>
-          <label>#Travel</label> <label>#Sport</label> <label>#Animals</label> <label>#Events</label>
+    <header class="index">
+
+        <div class="logo">
+          <a href="index.html">
+            <img alt="Fisheye Home page" src="./public/img/fisheyeLogo.png" />
+          </a>
+        </div>
+
+        <nav class="main--nav tags" aria-label="Main tag navigation / Photographer categories">
+          <label class="tag">
+            <input type="checkbox" />
+            <span class="sr-only">Tag Portrait</span>
+            <span>#Portrait</span>
+          </label>
+          <label class="tag">
+            <input type="checkbox" />
+            <span class="sr-only">Tag Art</span>
+            <span>#Art</span>
+          </label>
+          <label class="tag">
+            <input type="checkbox" />
+            <span class="sr-only">Tag Fashion</span>
+            <span>#Fashion</span>
+          </label>
+          <label class="tag">
+            <input type="checkbox" />
+            <span class="sr-only">Tag Architecture</span>
+            <span>#Architecture</span>
+          </label>
+          <label class="tag">
+            <input type="checkbox" />
+            <span class="sr-only">Tag Travel</span>
+            <span>#Travel</span>
+          </label>
+          <label class="tag">
+            <input type="checkbox" />
+            <span class="sr-only">Tag Sport</span>
+            <span>#Sport</span>
+          </label>
+          <label class="tag">
+            <input type="checkbox" />
+            <span class="sr-only">Tag Animals</span>
+            <span>#Animals</span>
+          </label>
+          <label class="tag">
+            <input type="checkbox" />
+            <span class="sr-only">Tag Events</span>
+            <span>#Events</span>
+          </label>
         </nav>
-      </div>
-    </header>
-    <main>
 
+      </header>
+    <main>
 
       <h1>Nos photographes</h1>
 
-      <div class=photographers>
-        <div class="vignette">
-          <div class="presentation">
-            <a href="#">
-              <img src="./public/img/photos/MimiKeel/Portrait_Nora.jpg" alt="Portrait_Nora" />
-              <div class="name">Mimi Keel</div>
-              <div class="localisation">London, UK</div>
-              <div class="description">Voir le beau dans le quotidien</div>
-              <div class="price">400€/jour</div>
-            </a>
-          </div>
-          <label>#portraits</label><label>#events</label><label>#travel</label><label>#animals</label>
+      <div class="cards">
+        
+        <div class="card">
+          <a class="card--link" href="#" alt="Mimi Keel">
+            <img class="card--image" src="./public/img/photos/MimiKeel/Portrait_Nora.jpg" alt="" />
+            <h2 class="card--name">Mimi Keel</h2>
+          </a>
+          <div class="card--localisation">London, UK</div>
+          <div class="card--description">Voir le beau dans le quotidien</div>
+          <div class="card--price">400€/jour</div>
+          <nav class="card--nav tags" aria-label="Card tag navigation">
+            <label class="tag">
+              <input type="checkbox" />
+              <span class="sr-only">Tag Portrait</span>
+              <span>#Portrait</span>
+            </label>
+            <label class="tag">
+              <input type="checkbox" />
+              <span class="sr-only">Tag Events</span>
+              <span>#Events</span>
+            </label>
+            <label class="tag">
+              <input type="checkbox" />
+              <span class="sr-only">Tag Travel</span>
+              <span>#Travel</span>
+            </label>
+            <label class="tag">
+              <input type="checkbox" />
+              <span class="sr-only">Tag Animals</span>
+              <span>#Animals</span>
+            </label>
+          </nav>
+        </div>
+        
+        <div class="card">
+          <a class="card--link" href="#" alt="Mimi Keel">
+            <img class="card--image" src="./public/img/photos/MimiKeel/Portrait_Nora.jpg" alt="" />
+            <h2 class="card--name">Mimi Keel</h2>
+          </a>
+          <div class="card--localisation">London, UK</div>
+          <div class="card--description">Voir le beau dans le quotidien</div>
+          <div class="card--price">400€/jour</div>
+          <nav class="card--nav tags" aria-label="Card tag navigation">
+            <label class="tag">
+              <input type="checkbox" />
+              <span class="sr-only">Tag Portrait</span>
+              <span>#Portrait</span>
+            </label>
+            <label class="tag">
+              <input type="checkbox" />
+              <span class="sr-only">Tag Events</span>
+              <span>#Events</span>
+            </label>
+            <label class="tag">
+              <input type="checkbox" />
+              <span class="sr-only">Tag Travel</span>
+              <span>#Travel</span>
+            </label>
+            <label class="tag">
+              <input type="checkbox" />
+              <span class="sr-only">Tag Animals</span>
+              <span>#Animals</span>
+            </label>
+          </nav>
         </div>
 
-        <div class="vignette">
-          <div class="presentation">
-            <a href="#">
-              <img src="./public/img/photos/MimiKeel/Portrait_Nora.jpg" alt="Portrait_Nora" />
-              <div class="name">Mimi Keel</div>
-              <div class="localisation">London, UK</div>
-              <div class="description">Voir le beau dans le quotidien</div>
-              <div class="price">400€/jour</div>
-            </a>
-          </div>
-          <label>#portraits</label><label>#events</label><label>#travel</label><label>#animals</label>
+        <div class="card">
+          <a class="card--link" href="#" alt="Mimi Keel">
+            <img class="card--image" src="./public/img/photos/MimiKeel/Portrait_Nora.jpg" alt="" />
+            <h2 class="card--name">Mimi Keel</h2>
+          </a>
+          <div class="card--localisation">London, UK</div>
+          <div class="card--description">Voir le beau dans le quotidien</div>
+          <div class="card--price">400€/jour</div>
+          <nav class="card--nav tags" aria-label="Card tag navigation">
+            <label class="tag">
+              <input type="checkbox" />
+              <span class="sr-only">Tag Portrait</span>
+              <span>#Portrait</span>
+            </label>
+            <label class="tag">
+              <input type="checkbox" />
+              <span class="sr-only">Tag Events</span>
+              <span>#Events</span>
+            </label>
+            <label class="tag">
+              <input type="checkbox" />
+              <span class="sr-only">Tag Travel</span>
+              <span>#Travel</span>
+            </label>
+            <label class="tag">
+              <input type="checkbox" />
+              <span class="sr-only">Tag Animals</span>
+              <span>#Animals</span>
+            </label>
+          </nav>
         </div>
 
-        <div class="vignette">
-          <div class="presentation">
-            <a href="#">
-              <img src="./public/img/photos/MimiKeel/Portrait_Nora.jpg" alt="Portrait_Nora" />
-              <div class="name">Mimi Keel</div>
-              <div class="localisation">London, UK</div>
-              <div class="description">Voir le beau dans le quotidien</div>
-              <div class="price">400€/jour</div>
-            </a>
-          </div>
-          <label>#portraits</label><label>#events</label><label>#travel</label><label>#animals</label>
+        <div class="card">
+          <a class="card--link" href="#" alt="Mimi Keel">
+            <img class="card--image" src="./public/img/photos/MimiKeel/Portrait_Nora.jpg" alt="" />
+            <h2 class="card--name">Mimi Keel</h2>
+          </a>
+          <div class="card--localisation">London, UK</div>
+          <div class="card--description">Voir le beau dans le quotidien</div>
+          <div class="card--price">400€/jour</div>
+          <nav class="card--nav tags" aria-label="Card tag navigation">
+            <label class="tag">
+              <input type="checkbox" />
+              <span class="sr-only">Tag Portrait</span>
+              <span>#Portrait</span>
+            </label>
+            <label class="tag">
+              <input type="checkbox" />
+              <span class="sr-only">Tag Events</span>
+              <span>#Events</span>
+            </label>
+            <label class="tag">
+              <input type="checkbox" />
+              <span class="sr-only">Tag Travel</span>
+              <span>#Travel</span>
+            </label>
+            <label class="tag">
+              <input type="checkbox" />
+              <span class="sr-only">Tag Animals</span>
+              <span>#Animals</span>
+            </label>
+          </nav>
         </div>
 
-        <div class="vignette">
-          <div class="presentation">
-            <a href="#">
-              <img src="./public/img/photos/MimiKeel/Portrait_Nora.jpg" alt="Portrait_Nora" />
-              <div class="name">Mimi Keel</div>
-              <div class="localisation">London, UK</div>
-              <div class="description">Voir le beau dans le quotidien</div>
-              <div class="price">400€/jour</div>
-            </a>
-          </div>
-          <label>#portraits</label><label>#events</label><label>#travel</label><label>#animals</label>
+        <div class="card">
+          <a class="card--link" href="#" alt="Mimi Keel">
+            <img class="card--image" src="./public/img/photos/MimiKeel/Portrait_Nora.jpg" alt="" />
+            <h2 class="card--name">Mimi Keel</h2>
+          </a>
+          <div class="card--localisation">London, UK</div>
+          <div class="card--description">Voir le beau dans le quotidien</div>
+          <div class="card--price">400€/jour</div>
+          <nav class="card--nav tags" aria-label="Card tag navigation">
+            <label class="tag">
+              <input type="checkbox" />
+              <span class="sr-only">Tag Portrait</span>
+              <span>#Portrait</span>
+            </label>
+            <label class="tag">
+              <input type="checkbox" />
+              <span class="sr-only">Tag Events</span>
+              <span>#Events</span>
+            </label>
+            <label class="tag">
+              <input type="checkbox" />
+              <span class="sr-only">Tag Travel</span>
+              <span>#Travel</span>
+            </label>
+            <label class="tag">
+              <input type="checkbox" />
+              <span class="sr-only">Tag Animals</span>
+              <span>#Animals</span>
+            </label>
+          </nav>
         </div>
 
-        <div class="vignette">
-          <div class="presentation">
-            <a href="#">
-              <img src="./public/img/photos/MimiKeel/Portrait_Nora.jpg" alt="Portrait_Nora" />
-              <div class="name">Mimi Keel</div>
-              <div class="localisation">London, UK</div>
-              <div class="description">Voir le beau dans le quotidien</div>
-              <div class="price">400€/jour</div>
-            </a>
-          </div>
-          <label>#portraits</label><label>#events</label><label>#travel</label><label>#animals</label>
+        <div class="card">
+          <a class="card--link" href="#" alt="Mimi Keel">
+            <img class="card--image" src="./public/img/photos/MimiKeel/Portrait_Nora.jpg" alt="" />
+            <h2 class="card--name">Mimi Keel</h2>
+          </a>
+          <div class="card--localisation">London, UK</div>
+          <div class="card--description">Voir le beau dans le quotidien</div>
+          <div class="card--price">400€/jour</div>
+          <nav class="card--nav tags" aria-label="Card tag navigation">
+            <label class="tag">
+              <input type="checkbox" />
+              <span class="sr-only">Tag Portrait</span>
+              <span>#Portrait</span>
+            </label>
+            <label class="tag">
+              <input type="checkbox" />
+              <span class="sr-only">Tag Events</span>
+              <span>#Events</span>
+            </label>
+            <label class="tag">
+              <input type="checkbox" />
+              <span class="sr-only">Tag Travel</span>
+              <span>#Travel</span>
+            </label>
+            <label class="tag">
+              <input type="checkbox" />
+              <span class="sr-only">Tag Animals</span>
+              <span>#Animals</span>
+            </label>
+          </nav>
         </div>
 
-        <div class="vignette">
-          <div class="presentation">
-            <a href="#">
-              <img src="./public/img/photos/MimiKeel/Portrait_Nora.jpg" alt="Portrait_Nora" />
-              <div class="name">Mimi Keel</div>
-              <div class="localisation">London, UK</div>
-              <div class="description">Voir le beau dans le quotidien</div>
-              <div class="price">400€/jour</div>
-            </a>
-          </div>
-          <label>#portraits</label><label>#events</label><label>#travel</label><label>#animals</label>
-        </div>
-
-
-
-      </div>
+      </div> <!--end cards-->
 
     </main>
 
