@@ -1,9 +1,5 @@
 .top{
     width: 100%;
-
-    @include screen_max(tablet){
-        height: 20px;
-}
 }
 
 .logo_nav{

@@ -5,6 +5,14 @@
   padding: 0;
 }
 
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
 a {
   text-decoration: none;
   color: black;
@@ -49,7 +57,8 @@ h1 {
 }
 @media screen and (max-width: 991px) {
   .logo > img {
-    margin: 0;
+    margin: 1em;
+    height: 4em;
   }
 }
 
@@ -64,15 +73,15 @@ label {
   font-weight: 700;
   padding-left: 0.7em;
   padding-right: 0.8em;
-  padding-top: 0.3em;
-  padding-bottom: 0.25em;
+  padding-top: 0.25em;
+  padding-bottom: 0.2em;
   vertical-align: middle;
   margin: 0.1em;
 }
 @media screen and (max-width: 991px) {
   label {
     margin-right: 0.3em;
-    margin-bottom: 0.4em;
+    margin-bottom: 0.5em;
   }
 }
 
@@ -81,28 +90,27 @@ nav {
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
-  margin-top: 2em;
   margin-left: 2em;
 }
 @media screen and (max-width: 991px) {
   nav {
-    width: 75%;
+    width: 86%;
   }
 }
 
 .container {
+  position: relative;
+  height: 100%;
   width: 100%;
   max-width: 1200px;
-  margin: 4%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding-top: 2em;
+  border: 1px solid black;
 }
 
 .top {
   width: 100%;
-}
-@media screen and (max-width: 991px) {
-  .top {
-    height: 20px;
-  }
 }
 
 .logo_nav {

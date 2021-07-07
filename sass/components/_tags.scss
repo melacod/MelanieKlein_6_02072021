@@ -4,14 +4,14 @@ label {
     font-weight: 700;
     padding-left: 0.7em;
     padding-right: 0.8em;
-    padding-top: 0.3em;
-    padding-bottom: 0.25em;
+    padding-top: 0.25em;
+    padding-bottom: 0.2em;
     vertical-align: middle;
     margin: 0.1em;
 
     @include screen_max(tablet) {
         margin-right: 0.3em;
-        margin-bottom: 0.4em;
+        margin-bottom: 0.5em;
     }
 }
 
@@ -20,11 +20,10 @@ nav {
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
-    margin-top: 2em;
     margin-left: 2em;
 
         @include screen_max(tablet) {
         
-        width: 75%;
+        width: 86%;
     }
 }

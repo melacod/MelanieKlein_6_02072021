@@ -1,5 +1,11 @@
 .container{
+    position: relative;
+    height: 100%;
     width: 100%;
     max-width: 1200px;
-    margin: 4%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-top: 2em;
+    border: 1px solid black;
+    
 }

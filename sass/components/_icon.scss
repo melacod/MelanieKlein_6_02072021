@@ -4,6 +4,7 @@ margin-left: 3em;
 margin-right: 7em;
 
 @include screen_max(tablet){
-    margin: 0;
+    margin: 1em;
+    height: 4em;
 }
 }
