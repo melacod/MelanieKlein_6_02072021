@@ -1,7 +1,7 @@
 .logo > img {
-height: 60px;
-margin-left: 30px;
-margin-right: 70px;
+height: 5em;
+margin-left: 3em;
+margin-right: 7em;
 
 @include screen_max(tablet){
     margin: 0;

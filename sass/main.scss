@@ -1,7 +1,11 @@
-@import "./utils/mixins";
 @import "./utils/variables";
+@import "./utils/mixins";
+
+@import "./base/base";
 @import "./base/typography";
+
 @import "./components/icon";
 @import "./components/tags";
+
 @import "./layout/container";
 @import "./layout/header";

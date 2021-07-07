@@ -82,10 +82,9 @@
 @mixin font_tags{
     @include font-texte; 
     color: $color-secondary;
-    border: $color-gray 1px solid;
+    border: $color-gray 0.1em solid;
     border-radius: 15px;
     font-size: 0.8em;
     font-weight: 900;
-    line-height: 3em;
 }
 
