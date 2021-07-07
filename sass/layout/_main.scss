@@ -1,3 +1,24 @@
 main img {
     @include img_main();
 }
+
+.photographers{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.vignette {
+    width: 30%;
+}
+
+.presentation{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
