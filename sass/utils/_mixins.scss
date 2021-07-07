@@ -71,7 +71,7 @@
 
 
 @mixin font-texte {
-    font-family: Arial, Helvetica, sans-serif; 
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 @mixin font-gray{
@@ -86,5 +86,11 @@
     border-radius: 15px;
     font-size: 0.8em;
     font-weight: 900;
+}
+
+@mixin img_main{
+    height: 10em;
+    object-fit: cover;
+    border-radius: 100%;
 }
 
