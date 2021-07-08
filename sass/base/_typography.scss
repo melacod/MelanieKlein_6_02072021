@@ -17,4 +17,12 @@ h1 {
     top: -1.6em;
     right: 1em;
     left: -3em;
+
+    @include screen_max(mobile){
+        font-size: 1em;
+        font-weight: 600;
+        top: -8.5em;
+        left: -2em;
+        right: 0;
+    }
 }

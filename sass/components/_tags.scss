@@ -5,9 +5,10 @@
     justify-content: center;
     flex-wrap: wrap;
     margin-left: 6em;
+    line-height: 2.5em;
 
     @include screen_max(tablet) {
-        width: 86%;
+        width: 90%; 
         margin-left: 0;
     }
 }

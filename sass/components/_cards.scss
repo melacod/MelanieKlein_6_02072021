@@ -19,6 +19,11 @@
     line-height: 1.5em;
     margin-top: 4em;
     text-align: center;
+
+    @include screen_max(tablet){
+        width: 100%;
+    }
+
     
     &--image {
         height: 17em;
