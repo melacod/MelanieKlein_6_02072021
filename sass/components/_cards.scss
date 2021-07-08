@@ -64,4 +64,10 @@
     &--nav{
         margin-left: 0;
     }
+
+    &--photographer{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
 }

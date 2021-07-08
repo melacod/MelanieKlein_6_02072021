@@ -1,0 +1,26 @@
+header.index {
+    
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    align-content: space-around;
+    width: 80%;
+
+    @include screen_max(tablet){
+        display: contents;
+        width: 85%;
+    }
+
+    .logo {
+        img {
+            height: 5em;
+            margin-left: 2em;
+        
+            @include screen_max(tablet){
+                margin: 1em;
+                height: 4em;
+            }
+        }
+    }
+
+}

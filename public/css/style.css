@@ -170,6 +170,11 @@ h1 {
 .card--nav {
   margin-left: 0;
 }
+.card--photographer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
 
 .container {
   position: relative;
@@ -189,23 +194,32 @@ header.index {
   display: flex;
   align-items: center;
   flex-direction: row;
-  flex-wrap: wrap;
   align-content: space-around;
   width: 80%;
 }
 @media screen and (max-width: 991px) {
   header.index {
     display: contents;
-    width: 100%;
+    width: 85%;
   }
 }
 header.index .logo img {
   height: 5em;
-  margin-left: 9em;
+  margin-left: 2em;
 }
 @media screen and (max-width: 991px) {
   header.index .logo img {
     margin: 1em;
+    height: 4em;
+  }
+}
+
+header.photographer .logo img {
+  height: 3em;
+  margin-left: 5em;
+}
+@media screen and (max-width: 991px) {
+  header.photographer .logo img {
     height: 4em;
   }
 }
