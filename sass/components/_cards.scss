@@ -17,8 +17,7 @@
     align-items: center;
     width: 30%;
     line-height: 1.5em;
-    margin-top: 6em;
-    margin-bottom: 5em;
+    margin-top: 4em;
     text-align: center;
     
     &--image {
@@ -47,6 +46,7 @@
         color: black;
         @include font-texte;
         font-size: 0.8em;
+        font-weight: 500;
     }
     
     &--price {
@@ -54,5 +54,9 @@
         @include font-texte;
         font-size: 0.8em;
         margin-bottom: 1.5em;
+    }
+
+    &--nav{
+        margin-left: 0;
     }
 }
