@@ -12,17 +12,14 @@ h1 {
     @include font-texte;
     color: $color-secondary;
     font-weight: 200;
-    float: right;
-    position: relative;
-    top: -1.6em;
+    
+    position: absolute;
     right: 1em;
-    left: -3em;
+    top: 1em;
 
     @include screen_max(mobile){
-        font-size: 1em;
-        font-weight: 600;
-        top: -8.5em;
-        left: -2em;
-        right: 0;
+        font-weight: 100;
+        font-size: 1.3em;
+        top: 3.2em;
     }
 }

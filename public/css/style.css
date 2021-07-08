@@ -49,19 +49,15 @@ h1 {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: #901C1C;
   font-weight: 200;
-  float: right;
-  position: relative;
-  top: -1.6em;
+  position: absolute;
   right: 1em;
-  left: -3em;
+  top: 1em;
 }
 @media screen and (max-width: 767px) {
   h1 {
-    font-size: 1em;
-    font-weight: 600;
-    top: -8.5em;
-    left: -2em;
-    right: 0;
+    font-weight: 100;
+    font-size: 1.3em;
+    top: 3.2em;
   }
 }
 
@@ -183,7 +179,6 @@ h1 {
   left: 50%;
   transform: translateX(-50%);
   padding-top: 2em;
-  border: 1px solid black;
 }
 
 .top {
