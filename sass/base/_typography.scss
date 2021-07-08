@@ -8,12 +8,13 @@ body {
 }
 
 h1 {
-    font-size: 1.8em;
+    font-size: 2.8em;
     @include font-texte;
     color: $color-secondary;
-    font-weight: 500;
+    font-weight: 200;
     float: right;
     position: relative;
-    top: -2em;
-    right: 3em;
+    top: -1.6em;
+    right: 1em;
+    left: -3em;
 }

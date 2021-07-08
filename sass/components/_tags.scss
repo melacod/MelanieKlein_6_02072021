@@ -4,46 +4,47 @@
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
-    margin-left: 2em;
+    margin-left: 6em;
 
     @include screen_max(tablet) {
         width: 86%;
+        margin-left: 0;
+    }
+}
+
+.tag {
+
+    span {
+        @include font-texte; 
+    
+        border: $color-gray 0.1em solid;
+        border-radius: 1.5em;
+        font-size: 1em;
+        font-weight: 500;
+        padding-left: 0.4em;
+        padding-right: 0.4em;
+        padding-top: 0.2em;
+        padding-bottom: 0.2em;
+        margin: 0.1em;
+        cursor: pointer;
+
+        @include screen_max(tablet) {
+            margin-right: 0.3em;
+            margin-bottom: 0.5em;
+        }
     }
 
-    .tag {
+    input {
+        display: none;
 
-        span {
-            @include font-texte; 
-        
-            border: $color-gray 0.1em solid;
-            border-radius: 1.5em;
-            font-size: 0.8em;
-            font-weight: 900;
-            padding-left: 0.75em;
-            padding-right: 0.75em;
-            padding-top: 0.2em;
-            padding-bottom: 0.2em;
-            margin: 0.1em;
-            cursor: pointer;
-    
-            @include screen_max(tablet) {
-                margin-right: 0.3em;
-                margin-bottom: 0.5em;
-            }
+        &:checked ~ span {
+            color: white;
+            background-color: $color-secondary;
         }
 
-        input {
-            display: none;
-
-            &:checked ~ span {
-                color: white;
-                background-color: $color-secondary;
-            }
-
-            &:not(:checked) ~ span {
-                color: $color-secondary;
-                background-color: white;
-            }
+        &:not(:checked) ~ span {
+            color: $color-secondary;
+            background-color: white;
         }
     }
 }

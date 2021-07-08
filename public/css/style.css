@@ -45,14 +45,15 @@ body {
 }
 
 h1 {
-  font-size: 1.8em;
+  font-size: 2.8em;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: #901C1C;
-  font-weight: 500;
+  font-weight: 200;
   float: right;
   position: relative;
-  top: -2em;
-  right: 3em;
+  top: -1.6em;
+  right: 1em;
+  left: -3em;
 }
 
 .tags {
@@ -60,40 +61,42 @@ h1 {
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
-  margin-left: 2em;
+  margin-left: 6em;
 }
 @media screen and (max-width: 991px) {
   .tags {
     width: 86%;
+    margin-left: 0;
   }
 }
-.tags .tag span {
+
+.tag span {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   border: #525252 0.1em solid;
   border-radius: 1.5em;
-  font-size: 0.8em;
-  font-weight: 900;
-  padding-left: 0.75em;
-  padding-right: 0.75em;
+  font-size: 1em;
+  font-weight: 500;
+  padding-left: 0.4em;
+  padding-right: 0.4em;
   padding-top: 0.2em;
   padding-bottom: 0.2em;
   margin: 0.1em;
   cursor: pointer;
 }
 @media screen and (max-width: 991px) {
-  .tags .tag span {
+  .tag span {
     margin-right: 0.3em;
     margin-bottom: 0.5em;
   }
 }
-.tags .tag input {
+.tag input {
   display: none;
 }
-.tags .tag input:checked ~ span {
+.tag input:checked ~ span {
   color: white;
   background-color: #901C1C;
 }
-.tags .tag input:not(:checked) ~ span {
+.tag input:not(:checked) ~ span {
   color: #901C1C;
   background-color: white;
 }
@@ -106,47 +109,55 @@ h1 {
   justify-content: space-between;
   width: 100%;
 }
-.cards .card {
+
+.card {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   width: 30%;
-  margin-bottom: 2em;
+  line-height: 1.5em;
+  margin-top: 6em;
+  margin-bottom: 5em;
+  text-align: center;
 }
-.cards .card--image {
-  height: 10em;
-  width: 100%;
+.card--image {
+  height: 17em;
+  width: 17em;
   object-fit: cover;
   border-radius: 100%;
+  margin-bottom: 2em;
 }
-.cards .card--name {
+.card--name {
   color: #d3573c;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 2em;
+  font-size: 2.5em;
+  font-weight: 400;
+  margin-bottom: 0.5em;
 }
-.cards .card--localisation {
+.card--localisation {
   color: #901C1C;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 1em;
 }
-.cards .card--description {
+.card--description {
   color: black;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 0.6em;
+  font-size: 0.8em;
 }
-.cards .card--price {
+.card--price {
   color: #525252;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 0.4em;
+  font-size: 0.8em;
+  margin-bottom: 1.5em;
 }
 
 .container {
   position: relative;
   height: 100%;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1400px;
   left: 50%;
   transform: translateX(-50%);
   padding-top: 2em;
@@ -172,7 +183,7 @@ header.index {
 }
 header.index .logo img {
   height: 5em;
-  margin-left: 2em;
+  margin-left: 9em;
 }
 @media screen and (max-width: 991px) {
   header.index .logo img {

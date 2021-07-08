@@ -18,7 +18,7 @@ header.index {
     .logo {
         img {
             height: 5em;
-            margin-left: 2em;
+            margin-left: 9em;
         
             @include screen_max(tablet){
                 margin: 1em;
