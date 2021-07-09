@@ -96,6 +96,7 @@ h1 {
   .tag span {
     margin-right: 0.3em;
     margin-bottom: 0.5em;
+    font-size: 0.8em;
   }
 }
 .tag input {
@@ -185,10 +186,11 @@ h1 {
   justify-content: space-between;
   background-color: #FAFAFA;
 }
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 991px) {
   .card__photographer {
     background-color: white;
     line-height: 1em;
+    width: 95%;
   }
 }
 .card__photographer .card--info {
@@ -234,8 +236,8 @@ h1 {
 }
 @media screen and (max-width: 1199px) {
   .card__photographer .card--image {
-    height: 7em;
-    width: 7em;
+    height: 8em;
+    width: 8em;
   }
 }
 
@@ -263,6 +265,11 @@ h1 {
   left: 50%;
   transform: translateX(-50%);
   padding-top: 2em;
+}
+@media screen and (max-width: 1199px) {
+  .container--photographe {
+    width: 95%;
+  }
 }
 
 .top {

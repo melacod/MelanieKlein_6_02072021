@@ -77,9 +77,10 @@
         justify-content: space-between;
         background-color: $color-gray-light;
 
-        @include screen_max(mobile){
+        @include screen_max(tablet){
             background-color: white;
             line-height: 1em;
+            width: 95%;
         }
 
         .card {
@@ -124,8 +125,8 @@
                 border-radius: 100%;
                 
                 @include screen_max(desktop){
-                    height: 7em;
-                    width: 7em;
+                    height: 8em;
+                    width: 8em;
                 }
             }
         }
