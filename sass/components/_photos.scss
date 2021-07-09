@@ -1,0 +1,37 @@
+
+.photos {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content:space-between;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.photo {
+    width: 30%;
+
+    @include screen_max(tablet){
+        width: 100%;}
+
+    figure {
+        margin: 3em;
+    }
+
+    figcaption {
+        font-size: 1.3em;
+        font-weight: 500;
+        padding-top: 0.5em;
+        @include font-texte;
+        text-align: left;
+        color: $color-secondary;
+    }
+
+    img {
+        height: 28em;
+        width: 28em;
+        object-fit: cover;
+        border-radius: 0.5em;
+    }
+}

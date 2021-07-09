@@ -12,20 +12,3 @@ header.photographer {
     }
 
 }
-
-.slideShow{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-content:space-between ;
-    justify-content: center;
-}
-
-img > .photo{
-    height: 10em;
-    object-fit: cover;
-}
-
-.photo{
-    width: 30%;
-}

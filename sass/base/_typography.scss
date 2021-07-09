@@ -23,3 +23,8 @@ h1 {
         top: 3.2em;
     }
 }
+
+h3{
+    font-size: 1.5em;
+    @include font-texte;
+}
