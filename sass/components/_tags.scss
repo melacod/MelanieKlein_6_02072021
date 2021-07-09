@@ -11,6 +11,10 @@
         width: 90%; 
         margin-left: 0;
     }
+
+    &--left {
+        justify-content: left;
+    }
 }
 
 .tag {

@@ -75,6 +75,9 @@ h1 {
     margin-left: 0;
   }
 }
+.tags--left {
+  justify-content: left;
+}
 
 .tag span {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -170,10 +173,86 @@ h1 {
 .card--nav {
   margin-left: 0;
 }
-.card--photographer {
+.card__photographer {
+  margin-top: 2em;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  width: 100%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #FAFAFA;
+}
+@media screen and (max-width: 767px) {
+  .card__photographer {
+    background-color: white;
+    line-height: 1em;
+  }
+}
+.card__photographer .card--info {
+  text-align: left;
+  padding-left: 2em;
+}
+@media screen and (max-width: 1199px) {
+  .card__photographer .card--info {
+    order: 1;
+    width: auto;
+    padding-left: 0.5em;
+  }
+}
+.card__photographer .card--contact {
+  align-self: flex-start;
+  text-align: left;
+}
+@media screen and (max-width: 1199px) {
+  .card__photographer .card--contact {
+    position: absolute;
+    bottom: 2em;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+.card__photographer .card--link {
+  width: 65%;
+  padding-right: 2em;
+}
+@media screen and (max-width: 1199px) {
+  .card__photographer .card--link {
+    order: 2;
+    width: auto;
+    padding-right: 0.5em;
+  }
+}
+.card__photographer .card--image {
+  float: right;
+  height: 10em;
+  width: 10em;
+  object-fit: cover;
+  border-radius: 100%;
+}
+@media screen and (max-width: 1199px) {
+  .card__photographer .card--image {
+    height: 7em;
+    width: 7em;
+  }
+}
+
+.btn {
+  background-color: #901C1C;
+  color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 600;
+}
+.btn--contact {
+  padding-top: 0.8em;
+  padding-bottom: 0.87em;
+  padding-left: 0.5em;
+  padding-right: 0.3em;
+  border-radius: 0.3em;
+  width: 10.5em;
+  height: 3.5em;
 }
 
 .container {
@@ -216,12 +295,29 @@ header.index .logo img {
 
 header.photographer .logo img {
   height: 3em;
-  margin-left: 5em;
 }
 @media screen and (max-width: 991px) {
   header.photographer .logo img {
     height: 4em;
+    order: 3;
   }
+}
+
+.slideShow {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: space-between;
+  justify-content: center;
+}
+
+img > .photo {
+  height: 10em;
+  object-fit: cover;
+}
+
+.photo {
+  width: 30%;
 }
 
 /*# sourceMappingURL=style.css.map */

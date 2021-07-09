@@ -23,7 +23,6 @@
     @include screen_max(tablet){
         width: 100%;
     }
-
     
     &--image {
         height: 17em;
@@ -65,9 +64,70 @@
         margin-left: 0;
     }
 
-    &--photographer{
+    &__photographer {
+        margin-top: 2em;
+        padding-top: 2em;
+        padding-bottom: 2em;
+
+        width: 100%;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        background-color: $color-gray-light;
+
+        @include screen_max(mobile){
+            background-color: white;
+            line-height: 1em;
+        }
+
+        .card {
+
+            &--info {
+                text-align: left;
+                padding-left: 2em;
+                @include screen_max(desktop) {
+                    order: 1;
+                    width: auto;
+                    padding-left: 0.5em;
+                }
+            }
+
+            &--contact {
+                align-self: flex-start;
+                text-align: left;
+
+                @include screen_max(desktop){
+                    position: absolute;
+                    bottom: 2em;
+                    left: 50%;
+                    transform: translateX(-50%);
+                }
+            }
+
+            &--link {
+                width: 65%;
+                padding-right: 2em;
+                @include screen_max(desktop) {
+                    order: 2;
+                    width: auto;
+                    padding-right: 0.5em;
+                }
+            }
+
+            &--image {
+                float: right;
+                height: 10em;
+                width: 10em;
+                object-fit: cover;
+                border-radius: 100%;
+                
+                @include screen_max(desktop){
+                    height: 7em;
+                    width: 7em;
+                }
+            }
+        }
     }
 }

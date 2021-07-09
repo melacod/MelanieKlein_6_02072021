@@ -1,0 +1,16 @@
+.btn {
+    background-color: $color-secondary;
+    color: white;
+    @include font-texte;
+    font-weight: 600;
+
+    &--contact {
+        padding-top: 0.8em;
+        padding-bottom: 0.87em;
+        padding-left: 0.5em;
+        padding-right: 0.3em;
+        border-radius: 0.3em;
+        width: 10.5em;
+        height: 3.5em;
+    }
+}
