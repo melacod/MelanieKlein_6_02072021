@@ -267,15 +267,18 @@ h3 {
   flex-direction: row;
   flex-wrap: wrap;
   align-content: space-between;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
+  justify-items: center;
 }
 
 .photo {
   width: 30%;
 }
 @media screen and (max-width: 991px) {
+  .photo {
+    width: 50%;
+  }
+}
+@media screen and (max-width: 767px) {
   .photo {
     width: 100%;
   }
@@ -292,8 +295,8 @@ h3 {
   color: #901C1C;
 }
 .photo img {
-  height: 28em;
-  width: 28em;
+  height: 25em;
+  width: 25em;
   object-fit: cover;
   border-radius: 0.5em;
 }
@@ -309,7 +312,7 @@ h3 {
 }
 @media screen and (max-width: 1199px) {
   .container--photographe {
-    width: 95%;
+    width: 100%;
   }
 }
 

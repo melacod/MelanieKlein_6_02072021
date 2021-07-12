@@ -4,16 +4,19 @@
     flex-direction: row;
     flex-wrap: wrap;
     align-content:space-between;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
+    justify-items: center;  
 }
 
 .photo {
     width: 30%;
 
     @include screen_max(tablet){
-        width: 100%;}
+        width: 50%;
+    }
+
+    @include screen_max(mobile){
+        width: 100%;
+    }
 
     figure {
         margin: 3em;
@@ -29,8 +32,8 @@
     }
 
     img {
-        height: 28em;
-        width: 28em;
+        height: 25em;
+        width: 25em;
         object-fit: cover;
         border-radius: 0.5em;
     }
