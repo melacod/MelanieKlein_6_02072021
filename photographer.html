@@ -135,6 +135,36 @@
 
   </div> <!-- end container-->
 
+  <div class="modal" role="dialog">
+    <div class="modal--content">
+      <button class="btn btn--close">&times;</button>
+      <aside class ="modal--body">
+        <h1>Contactez moi Mimi Keel</h1>
+        <form name="contact" action="index.html" method="get">
+          <div class="form--data">
+            <label for="first">Prénom</label>
+            <input class="form--control" type="text" id="first" name="first" minlength="2" aria-labelledby="First name" />
+            <!--<div class="error">Veuillez entrer 2 caractères ou plus pour le champ du prénom.</div>-->
+          </div>
+          <div class="form--data">
+            <label for="last">Nom</label>
+            <input class="form--control" type="text" id="last" name="last" minlength="2" />
+            <!--<div class="error">Veuillez entrer 2 caractères ou plus pour le champ du nom.</div>-->
+          </div>
+          <div class="form--data">
+            <label for="email">E-mail</label>
+            <input class="form--control" type="text" id="email" name="email" />
+            <!--<div class="error">Veuillez respecter le format email: exemple@domaine.fr </div>-->
+          </div>
+          <div class="form--data">
+            <label for="msg">Votre message</label>
+            <textarea rows="8" cols="53.5" name="message"></textarea>
+          </div>
+          <button class="btn btn--modal">Envoyer</button>  
+      </aside>
+    </div>
+  </div>
+
 </body>
 
 </html>

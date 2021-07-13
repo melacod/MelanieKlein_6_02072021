@@ -3,14 +3,28 @@
     color: white;
     @include font-texte;
     font-weight: 600;
+    border: unset;
+    border-radius: 0.3em;
 
     &--contact {
         padding-top: 0.8em;
         padding-bottom: 0.87em;
         padding-left: 0.5em;
         padding-right: 0.3em;
-        border-radius: 0.3em;
         width: 10.5em;
         height: 3.5em;
+    }
+
+    &.btn--close {
+        background-color: unset;
+        font-size: 2.5em;
+        position: fixed;
+        top: 0.5em;
+        right: 0.5em;
+    }
+
+    &--modal {
+        margin-top: 2em;
+        padding: 1em;
     }
 }

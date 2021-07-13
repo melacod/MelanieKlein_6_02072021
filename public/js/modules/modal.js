@@ -1,0 +1,5 @@
+export { closeModal }
+
+function closeModal () {
+    
+}
