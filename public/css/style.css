@@ -275,6 +275,14 @@ h3 {
   margin-top: 2em;
   padding: 1em;
 }
+@media screen and (max-width: 767px) {
+  .btn--modal {
+    position: relative;
+    left: 50%;
+    transform: translateX(-70%);
+    right: 0;
+  }
+}
 
 .photos {
   display: flex;
@@ -349,6 +357,7 @@ h3 {
   .modal {
     width: 100%;
     box-shadow: 0 0 0 0;
+    height: 45em;
   }
 }
 .modal--content {
@@ -362,6 +371,11 @@ h3 {
   top: unset;
   left: unset;
   color: black;
+}
+@media screen and (max-width: 767px) {
+  .modal--content h1 {
+    font-size: 2.2em;
+  }
 }
 .modal--content div.form--data {
   margin-top: 0.8em;

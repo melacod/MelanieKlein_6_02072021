@@ -13,6 +13,7 @@
     @include screen_max(mobile) {
         width: 100%;
         box-shadow: 0 0 0 0;
+        height: 45em;
     }
 
     &--content {
@@ -26,6 +27,10 @@
             top: unset;
             left: unset;
             color: black;
+
+            @include screen_max(mobile) {
+                font-size: 2.2em;
+            }
         }
 
         div.form--data {
@@ -47,7 +52,6 @@
 
                 @include screen_max(mobile) {
                     width: 88%;
-
                 }
             }
 

@@ -26,5 +26,13 @@
     &--modal {
         margin-top: 2em;
         padding: 1em;
+
+        @include screen_max(mobile){
+        position: relative;
+        left: 50%;
+        transform: translateX(-70%);
+        right: 0;
+
+        }
     }
 }
