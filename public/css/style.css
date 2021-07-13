@@ -280,8 +280,7 @@ h3 {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  align-content: space-between;
-  justify-items: center;
+  justify-content: space-between;
 }
 
 .photo {
@@ -343,6 +342,14 @@ h3 {
   height: 50em;
   width: 40em;
   background-color: #DB8876;
+  border-radius: 0.3em;
+  box-shadow: 0.1em 0.1em 0.1em 0.1em #525252;
+}
+@media screen and (max-width: 767px) {
+  .modal {
+    width: 100%;
+    box-shadow: 0 0 0 0;
+  }
 }
 .modal--content {
   padding-top: 2em;
@@ -371,6 +378,16 @@ h3 {
   border: 0.8px solid #ccc;
   outline: none;
   background-color: white;
+}
+@media screen and (max-width: 767px) {
+  .modal--content div.form--data input {
+    width: 88%;
+  }
+}
+@media screen and (max-width: 767px) {
+  .modal--msg {
+    width: 91%;
+  }
 }
 
 header.index {

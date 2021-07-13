@@ -7,6 +7,13 @@
     height: 50em;
     width: 40em;
     background-color: $color-secondary-font;
+    border-radius: 0.3em;
+    box-shadow: 0.1em 0.1em 0.1em 0.1em $color-gray;
+
+    @include screen_max(mobile) {
+        width: 100%;
+        box-shadow: 0 0 0 0;
+    }
 
     &--content {
         padding-top: 2em;
@@ -37,10 +44,22 @@
                 border: 0.8px solid #ccc;
                 outline: none;
                 background-color: white;
+
+                @include screen_max(mobile) {
+                    width: 88%;
+
+                }
             }
 
         }
 
+    }
+
+    &--msg{
+
+        @include screen_max(mobile) {
+            width: 91%;
+        }
     }
 
 }
