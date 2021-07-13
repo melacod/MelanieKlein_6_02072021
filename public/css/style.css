@@ -255,6 +255,7 @@ h3 {
   font-weight: 600;
   border: unset;
   border-radius: 0.3em;
+  cursor: pointer;
 }
 .btn--contact {
   padding-top: 0.8em;
@@ -270,6 +271,9 @@ h3 {
   position: fixed;
   top: 0.5em;
   right: 0.5em;
+}
+.btn.btn--close:hover {
+  color: red;
 }
 .btn--modal {
   margin-top: 2em;

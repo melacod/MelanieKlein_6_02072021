@@ -5,6 +5,7 @@
     font-weight: 600;
     border: unset;
     border-radius: 0.3em;
+    cursor: pointer;
 
     &--contact {
         padding-top: 0.8em;
@@ -21,6 +22,10 @@
         position: fixed;
         top: 0.5em;
         right: 0.5em;
+
+        &:hover {
+            color: red;
+        }
     }
 
     &--modal {
