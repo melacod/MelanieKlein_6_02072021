@@ -16,16 +16,29 @@
         height: 3.5em;
     }
 
-    &.btn--close {
+    &--action {
         background-color: unset;
         font-size: 2.5em;
+        
+        &--red {
+            color: $color-secondary;
+            &:hover {
+                color: $color-primary;
+            }
+        }
+
+        &--white {
+            color: white;
+            &:hover {
+                color: $color-secondary;
+            }
+        }
+    }
+
+    &--close {
         position: fixed;
         top: 0.5em;
         right: 0.5em;
-
-        &:hover {
-            color: red;
-        }
     }
 
     &--modal {
