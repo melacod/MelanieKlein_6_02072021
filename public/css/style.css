@@ -356,6 +356,7 @@ h3 {
   background-color: #DB8876;
   border-radius: 0.3em;
   box-shadow: 0.1em 0.1em 0.1em 0.1em #525252;
+  display: none;
 }
 @media screen and (max-width: 767px) {
   .modal {

@@ -9,6 +9,7 @@
     background-color: $color-secondary-font;
     border-radius: 0.3em;
     box-shadow: 0.1em 0.1em 0.1em 0.1em $color-gray;
+    display: none;
 
     @include screen_max(mobile) {
         width: 100%;
