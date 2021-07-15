@@ -36,7 +36,7 @@
     }
 
     &--close {
-        position: fixed;
+        position: absolute;
         top: 0.5em;
         right: 0.5em;
     }
@@ -46,11 +46,10 @@
         padding: 1em;
 
         @include screen_max(mobile){
-        position: relative;
-        left: 50%;
-        transform: translateX(-70%);
-        right: 0;
-
+            position: relative;
+            left: 50%;
+            transform: translateX(-70%);
+            right: 0;
         }
     }
 }

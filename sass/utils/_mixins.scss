@@ -5,11 +5,14 @@
 //     min : seulement la largeur minimum
 //     max : seulement la largeur maximum
 //     both (défaut) : largeur minimum et maximum
+//   orientation = orientation du viewport
+//     portrait = mode portrait
+//     landscape = mode paysage
 // Erreurs
 //   - Si le paramètre width a une valeur différente de both, min, max
+//   - Si le paramètre orientation a une valeur différente de portrait, landscape
 //   - Si le breakpoint n'existe pas dans la map des breakpoint
-
-@mixin screen ($breakpoint, $width: both) {
+@mixin screen ($breakpoint, $width: both, $orientation: portrait) {
     
     // Vérification du paramètre width et valuation des variables useMin/useMax
     $useMin: true;
@@ -24,6 +27,14 @@
         @error "mixin screen / width #{$width} is invalid and must be one of [both, min, max].";
     }
 
+    @if $orientation == portrait {
+        // nothing to do
+    } @else if $orientation == landscape {
+        // nothing to do
+    } @else {
+        @error "mixin screen / width #{$orientation} is invalid and must be one of [portrait, landscape].";
+    }
+
     //Application de la media query en fonction des variables useMin/useMax
     @if map-has-key($breakpoints, $breakpoint) {
         
@@ -32,17 +43,17 @@
         $max: map-get($viewport, max);
 
         @if ($useMin) and ($useMax) and ($min) and ($max) {
-            @media screen and (min-width: $min) and (max-width: $max) {
+            @media (orientation : $orientation) and (min-width: $min) and (max-width: $max) {
                 @content;
             }
 
         } @else if ($useMin) and ($min) {
-            @media screen and (min-width: $min) {
+            @media (orientation : $orientation) and (min-width: $min) {
                 @content;
             }
 
         } @else if ($useMax) and ($max) {
-            @media screen and (max-width: $max) {
+            @media (orientation : $orientation) and (max-width: $max) {
                 @content;
             }
 
@@ -57,14 +68,14 @@
 
 // Raccourcis pour appeler le mixin screen
 
-@mixin screen-min ($breakpoint) {
-    @include screen($breakpoint, min) {
+@mixin screen-min ($breakpoint, $orientation: portrait) {
+    @include screen($breakpoint, min, $orientation) {
         @content
     }
 }
 
-@mixin screen-max ($breakpoint) {
-    @include screen($breakpoint, max){
+@mixin screen-max ($breakpoint, $orientation: portrait) {
+    @include screen($breakpoint, max, $orientation){
         @content
     }
 }

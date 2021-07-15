@@ -11,12 +11,12 @@
 .photo {
     width: 30%;
 
-    @include screen_max(tablet){
-        width: 50%;
+    @include screen_max (mobile){
+        width: 100%;
     }
 
-    @include screen_max(mobile){
-        width: 100%;
+    @include screen (tablet){
+        width: 50%;
     }
 
     figure {
@@ -34,7 +34,7 @@
 
     img {
         height: 25em;
-        width: 25em;
+        width: 100%;
         object-fit: cover;
         border-radius: 0.5em;
     }
