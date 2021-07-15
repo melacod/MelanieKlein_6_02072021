@@ -2,13 +2,14 @@
 // DOM elements
 // ---------------------------------------------------------------------------------------------------------
 const modal = document.querySelector('.modal');
-const modalCloseButton = document.querySelector('.btn--close');
-const modalOpenButton = document.querySelector('.btn--contact');
+const modalOpenButtons = document.querySelectorAll('.modal--open');
+const modalCloseButton = document.querySelector('.modal--close');
 
 // add listener events to modal
+for (let modalOpenButton of modalOpenButtons) {
+    modalOpenButton.addEventListener("click", openModalDialog);
+}
 modalCloseButton.addEventListener("click", closeModalDialog);
-modalOpenButton.addEventListener("click", openModalDialog);
-
 
 // close modal dialog
 function closeModalDialog() {

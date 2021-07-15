@@ -1,20 +1,22 @@
 // ---------------------------------------------------------------------------------------------------------
 // DOM elements
 // ---------------------------------------------------------------------------------------------------------
-const modal = document.querySelector('.lightBox');
-const modalCloseButton = document.querySelector('.btn--close');
-const modalOpenButton = document.getElementsByClassName('.photo');
+const lightBox = document.querySelector('.lightBox');
+const lightBoxOpenButtons = document.querySelectorAll('.lightBox--open');
+const lightBoxCloseButton = document.querySelector('.lightBox--close');
 
 // add listener events to lightBox
-modalCloseButton.addEventListener("click", closeLightBoxDialog);
-modalOpenButton.addEventListener("click", openLightBoxDialog);
+for (let lightBoxOpenButton of lightBoxOpenButtons) {
+    lightBoxOpenButton.addEventListener("click", openLightBoxDialog);
+}
+lightBoxCloseButton.addEventListener("click", closeLightBoxDialog);
 
 // close lightBox dialog
 function closeLightBoxDialog() {
-    modal.style.display = "none";
+    lightBox.style.display = "none";
 }
 
 // open lightBox dialog
 function openLightBoxDialog() {
-    modal.style.display = "block";
+    lightBox.style.display = "block";
 }
