@@ -30,11 +30,6 @@
         object-fit: cover;
         border-radius: 100%;
         margin-bottom: 2em;
-
-        @include screen_max(mobile, landscape){
-            height: 12em;
-            width: 12em;
-        }
     }
 
     &--name {
@@ -141,6 +136,11 @@
                 border-radius: 100%;
                 
                 @include screen_max(desktop){
+                    height: 8em;
+                    width: 8em;
+                }
+
+                @include screen_max(mobile, landscape){
                     height: 8em;
                     width: 8em;
                 }

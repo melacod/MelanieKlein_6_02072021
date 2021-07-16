@@ -146,12 +146,6 @@ h3 {
   border-radius: 100%;
   margin-bottom: 2em;
 }
-@media (orientation: landscape) and (max-width: 767px) {
-  .card--image {
-    height: 12em;
-    width: 12em;
-  }
-}
 .card--name {
   color: #DB8876;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -250,6 +244,12 @@ h3 {
   border-radius: 100%;
 }
 @media (orientation: portrait) and (max-width: 1199px) {
+  .card__photographer .card--image {
+    height: 8em;
+    width: 8em;
+  }
+}
+@media (orientation: landscape) and (max-width: 767px) {
   .card__photographer .card--image {
     height: 8em;
     width: 8em;
@@ -372,6 +372,49 @@ h3 {
 @media (orientation: landscape) and (max-width: 767px) {
   .photo img {
     height: 15em;
+  }
+}
+
+.menu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.menu--content {
+  position: relative;
+  display: inline-block;
+  color: white;
+  background-color: #901C1C;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 500;
+  font-size: 1.2em;
+  width: 9em;
+  padding: 1em;
+  margin-left: 1em;
+}
+.menu--content:hover .menu--items {
+  display: block;
+}
+.menu--items {
+  display: none;
+  position: absolute;
+  color: white;
+  background-color: #901C1C;
+  top: 3.1em;
+  left: 0;
+  z-index: 1;
+}
+.menu--items p {
+  padding: 1em;
+  width: 9em;
+  border-top: 1px solid white;
+}
+.menu--items p:hover {
+  font-weight: bold;
+}
+@media (orientation: portrait) and (max-width: 767px) {
+  .menu {
+    display: none;
   }
 }
 
