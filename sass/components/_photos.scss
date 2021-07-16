@@ -6,6 +6,10 @@
     justify-content: space-between;
     cursor: pointer;
     
+    @include screen-max (mobile, landscape) {
+        margin-top: 1em;
+        justify-content: space-around;
+    }
 }
 
 .photo {
@@ -21,6 +25,11 @@
 
     figure {
         margin: 3em;
+
+        @include screen-max (mobile, landscape) {
+            margin: 0;
+            margin-bottom: 1em;
+        }
     }
 
     figcaption {
@@ -37,6 +46,10 @@
         width: 100%;
         object-fit: cover;
         border-radius: 0.5em;
+
+        @include screen-max (mobile, landscape) {
+            height: 15em;
+        }
     }
 
 }

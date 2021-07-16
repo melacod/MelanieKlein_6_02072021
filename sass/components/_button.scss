@@ -39,6 +39,17 @@
         position: absolute;
         top: 0.5em;
         right: 0.5em;
+
+        @include screen-max (mobile) {
+            top: 0.2em;
+            right: 0.2em;
+        }
+
+        @include screen-max (mobile, landscape) {
+            top: 0.2em;
+            right: 0.2em;
+        }
+        
     }
 
     &--modal {

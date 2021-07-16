@@ -85,6 +85,12 @@
 
         .card {
 
+            &--name {
+                @include screen_max(mobile, landscape) {
+                    margin-bottom: 0.5em;
+                }
+            }
+
             &--info {
                 text-align: left;
                 padding-left: 2em;
@@ -110,10 +116,15 @@
             &--link {
                 width: 50%;
                 padding-right: 2em;
+                
                 @include screen_max(desktop) {
                     order: 2;
                     width: auto;
                     padding-right: 0.5em;
+                }
+
+                @include screen-max (mobile, landscape) {
+                    width: 20%;
                 }
             }
 

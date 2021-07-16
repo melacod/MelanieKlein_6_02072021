@@ -1,15 +1,27 @@
 .lightBox {
+    display: none;
+    
     position: fixed;
     z-index: 1;
     left: 50%;
     top: 50%;
     transform: translateX(-50%) translateY(-50%);
-    height: 60em;
-    width: 60em;
     background-color: white;
     border-radius: 0.3em;
     border: 1px solid black;
-    display: none;
+    
+    height: 60em;
+    width: 60em;
+
+    @include screen-max (mobile) {
+        height: 30em;
+        width: 30em;
+    }
+
+    @include screen-max (mobile, landscape) {
+        height: 30em;
+        width: 30em;
+    }
 
     &--content {
         width: 100%;
@@ -25,7 +37,7 @@
 
         figure {
             width: 100%;
-            height: 100;
+            height: 100%;
         }
 
         img {
@@ -33,6 +45,14 @@
             height: 55em;
             object-fit: cover;
             border-radius: 0.5em;
+
+            @include screen-max (mobile) {
+                height: 25em;
+            }
+
+            @include screen-max (mobile, landscape) {
+                height: 25em;
+            }
         }
 
         figcaption {

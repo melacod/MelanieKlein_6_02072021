@@ -5,5 +5,6 @@ import * as lightBoxModule from './modules/lightBox.js';
 const data = await dataModule.loadData();
 console.log(data);
 
-
-
+for (let photographer of data.photographers){
+    console.log(photographer.name);
+}
