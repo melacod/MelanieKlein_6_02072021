@@ -421,6 +421,7 @@ h3 {
     box-shadow: 0 0 0 0;
     height: 25em;
     overflow: scroll;
+    padding-bottom: 2em;
   }
 }
 .modal--content {
@@ -455,7 +456,7 @@ h3 {
   margin-bottom: 0.15em;
 }
 .modal--content div.form--data input {
-  width: 90%;
+  width: 76%;
   padding: 0.5em;
   border: 0.8px solid #ccc;
   outline: none;
@@ -468,7 +469,7 @@ h3 {
 }
 @media (orientation: landscape) and (max-width: 767px) {
   .modal--content div.form--data input {
-    width: 80%;
+    width: 76%;
   }
 }
 @media (orientation: portrait) and (max-width: 767px) {

@@ -21,6 +21,7 @@
         box-shadow: 0 0 0 0;
         height: 25em;
         overflow: scroll;
+        padding-bottom: 2em;
     }
 
     &--content {
@@ -55,7 +56,7 @@
             }
         
             input {
-                width: 90%;
+                width: 76%;
                 padding: 0.5em;
                 border: 0.8px solid #ccc;
                 outline: none;
@@ -66,7 +67,7 @@
                 }
 
                 @include screen_max(mobile, landscape) {
-                    width: 80%;
+                    width: 76%;
                 }
             }
 
