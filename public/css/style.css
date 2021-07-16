@@ -96,6 +96,7 @@ h3 {
   .tag span {
     margin-right: 0.3em;
     margin-bottom: 0.5em;
+    font-size: 0.8em;
   }
 }
 .tag input {
