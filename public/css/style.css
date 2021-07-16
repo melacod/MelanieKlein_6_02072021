@@ -47,13 +47,13 @@ body {
 }
 
 h1 {
-  font-size: 2.8em;
+  font-size: 2.6em;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: #901C1C;
   font-weight: 200;
   position: absolute;
   right: 1em;
-  top: 1em;
+  top: 1.2em;
 }
 @media (orientation: portrait) and (max-width: 767px) {
   h1 {
@@ -73,14 +73,7 @@ h3 {
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
-  margin-left: 6em;
   line-height: 2.5em;
-}
-@media (orientation: portrait) and (max-width: 991px) {
-  .tags {
-    width: 90%;
-    margin-left: 0;
-  }
 }
 .tags--left {
   justify-content: left;
@@ -103,7 +96,6 @@ h3 {
   .tag span {
     margin-right: 0.3em;
     margin-bottom: 0.5em;
-    font-size: 0.8em;
   }
 }
 .tag input {
@@ -153,6 +145,12 @@ h3 {
   object-fit: cover;
   border-radius: 100%;
   margin-bottom: 2em;
+}
+@media (orientation: landscape) and (max-width: 767px) {
+  .card--image {
+    height: 12em;
+    width: 12em;
+  }
 }
 .card--name {
   color: #DB8876;
@@ -556,13 +554,31 @@ header.index {
   display: flex;
   align-items: center;
   flex-direction: row;
-  align-content: space-around;
-  width: 80%;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 70%;
 }
 @media (orientation: portrait) and (max-width: 991px) {
   header.index {
-    display: contents;
-    width: 85%;
+    width: 100%;
+  }
+}
+@media (orientation: landscape) and (max-width: 767px) {
+  header.index {
+    width: 100%;
+  }
+}
+header.index .logo {
+  width: 30%;
+}
+@media (orientation: portrait) and (max-width: 991px) {
+  header.index .logo {
+    width: 100%;
+  }
+}
+@media (orientation: landscape) and (max-width: 767px) {
+  header.index .logo {
+    width: 100%;
   }
 }
 header.index .logo img {
@@ -573,6 +589,19 @@ header.index .logo img {
   header.index .logo img {
     margin: 1em;
     height: 4em;
+  }
+}
+header.index .main--nav {
+  width: 60%;
+}
+@media (orientation: portrait) and (max-width: 991px) {
+  header.index .main--nav {
+    width: 100%;
+  }
+}
+@media (orientation: landscape) and (max-width: 767px) {
+  header.index .main--nav {
+    width: 100%;
   }
 }
 

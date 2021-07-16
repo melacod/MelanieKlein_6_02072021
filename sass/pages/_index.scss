@@ -3,15 +3,29 @@ header.index {
     display: flex;
     align-items: center;
     flex-direction: row;
-    align-content: space-around;
-    width: 80%;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 70%;
 
     @include screen_max(tablet){
-        display: contents;
-        width: 85%;
+        width: 100%;
+    }
+
+    @include screen_max(mobile, landscape){
+        width: 100%;
     }
 
     .logo {
+        width: 30%;
+
+        @include screen_max(tablet){
+            width: 100%;
+        }
+
+        @include screen_max(mobile, landscape){
+            width: 100%;
+        }
+
         img {
             height: 5em;
             margin-left: 2em;
@@ -23,4 +37,18 @@ header.index {
         }
     }
 
+    .main--nav {
+        width: 60%;
+
+        @include screen_max(tablet){
+            width: 100%;
+        }
+
+        @include screen_max(mobile, landscape){
+            width: 100%;
+        }
+        
+    }
+
 }
+
