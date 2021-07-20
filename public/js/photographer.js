@@ -41,5 +41,11 @@ function loadPhotographer (photographer) {
     const cardLocalisation = cardFactory.createCardLocalisation(cardInfo, photographer.city, photographer.country);
     const cardDescription = cardFactory.createCardDescription(cardInfo, photographer.tagline);
 
+    const cardTags = tagFactory.createTags (cardInfo, "card--nav", "Card tag navigation");
+    for (const tag of photographer.tags) {
+        tagFactory.createTag (cardTags, tag);
+    }
+
     genCard.appendChild(card);
 }
+
