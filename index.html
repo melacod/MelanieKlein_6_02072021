@@ -15,7 +15,8 @@
 
   <!-- Tous les modules javascript et le main javasript -->
   <script src="./public/js/modules/data.js" type="module"></script>
-  <script src="./public/js/modules/modal.js" type="module"></script>
+  <script src="./public/js/modules/factory-card.js" type="module"></script>
+  <script src="./public/js/modules/factory-tag.js" type="module"></script>
   <script src="./public/js/index.js" type="module" ></script>
 
 </head>
@@ -81,7 +82,10 @@
 
       <h1>Nos photographes</h1>
 
-      <div class="cards">
+      <div id="gen-cards" class="cards"></div>
+
+      
+      <div class="cards sr-only">
         
         <div class="card">
           <a class="card--link" href="photographer.html" alt="Mimi Keel">
@@ -275,7 +279,8 @@
           </nav>
         </div>
 
-      </div> <!--end cards-->
+      </div> 
+      
 
     </main>
 
