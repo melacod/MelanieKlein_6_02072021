@@ -11,6 +11,9 @@ import { TagFactory } from './modules/factory-tag.js';
 const data = await dataModule.loadData();
 console.log(data);
 
+// DOM elements
+const genCard = document.querySelector('#gen-card');
+
 let id = utilsModule.findGetParameter("id");
 let photographer = findPhotographer(data.photographers, id);
 loadPhotographer (photographer);
@@ -32,5 +35,11 @@ function loadPhotographer (photographer) {
     const tagFactory = new TagFactory();
 
     const card = cardFactory.createCard("card__photographer");
-    
+
+    const cardInfo = cardFactory.createCardInfo(card);
+    const cardName = cardFactory.createCardName(cardInfo, photographer.name);
+    const cardLocalisation = cardFactory.createCardLocalisation(cardInfo, photographer.city, photographer.country);
+    const cardDescription = cardFactory.createCardDescription(cardInfo, photographer.tagline);
+
+    genCard.appendChild(card);
 }

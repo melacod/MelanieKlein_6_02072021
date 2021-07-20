@@ -12,6 +12,14 @@ class CardFactory {
         return card;
     }
 
+    // lvl 2 => <div class="card--info">
+    createCardInfo = function(card) {
+        let cardInfo = document.createElement('div');
+        cardInfo.classList.add('card--info');
+        card.appendChild(cardInfo);
+        return cardInfo;
+    }
+
     // lvl 2 =>  <a class="card--link" href="photographer.html" alt="Mimi Keel">
     createCardLink = function (card, cardLinkName, cardId) {
         let cardLink = document.createElement("a");
