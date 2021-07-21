@@ -620,6 +620,11 @@ header.index .logo {
     width: 100%;
   }
 }
+@media (orientation: landscape) and (max-width: 1199px) {
+  header.index .logo {
+    width: 90%;
+  }
+}
 @media (orientation: landscape) and (max-width: 767px) {
   header.index .logo {
     width: 100%;
@@ -639,6 +644,11 @@ header.index .main--nav {
   width: 60%;
 }
 @media (orientation: portrait) and (max-width: 991px) {
+  header.index .main--nav {
+    width: 100%;
+  }
+}
+@media (orientation: landscape) and (max-width: 1199px) {
   header.index .main--nav {
     width: 100%;
   }

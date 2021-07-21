@@ -22,6 +22,10 @@ header.index {
             width: 100%;
         }
 
+        @include screen_max(desktop, landscape){
+            width: 90%;
+        }
+
         @include screen_max(mobile, landscape){
             width: 100%;
         }
@@ -41,6 +45,10 @@ header.index {
         width: 60%;
 
         @include screen_max(tablet){
+            width: 100%;
+        }
+
+        @include screen_max(desktop, landscape){
             width: 100%;
         }
 
