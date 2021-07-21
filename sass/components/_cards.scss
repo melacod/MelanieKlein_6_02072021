@@ -30,6 +30,11 @@
         object-fit: cover;
         border-radius: 100%;
         margin-bottom: 2em;
+
+        @include screen_max(mobile, landscape){
+            height: 12em;
+            width: 12em;
+        }
     }
 
     &--name {
@@ -38,6 +43,10 @@
         font-size: 2.5em;
         font-weight: 400;
         margin-bottom: 0.5em;
+
+        @include screen_max(mobile, landscape){
+            line-height: 0.9em;
+        }
     }
     
     &--localisation {

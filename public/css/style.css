@@ -147,12 +147,23 @@ h3 {
   border-radius: 100%;
   margin-bottom: 2em;
 }
+@media (orientation: landscape) and (max-width: 767px) {
+  .card--image {
+    height: 12em;
+    width: 12em;
+  }
+}
 .card--name {
   color: #DB8876;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 2.5em;
   font-weight: 400;
   margin-bottom: 0.5em;
+}
+@media (orientation: landscape) and (max-width: 767px) {
+  .card--name {
+    line-height: 0.9em;
+  }
 }
 .card--localisation {
   color: #901C1C;
