@@ -21,8 +21,6 @@ loadPhotographer (photographer);
 // find photographer by id
 function findPhotographer (photographers, searchPhotographerId) {
     for (let photographer of photographers) {
-        console.log(photographer.id);
-        console.log(searchPhotographerId);
         if (photographer.id == searchPhotographerId) {
             return photographer;
         }

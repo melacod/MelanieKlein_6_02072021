@@ -2,6 +2,20 @@ export { CardFactory };
 
 class CardFactory {
 
+    /*
+    constructor(name, price, tagline, Localisation){
+        this.name = name;
+        this.price = price;
+        this.tagline = tagline;
+        this.cardLocalisation = cardLocalisation;
+    }
+
+    DisplayCard = function () {
+       
+    } 
+    */
+
+
     // lvl 1 => <div class="card">
     createCard = function (cardClass) {
         let card = document.createElement("div");
