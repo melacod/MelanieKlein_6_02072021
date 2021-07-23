@@ -1,5 +1,14 @@
-export { Photographer };
+export { loadPhotographers, Photographer };
 
+function loadPhotographers (data) {
+    const photographers = [];
+    for (let photographer of data.photographers){
+        const photographerObj = new Photographer(photographer.id, photographer.name, photographer.portrait, photographer.city,
+            photographer.country, photographer.price, photographer.tagline, photographer.tags);
+            photographers.push(photographerObj);
+    }
+    return photographers;
+}
 class Photographer {
 
     constructor (id, name, portrait, city, country, price, tagline, tags){
@@ -21,16 +30,27 @@ class Photographer {
         this.createCardLocalisation (card);
         this.createCardDescription (card);
         this.createCardPrice (card);
-        
         const cardTags = this.createTags (card, "card--nav", "Card tag navigation");
         for (const tag of this.tags) {
             this.createTag (cardTags, tag);
         }
-    
         parent.appendChild(card);
         return card;
-    } 
+    }
 
+    displayHorizontalCard = function (parent) {
+        const card = this.createCard("card__photographer");
+        const cardInfo = this.createCardInfo(card);
+        this.createCardName(cardInfo);
+        this.createCardLocalisation(cardInfo);
+        this.createCardDescription(cardInfo);
+        const cardTags = this.createTagsLeft (cardInfo, "card--nav", "Card tag navigation");
+        for (const tag of this.tags) {
+            this.createTag (cardTags, tag);
+        }
+        parent.appendChild(card);
+        return card;
+    }
 
     // lvl 1 => <div class="card">
     createCard = function (cardClass) {
@@ -160,6 +180,7 @@ class Photographer {
 
     // <nav class="card--nav tags" aria-label="Card tag navigation">
     // <nav class="main--nav tags" aria-label="Main tag navigation / Photographer categories">
+    // <nav class="xxx tags" aria-label="xxx">
     createTags = function (parent, classTags, ariaLabelTags){
         let tags = document.createElement('nav');
         tags.classList.add('tags');
@@ -168,6 +189,13 @@ class Photographer {
         parent.appendChild(tags);
         return tags;
     } 
+
+    // <nav class="xxx tags tags--left" aria-label="xxx">
+    createTagsLeft = function (parent, classTags, ariaLabelTags){
+        let tags = this.createTags(parent, classTags, ariaLabelTags)
+        tags.classList.add('tags--left');
+        return tags;
+    }
 
     // lvl 3 => create all element for a tag
     createTag = function (parent, tagName) {
