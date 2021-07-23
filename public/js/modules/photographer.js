@@ -40,6 +40,7 @@ class Photographer {
 
     displayHorizontalCard = function (parent) {
         const card = this.createCard("card__photographer");
+        
         const cardInfo = this.createCardInfo(card);
         this.createCardName(cardInfo);
         this.createCardLocalisation(cardInfo);
@@ -48,6 +49,13 @@ class Photographer {
         for (const tag of this.tags) {
             this.createTag (cardTags, tag);
         }
+
+        const cardContact = this.createCardContact(card);
+        this.createBtnContact(cardContact);
+
+        const cardLink = this.createCardLink(card, false);
+        this.createCardImage(cardLink);
+
         parent.appendChild(card);
         return card;
     }
@@ -70,17 +78,22 @@ class Photographer {
         return cardInfo;
     }
 
-    // lvl 2 =>  <a class="card--link" href="photographer.html" alt="Mimi Keel">
-    createCardLink = function (parent) {
+    // lvl 2 =>  <a class="card--link" href="photographer.html?id=xxx" alt="Mimi Keel">
+    // <a class="card--link" href="#" alt="Mimi Keel">
+    createCardLink = function (parent, addHref=true) {
         let cardLink = document.createElement("a");
         cardLink.classList.add('card--link');
-        cardLink.setAttribute('href', "photographer.html?id=" + this.id);
+        if (addHref) {
+            cardLink.setAttribute('href', "photographer.html?id=" + this.id);
+        } else {
+            cardLink.setAttribute('href', "#");
+        }
         cardLink.setAttribute('alt', this.name);
         parent.appendChild(cardLink);
         return cardLink;
     }
     
-    // lvl 3 => <img class="card--image" src="./public/img/photos/MimiKeel/Portrait_Nora.jpg" alt="" />
+    // lvl 3 => <img class="card--image" src="./public/img/photos/MimiKeel/Portrait_Nora.jpg" alt="Mimi Keel" />
     createCardImage = function (parent) {
         let cardImage = document.createElement("img");
         cardImage.classList.add('card--image');
@@ -223,20 +236,37 @@ class Photographer {
     }
 
     // lvl 4 => <span class="sr-only">Tag Portrait</span>
-    createTagEvents = function (tagLabel, tagName) {
+    createTagEvents = function (parent, tagName) {
         let tagEvents = document.createElement('span');
         tagEvents.classList.add('sr-only');
         tagEvents.textContent = 'Tag ' + tagName;
-        tagLabel.appendChild(tagEvents);
+        parent.appendChild(tagEvents);
         return tagEvents;
     }
 
     // lvl 4 => <span>#Portrait</span>
-    createTagValue = function (tagLabel, tagName) {
-        var tagValue = document.createElement('span');
+    createTagValue = function (parent, tagName) {
+        let tagValue = document.createElement('span');
         tagValue.textContent = '#' + tagName;
-        tagLabel.appendChild(tagValue);
+        parent.appendChild(tagValue);
         return tagValue;
+    }
+
+    // lv2 => <div class="card--contact">
+    createCardContact = function (parent) {
+        let cardContact = document.createElement('div');
+        cardContact.classList.add('card--contact');
+        parent.appendChild(cardContact);
+        return cardContact;
+    }
+
+    // lv3 => <button class="modal--open btn btn--contact">Contactez-moi</button>
+    createBtnContact = function (parent) {
+        let btnContact = document.createElement('button');
+        btnContact.classList.add('modal--open', 'btn', 'btn--contact');
+        btnContact.textContent = 'Contactez-moi';
+        parent.appendChild(btnContact);
+        return btnContact;
     }
 
 }
