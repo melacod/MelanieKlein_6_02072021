@@ -62,7 +62,7 @@ class Photographer {
 
     // lvl 1 => <div class="card">
     createCard = function (cardClass) {
-        let card = document.createElement("div");
+        const card = document.createElement("div");
         card.classList.add('card');
         if (cardClass !== undefined) {
             card.classList.add(cardClass);
@@ -72,7 +72,7 @@ class Photographer {
 
     // lvl 2 => <div class="card--info">
     createCardInfo = function(parent) {
-        let cardInfo = document.createElement('div');
+        const cardInfo = document.createElement('div');
         cardInfo.classList.add('card--info');
         parent.appendChild(cardInfo);
         return cardInfo;
