@@ -374,6 +374,10 @@ h3 {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-align: left;
   color: #901C1C;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
 }
 .media img {
   height: 25em;

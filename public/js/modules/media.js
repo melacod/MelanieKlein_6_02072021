@@ -28,11 +28,13 @@ class Media {
     }
 
     displayMedia = function (parent) {
-        const media = this.createPhoto (parent);
+        const media = this.createMedia (parent);
         const lien = this.createLien(media);
         const figure = this.createFigure(lien);
         this.createImg(figure);
-        this.createFigCaption(figure);
+        const figCaption = this.createFigCaption(figure);
+        this.createSpanTitle(figCaption);
+        this.createSpanLike(figCaption);
         parent.appendChild(media);
         return media;
 
@@ -50,7 +52,7 @@ class Media {
     */
 
     // <div class="photo lightBox--open">
-    createPhoto = function (parent) {
+    createMedia = function (parent) {
         let media = document.createElement("div");
         media.classList.add('media', 'lightBox--open');
         parent.appendChild(media);
@@ -81,10 +83,36 @@ class Media {
     }
 
     // <figcaption>Portrait du mercredi</figcaption>
+    /*
+    <figcaption>
+              <span>Arc-en-ciel</span>
+              <span>12 <i class="fas fa-heart"></i></span>
+            </figcaption>
+    */
     createFigCaption = function(parent) {
         let figCaption = document.createElement('figcaption');
-        figCaption.textContent = this.title;
         parent.appendChild(figCaption);
         return figCaption;
+    }
+
+    // <span>Arc-en-ciel</span>
+    createSpanTitle = function(parent) {
+        let spanTitle = document.createElement('span');
+        spanTitle.textContent = this.title;
+        parent.appendChild(spanTitle);
+        return spanTitle;
+    }
+
+    // <span>12 <i class="fas fa-heart"></i></span>
+    createSpanLike = function(parent) {
+        let spanLike = document.createElement('span');
+        spanLike.textContent = this.likes + ( " " );
+
+        let iconLike = document.createElement('i');
+        iconLike.classList.add('fas', 'fa-heart');
+        spanLike.appendChild(iconLike);
+
+        parent.appendChild(spanLike);
+        return spanLike;
     }
 }

@@ -39,6 +39,10 @@
         @include font-texte;
         text-align: left;
         color: $color-secondary;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
     }
 
     img {
