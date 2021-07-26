@@ -573,31 +573,31 @@ h3 {
   flex-wrap: nowrap;
   justify-content: space-between;
 }
-.lightBox--photo {
+.lightBox--media {
   padding-top: 2em;
   width: 80%;
 }
-.lightBox--photo figure {
+.lightBox--media figure {
   width: 100%;
   height: 100%;
 }
-.lightBox--photo img {
+.lightBox--media img {
   width: 100%;
   height: 55em;
   object-fit: cover;
   border-radius: 0.5em;
 }
 @media (orientation: portrait) and (max-width: 767px) {
-  .lightBox--photo img {
+  .lightBox--media img {
     height: 25em;
   }
 }
 @media (orientation: landscape) and (max-width: 767px) {
-  .lightBox--photo img {
+  .lightBox--media img {
     height: 25em;
   }
 }
-.lightBox--photo figcaption {
+.lightBox--media figcaption {
   font-size: 1.3em;
   font-weight: 500;
   padding-top: 0.2em;
