@@ -29,27 +29,27 @@ class Media {
 
     displayMedia = function (parent) {
         const media = this.createMedia (parent);
-        const lien = this.createLien(media);
-        const figure = this.createFigure(lien);
-        this.createImg(figure);
-        const figCaption = this.createFigCaption(figure);
-        this.createSpanTitle(figCaption);
-        this.createSpanLike(figCaption);
+        if (this.isImage()) {
+            const lien = this.createLien(media);
+            const figure = this.createFigure(lien);
+            this.createImg(figure);
+            const figCaption = this.createFigCaption(figure);
+            this.createSpanTitle(figCaption);
+            this.createSpanLike(figCaption);
+        } else {
+            const figure = this.createFigure(media);
+            const video = this.createVideo(figure);
+            this.createVideoSource(video);
+            this.createVideoText(video);
+            const figCaption = this.createFigCaption(figure);
+            this.createSpanTitle(figCaption);
+            this.createSpanLike(figCaption);
+        }
         parent.appendChild(media);
         return media;
 
 
     }
-    /*
-    <div class="photo lightBox--open">
-        <a>
-            <figure>
-                <img src="./public/img/photos/MimiKeel/Animals_Rainbow.jpg" />
-                <figcaption>Arc-en-ciel</figcaption>
-            </figure>
-        </a>
-    </div>
-    */
 
     // <div class="photo lightBox--open">
     createMedia = function (parent) {
@@ -82,13 +82,39 @@ class Media {
         return img;
     }
 
-    // <figcaption>Portrait du mercredi</figcaption>
-    /*
-    <figcaption>
-              <span>Arc-en-ciel</span>
-              <span>12 <i class="fas fa-heart"></i></span>
-            </figcaption>
-    */
+    // <video controls>
+    createVideo = function(parent) {
+        let video = document.createElement('video');
+        video.setAttribute("controls","controls");
+        parent.appendChild(video);
+        return video;
+    }
+
+    // <source src="xxx.mp4" type="video/mp4">
+    createVideoSource = function(parent) {
+        let source = document.createElement('source')
+        source.setAttribute("src", "./public/media/" + this.photographerId + "/" + this.video);
+        source.setAttribute("type", "video/mp4");
+        parent.appendChild(source);
+        return source;
+    }
+
+    // <p>Votre navigateur ne prend pas en charge les vidéos HTML5. <a href="xxx.mp4">Lien pour télécharger la vidéo</a></p>
+    createVideoText = function(parent) {
+        let p = document.createElement('p')
+        p.textContent = "Votre navigateur ne prend pas en charge les vidéos HTML5.";
+        
+        let lien = document.createElement('a')
+        lien.setAttribute("href", "./public/media/" + this.photographerId + "/" + this.video);
+        lien.setAttribute("alt", "Lien pour télécharger la vidéo");
+        lien.textContent = "Lien pour télécharger la vidéo: ";
+        p.appendChild(lien);
+
+        parent.appendChild(p);
+        return p;
+    }
+
+    // <figcaption>
     createFigCaption = function(parent) {
         let figCaption = document.createElement('figcaption');
         parent.appendChild(figCaption);

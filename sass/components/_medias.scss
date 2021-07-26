@@ -56,4 +56,11 @@
         }
     }
 
+    video {
+        height: 25em;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 0.5em;
+    }
+
 }

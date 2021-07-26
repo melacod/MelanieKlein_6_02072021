@@ -32,11 +32,7 @@ for (let photographer of photographers) {
         // display photographer medias
         for (let media of medias) {
             if (media.photographerId == id) {
-
-                if (media.isImage()) {
-                    media.displayMedia(genMedias);
-                }
-
+                media.displayMedia(genMedias);
             } 
         }
 
