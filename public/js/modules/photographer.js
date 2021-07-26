@@ -97,7 +97,7 @@ class Photographer {
     createCardImage = function (parent) {
         let cardImage = document.createElement("img");
         cardImage.classList.add('card--image');
-        cardImage.setAttribute("src", "./public/img/photos/Photographers_ID/" + this.portrait);
+        cardImage.setAttribute("src", "./public/media/Photographers_ID/" + this.portrait);
         cardImage.setAttribute("alt", this.name);
         parent.appendChild(cardImage);
         return cardImage;

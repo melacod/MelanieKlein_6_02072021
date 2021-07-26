@@ -331,7 +331,7 @@ h3 {
   }
 }
 
-.photos {
+.medias {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -339,35 +339,35 @@ h3 {
   cursor: pointer;
 }
 @media (orientation: landscape) and (max-width: 767px) {
-  .photos {
+  .medias {
     margin-top: 1em;
     justify-content: space-around;
   }
 }
 
-.photo {
+.media {
   width: 30%;
 }
 @media (orientation: portrait) and (max-width: 767px) {
-  .photo {
+  .media {
     width: 100%;
   }
 }
 @media (orientation: portrait) and (min-width: 768px) and (max-width: 991px) {
-  .photo {
+  .media {
     width: 50%;
   }
 }
-.photo figure {
+.media figure {
   margin: 3em;
 }
 @media (orientation: landscape) and (max-width: 767px) {
-  .photo figure {
+  .media figure {
     margin: 0;
     margin-bottom: 1em;
   }
 }
-.photo figcaption {
+.media figcaption {
   font-size: 1.3em;
   font-weight: 500;
   padding-top: 0.5em;
@@ -375,14 +375,14 @@ h3 {
   text-align: left;
   color: #901C1C;
 }
-.photo img {
+.media img {
   height: 25em;
   width: 100%;
   object-fit: cover;
   border-radius: 0.5em;
 }
 @media (orientation: landscape) and (max-width: 767px) {
-  .photo img {
+  .media img {
     height: 15em;
   }
 }

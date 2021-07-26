@@ -28,13 +28,13 @@ class Media {
     }
 
     displayMedia = function (parent) {
-        const photo = this.createPhoto (parent);
-        const lien = this.createLien(photo);
+        const media = this.createPhoto (parent);
+        const lien = this.createLien(media);
         const figure = this.createFigure(lien);
         this.createImg(figure);
         this.createFigCaption(figure);
-        parent.appendChild(photo);
-        return photo;
+        parent.appendChild(media);
+        return media;
 
 
     }
@@ -51,10 +51,10 @@ class Media {
 
     // <div class="photo lightBox--open">
     createPhoto = function (parent) {
-        let photo = document.createElement("div");
-        photo.classList.add('photo', 'lightBox--open');
-        parent.appendChild(photo);
-        return photo;
+        let media = document.createElement("div");
+        media.classList.add('media', 'lightBox--open');
+        parent.appendChild(media);
+        return media;
     }
 
     // <a>
@@ -74,7 +74,7 @@ class Media {
     // <img src=? />
     createImg = function(parent) {
         let img = document.createElement('img');
-        img.setAttribute("src", "./public/img/photos/" + this.photographerId + "/" + this.image);
+        img.setAttribute("src", "./public/media/" + this.photographerId + "/" + this.image);
         img.setAttribute("alt", this.title);
         parent.appendChild(img);
         return img;
