@@ -3,7 +3,7 @@ export { loadMedias, Media };
 function loadMedias (data) {
     const medias = [];
     for (let media of data.media){
-        const mediaObj = new Media(media.id, media.photographerId, media.title, media.image, media.video, media.tags, media.likes, media.date, media.price);
+        const mediaObj = new Media(media);
         medias.push(mediaObj);
     }
     return medias;
@@ -11,7 +11,7 @@ function loadMedias (data) {
 
 class Media {
 
-    constructor (id, photographerId, title, image, video, tags, likes, date, price) {
+    constructor ({id, photographerId, title, image, video, tags, likes, date, price}) {
         this.id = id;
         this.photographerId = photographerId;
         this.title = title;

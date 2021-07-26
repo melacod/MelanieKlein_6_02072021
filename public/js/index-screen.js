@@ -13,6 +13,6 @@ const photographers = loadPhotographers(data);
 
 // initialze photographers card
 for (let photographer of photographers){
-    photographer.displayCard(genCards);
+    genCards.appendChild(photographer.displayCard());
 }
 

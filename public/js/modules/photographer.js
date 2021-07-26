@@ -3,15 +3,14 @@ export { loadPhotographers, Photographer };
 function loadPhotographers (data) {
     const photographers = [];
     for (let photographer of data.photographers){
-        const photographerObj = new Photographer(photographer.id, photographer.name, photographer.portrait, photographer.city,
-            photographer.country, photographer.price, photographer.tagline, photographer.tags);
+        const photographerObj = new Photographer(photographer);
             photographers.push(photographerObj);
     }
     return photographers;
 }
 class Photographer {
 
-    constructor (id, name, portrait, city, country, price, tagline, tags){
+    constructor ({id, name, portrait, city, country, price, tagline, tags}){
         this.id = id;
         this.name = name;
         this.portrait = portrait;
@@ -34,7 +33,7 @@ class Photographer {
         for (const tag of this.tags) {
             this.createTag (cardTags, tag);
         }
-        parent.appendChild(card);
+        //parent.appendChild(card);
         return card;
     }
 
