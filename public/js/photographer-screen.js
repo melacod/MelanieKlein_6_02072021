@@ -27,13 +27,12 @@ let id = findGetParameter("id");
 // display photographer info
 for (let photographer of photographers) {
     if (photographer.id == id) {
-        //photographer.displayHorizontalCard(genCard);
         genCard.insertAdjacentHTML('beforeend', await photographer.displayHorizontalCardTemplate());
 
         // display photographer medias
         for (let media of medias) {
             if (media.photographerId == id) {
-                media.displayMedia(genMedias);
+                genMedias.insertAdjacentHTML('beforeend', await media.displayMediaTemplate());
             } 
         }
 

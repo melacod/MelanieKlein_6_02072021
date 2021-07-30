@@ -46,7 +46,7 @@
         "city": "Barcelona",
         "country": "Spain",
         "tags": ["sport", "fashion", "events", "animals"],
-        "tagline": "Je crée des souvenirs",
+        "tagline": "Je crï¿½e des souvenirs",
         "price": 275,
         "portrait": "RhodeDubois.jpg"
       },
@@ -56,7 +56,7 @@
         "city": "Berlin",
         "country": "Germany",
         "tags": ["travel", "architecture"],
-        "tagline": "Toujours à la recherche de LA photo",
+        "tagline": "Toujours ï¿½ la recherche de LA photo",
         "price": 300,
         "portrait": "MarcelNikolic.jpg"
       }
@@ -96,7 +96,7 @@
         "id": 9275938,
         "photographerId": 82,
         "title": "Wedding Gazebo",
-        "image": "Event-_WeddingGazebo.jpg",
+        "image": "Event_WeddingGazebo.jpg",
         "tags": ["events"],
         "likes": 69,
         "date": "2018-02-22",
