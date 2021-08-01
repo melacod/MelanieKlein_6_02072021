@@ -79,6 +79,9 @@ h3 {
   justify-content: left;
 }
 
+.tag--disabled {
+  pointer-events: none;
+}
 .tag span {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   border: #525252 0.1em solid;

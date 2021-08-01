@@ -21,6 +21,7 @@ class Photographer {
         this.price = price;
         this.tagline = tagline;
         this.tags = tags;
+        this.score = 0;
     }
 
     displayCardTemplate = async function () {
@@ -36,7 +37,7 @@ class Photographer {
     computeHtmlTags = async function () {
         let htmlTags = "";
         for (const tag of this.tags) {
-            htmlTags += await fillTemplate("tag", { tagName: tag });
+            htmlTags += await fillTemplate("tag", { tagName: tag, tagClass: "tag--disabled" });
         }
         this.htmlTags = htmlTags;
     }
