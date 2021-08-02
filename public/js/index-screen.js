@@ -2,7 +2,7 @@ import { loadData } from './modules/data.js';
 import { loadPhotographers, Photographer } from './modules/photographer.js';
 import { fillTemplate } from './modules/template.js';
 
-// DOM elements
+// Get DOM elements where elements will be generated
 const genCards = document.querySelector('#gen-cards');
 const genNav = document.querySelector('#gen-nav')
 
@@ -13,55 +13,60 @@ const data = await loadData();
 // load photographers objects from json data
 const photographers = loadPhotographers(data);
 
-// compute all possible tags
-let allTags = [];
-for (let photographer of photographers) {
-    for (let tag of photographer.tags) {
-        // check if tag is not in allTags
-        if (allTags.indexOf(tag) == -1) {
-            allTags.push(tag);
+// create filter tags
+await createFilterTags();
+
+// compute all filter tags, create html and add event
+async function createFilterTags () {
+    let filterTags = getFilterTags();
+    await createHtmlForFilterTags(filterTags);
+    addEventForFilterTags();
+}
+
+// compute filter tags (unique tag names)
+function getFilterTags () {
+    let filterTags = [];
+    for (let photographer of photographers) {
+        for (let tag of photographer.tags) {
+            
+            // if tag is not in filterTags, add it to filterTags
+            if (filterTags.indexOf(tag) == -1) {
+                filterTags.push(tag);
+            }
         }
     }
+    return filterTags;
 }
 
-// display html for all tags
-let htmlTags = "";
-for (const tag of allTags) {
-    htmlTags += await fillTemplate("tag", { tagName: tag, tagClass: "tag--enabled" });
+// create html for filter tags
+async function createHtmlForFilterTags (filterTags) {
+    let htmlFilterTags = "";
+    for (const filterTag of filterTags) {
+        htmlFilterTags += await fillTemplate("tag", { tagName: filterTag, tagClass: "tag--enabled" });
+    }
+    genNav.innerHTML = htmlFilterTags;
 }
-genNav.innerHTML = htmlTags;
 
-// DOM tags
-const inputTagsEnabled = document.querySelectorAll('.tag--enabled > input');
-for (let inputTag of inputTagsEnabled) {
-    inputTag.addEventListener("click", tagFilter);
+// add event click on input for filter tags
+function addEventForFilterTags () {
+    const inputTagsEnabled = document.querySelectorAll('.tag--enabled > input');
+    for (let inputTag of inputTagsEnabled) {
+        inputTag.addEventListener("click", filterByTag);
+    }
 }
 
 // filter photographers based on filter tags
-async function tagFilter () {
-    let tagsEnabled = getTagsEnabled();
+async function filterByTag () {
+    const inputTagsEnabled = document.querySelectorAll('.tag--enabled > input');
+    let tagsEnabled = getTagsEnabled(inputTagsEnabled);
     computeScore(tagsEnabled);
     sortPhotographers();
     await displayPhotographerCards();
-    highlightPhotographerTags(tagsEnabled);
-}
-
-// compute filter score
-function computeScore (tagsEnabled) {
-    for (let photographer of photographers) {
-        photographer.score = 0;
-        for (let tag of photographer.tags) {
-            // check if tag is in tagsEnabled
-            if (tagsEnabled.indexOf(tag) >= 0) {
-                photographer.score ++;
-            }
-        }
-        //console.log(photographer.name + " => " + photographer.tags + " => " + photographer.score);
-    }
+    highlightPhotographerTags(inputTagsEnabled);
 }
 
 // get all checked tags
-function getTagsEnabled () {
+function getTagsEnabled (inputTagsEnabled) {
     let tagsEnabled = [];
     for (let inputTag of inputTagsEnabled) {
         
@@ -72,13 +77,20 @@ function getTagsEnabled () {
         }
        
     }
-    //console.log(tagsEnabled);
     return tagsEnabled;
 }
 
-// get tag name from tag label
-function getTagName (tag) {
-    return tag.children[1].textContent.substring(4);
+// compute filter score
+function computeScore (tagsEnabled) {
+    for (let photographer of photographers) {
+        photographer.score = 0;
+        for (let tag of photographer.tags) {
+            // check if tag is in tagsEnabled, increase photographer score by 1
+            if (tagsEnabled.indexOf(tag) >= 0) {
+                photographer.score ++;
+            }
+        }
+    }
 }
 
 // sort photographers by score
@@ -108,7 +120,7 @@ function sortPhotographers () {
 }
 
 // highlight photographer tags from filter tags
-function highlightPhotographerTags (tagsEnabled) {
+function highlightPhotographerTags (inputTagsEnabled) {
     const tagsDisabled = document.querySelectorAll('.tag--disabled');
     for (let inputTag of inputTagsEnabled) {
         let tag = inputTag.parentElement;
@@ -124,6 +136,11 @@ function highlightPhotographerTags (tagsEnabled) {
     }
 }
 
+// get tag name from tag label
+function getTagName (tag) {
+    return tag.children[1].textContent.substring(4);
+}
+
 // display photographer cards
 async function displayPhotographerCards () {
     genCards.innerHTML = "";
@@ -132,5 +149,5 @@ async function displayPhotographerCards () {
     }
 }
 
-// display photographer cards loading first time (no filter)
-await tagFilter();
+// display photographer cards loading first time (no filter tags enabled)
+await filterByTag();
