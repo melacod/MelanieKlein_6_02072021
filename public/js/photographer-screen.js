@@ -10,6 +10,11 @@ import { loadMedias, Media } from './modules/media.js';
 // Get DOM elements where elements will be generated
 const genCard = document.querySelector('#gen-card');
 const genMedias = document.querySelector('#gen-medias');
+const menuPopularity = document.querySelector('#menu-popularity');
+
+// bind event with element
+menuPopularity.addEventListener("click", sortByPopularity);
+
 
 // load json data
 const data = await loadData();
@@ -24,6 +29,10 @@ const medias = loadMedias(data);
 // get photographer id from url parameters
 let id = findGetParameter("id");
 
+// get medias for photographer id
+let mediasForId = getMediasForId();
+await displayMedias();
+
 // display photographer info
 for (let photographer of photographers) {
     if (photographer.id == id) {
@@ -33,10 +42,41 @@ for (let photographer of photographers) {
 }
 
 // display photographer medias
-for (let media of medias) {
-    if (media.photographerId == id) {
+async function displayMedias () {
+    genMedias.innerHTML = "";
+    for (let media of mediasForId) {
         genMedias.insertAdjacentHTML('beforeend', await media.displayMediaTemplate());
-    } 
+    }
+}
+
+// get medias only for photographer id
+function getMediasForId () {
+    let mediasForId = [];
+    for (let media of medias) {
+        if (media.photographerId == id) {
+            mediasForId.push(media);
+        }
+    }
+    return mediasForId;
+}
+
+// sort medias by popularity (likes)
+function sortByPopularity() {
+    mediasForId.sort( function(a,b) {
+        
+        if (a.likes < b.likes) {
+            return 1; // a after b
+        
+        } else if (a.likes > b.likes) {
+            return -1; // b after a
+
+        } else {
+
+            // when same score: sort by title
+            return a.title > b.title ? 1 : -1;
+        }
+    });
+    displayMedias();
 }
 
 // Add modal / lighbox events
