@@ -8,13 +8,8 @@
 
   <title>FishEye</title>
 
-  <!-- Affichage des icones fontawesome (a mettre avant les CSS pour que les CSS puissent les modifier) -->
   <script src="https://kit.fontawesome.com/23ff18c19e.js" crossorigin="anonymous"></script>
-
-  <!-- Une feuille de style général et une feuille par support: desktop / tablet / mobile -->
   <link rel="stylesheet" type="text/css" href="public/css/style.css" />
-
-  <!-- Tous les modules javascript et le main javasript -->
   <script src="./public/js/index-screen.js" type="module"></script>
 
 </head>
@@ -32,6 +27,7 @@
         </a>
       </div>
 
+      <!-- Tags will be generated here -->
       <nav id="gen-nav" class="main--nav tags" aria-label="Main tag navigation / Photographer categories">
       </nav>
 
@@ -39,7 +35,10 @@
 
     <main>
       <h1>Nos photographes</h1>
+
+      <!-- Photographer cards will be generated here -->
       <div id="gen-cards" class="cards"></div>
+
     </main>
 
   </div>

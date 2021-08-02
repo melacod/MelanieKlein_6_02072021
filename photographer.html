@@ -8,13 +8,8 @@
 
   <title>FishEye</title>
 
-  <!-- Affichage des icones fontawesome (a mettre avant les CSS pour que les CSS puissent les modifier) -->
   <script src="https://kit.fontawesome.com/23ff18c19e.js" crossorigin="anonymous"></script>
-
-  <!-- Une feuille de style général et une feuille par support: desktop / tablet / mobile -->
   <link rel="stylesheet" type="text/css" href="public/css/style.css" />
-
-  <!-- Tous les modules javascript et le main javasript -->
   <script src="./public/js/photographer-screen.js" type="module" ></script>
 
 </head>
@@ -31,48 +26,8 @@
       </div>
     </header>
 
+    <!-- Photographer horizontal card will be generated here -->
     <div id="gen-card"></div>
-
-    <!--
-    <div class="card card__mediagrapher">
-
-      <div class="card--info">
-        <h2 class="card--name">Mimi Keel</h2>
-        <div class="card--localisation">London, UK</div>
-        <div class="card--description">Voir le beau dans le quotidien</div>
-        <nav class="card--nav tags tags--left" aria-label="Card tag navigation">
-          <label class="tag">
-            <input type="checkbox" />
-            <span class="sr-only">Tag Portrait</span>
-            <span>#Portrait</span>
-          </label>
-          <label class="tag">
-            <input type="checkbox" />
-            <span class="sr-only">Tag Events</span>
-            <span>#Events</span>
-          </label>
-          <label class="tag">
-            <input type="checkbox" />
-            <span class="sr-only">Tag Travel</span>
-            <span>#Travel</span>
-          </label>
-          <label class="tag">
-            <input type="checkbox" />
-            <span class="sr-only">Tag Animals</span>
-            <span>#Animals</span>
-          </label>
-        </nav>
-      </div>
-
-      <div class="card--contact">
-        <button class="modal--open btn btn--contact">Contactez-moi</button>
-      </div>
-
-      <a class="card--link" href="#" alt="Mimi Keel">
-        <img class="card--image" src="./public/media/MimiKeel/Portrait_Nora.jpg" alt="" />
-      </a>
-    </div>
-  -->
 
     <div class="menu">
       <h3>Trier par</h3>
@@ -85,86 +40,12 @@
       </div>
     </div>
 
-    <div class="medias sr-only">
-      <div class="media lightBox--open">
-        <a>
-          <figure>
-            <img src="./public/media/243/Animals_Rainbow.jpg" />
-            <figcaption>
-              <span>Arc-en-ciel</span>
-              <span>12 <i class="fas fa-heart"></i></span>
-            </figcaption>
-          </figure>
-        </a>
-      </div>
-    </div>
-
+    <!-- Photographer medias will be generated here -->
     <div id="gen-medias" class="medias"></div>
-
-
-    <!--
-    <div class="medias">
-
-      <div class="media lightBox--open">
-        <a>
-          <figure>
-            <img src="./public/media/243/Animals_Rainbow.jpg" />
-            <figcaption>Arc-en-ciel</figcaption>
-          </figure>
-        </a>
-      </div>
-
-      <div class="media lightBox--open">
-        <a>
-          <figure>
-            <img src="./public/media/243/Travel_Lonesome.jpg" />
-            <figcaption>Solitude</figcaption>
-          </figure>
-        </a>
-      </div>
-
-      <div class="media lightBox--open">
-        <a>
-          <figure>
-            <img src="./public/media/243/Event_SeasideWedding.jpg" />
-            <figcaption>Mariage à la mer</figcaption>
-          </figure>
-        </a>
-
-      </div>
-
-      <div class="media lightBox--open">
-        <a>
-          <figure>
-            <img src="./public/media/243/Portrait_Background.jpg" />
-            <figcaption>Portrait</figcaption>
-          </figure>
-        </a>
-      </div>
-
-      <div class="media lightBox--open">
-        <a>
-          <figure>
-            <img src="./public/media/243/Travel_HillsideColor.jpg" />
-            <figcaption>Voyage</figcaption>
-          </figure>
-        </a>
-      </div>
-
-      <div class="media lightBox--open">
-        <a>
-          <figure>
-            <img src="./public/media/243/Portrait_Wednesday.jpg" />
-            <figcaption>Portrait du mercredi</figcaption>
-          </figure>
-        </a>
-      </div>
-
-    </div>
-    -->
 
   </div> <!-- end container-->
 
+  <!-- Contact modal -->
   <div class="modal" role="dialog">
     <div class="modal--content">
       <button class="modal--close btn btn--action btn--action--white btn--close">&times;</button>
@@ -174,17 +55,14 @@
           <div class="form--data">
             <label for="first">Prénom</label>
             <input class="form--control" type="text" id="first" name="first" minlength="2" aria-labelledby="First name" />
-            <!--<div class="error">Veuillez entrer 2 caractères ou plus pour le champ du prénom.</div>-->
           </div>
           <div class="form--data">
             <label for="last">Nom</label>
             <input class="form--control" type="text" id="last" name="last" minlength="2" />
-            <!--<div class="error">Veuillez entrer 2 caractères ou plus pour le champ du nom.</div>-->
           </div>
           <div class="form--data">
             <label for="email">E-mail</label>
             <input class="form--control" type="text" id="email" name="email" />
-            <!--<div class="error">Veuillez respecter le format email: exemple@domaine.fr </div>-->
           </div>
           <div class="form--data">
             <label for="msg">Votre message</label>
@@ -196,6 +74,7 @@
     </div>
   </div>
 
+  <!-- Light box modal -->
   <div class="lightBox" role="dialog">
     <button class="lightBox--close btn btn--action btn--action--red btn--close">&times;</button>
     <div class="lightBox--content">
@@ -210,14 +89,6 @@
           </figure>
         </a>
       </div>
-      <!--<div class="lightBox--media">
-        <a>
-          <figure>
-            <img src="./public/media/MimiKeel/Travel_Lonesome.jpg" />
-            <figcaption>Solitude</figcaption>
-          </figure>
-        </a>
-      </div>-->
       <div class="lightBox--nav">
         <button class="btn btn--action btn--action--red">&gt;</button>
       </div>
@@ -225,5 +96,4 @@
   </div>
 
 </body>
-
 </html>

@@ -1,5 +1,6 @@
 export { findGetParameter };
 
+//get parameter value from url parameters
 function findGetParameter (searchParameterName) {
     let parameters = location.search.substr(1).split("&");
     for (let parameter of parameters) {

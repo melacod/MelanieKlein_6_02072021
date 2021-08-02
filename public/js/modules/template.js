@@ -20,9 +20,13 @@ async function fillTemplate ( templateName, object ) {
     const templateContent = await loadTemplate(templateName);
     return templateContent
         .replace(
-        /{(\w*)}/g, // or /{(\w*)}/g for "{this} instead of %this%"
+        /{(\w*)}/g, 
         function( m, key ) {
-            return object.hasOwnProperty( key ) ? object[ key ] : "";
+            if (object.hasOwnProperty(key)) {
+                return object[key];
+            } else {
+                return "";
+            }
         }
     );
 }

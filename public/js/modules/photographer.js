@@ -6,7 +6,7 @@ function loadPhotographers (data) {
     const photographers = [];
     for (let photographer of data.photographers){
         const photographerObj = new Photographer(photographer);
-            photographers.push(photographerObj);
+        photographers.push(photographerObj);
     }
     return photographers;
 }

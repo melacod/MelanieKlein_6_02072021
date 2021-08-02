@@ -15,6 +15,7 @@ function addModalEvents() {
 function closeModalDialog() {
     const modal = document.querySelector('.modal');
     modal.style.display = "none";
+    const modalOpenButton = document.querySelector('.modal--open');
     modalOpenButton.style.display = "block";
 }
 
@@ -22,5 +23,6 @@ function closeModalDialog() {
 function openModalDialog() {
     const modal = document.querySelector('.modal');
     modal.style.display = "block";
+    const modalOpenButton = document.querySelector('.modal--open');
     modalOpenButton.style.display = "none";
 }
