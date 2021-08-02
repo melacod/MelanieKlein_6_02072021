@@ -11,9 +11,12 @@ import { loadMedias, Media } from './modules/media.js';
 const genCard = document.querySelector('#gen-card');
 const genMedias = document.querySelector('#gen-medias');
 const menuPopularity = document.querySelector('#menu-popularity');
+const menuTitle = document.querySelector('#menu-title');
+
 
 // bind event with element
 menuPopularity.addEventListener("click", sortByPopularity);
+menuTitle.addEventListener("click", sortByTitle);
 
 
 // load json data
@@ -61,7 +64,7 @@ function getMediasForId () {
 }
 
 // sort medias by popularity (likes)
-function sortByPopularity() {
+function sortByPopularity () {
     mediasForId.sort( function(a,b) {
         
         if (a.likes < b.likes) {
@@ -78,6 +81,17 @@ function sortByPopularity() {
     });
     displayMedias();
 }
+
+//sort medias by title (title)
+function sortByTitle (){
+    mediasForId.sort (function (a,b) {
+
+        return a.title > b.title ? 1 : -1;
+        
+    });
+    displayMedias();
+}
+
 
 // Add modal / lighbox events
 addModalEvents();
