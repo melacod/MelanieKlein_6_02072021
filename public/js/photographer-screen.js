@@ -7,7 +7,7 @@ import { findGetParameter } from './modules/utils.js';
 import { loadPhotographers, Photographer } from './modules/photographer.js';
 import { loadMedias, Media } from './modules/media.js';
 
-// DOM elements
+// Get DOM elements where elements will be generated
 const genCard = document.querySelector('#gen-card');
 const genMedias = document.querySelector('#gen-medias');
 
