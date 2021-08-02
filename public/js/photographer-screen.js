@@ -12,11 +12,13 @@ const genCard = document.querySelector('#gen-card');
 const genMedias = document.querySelector('#gen-medias');
 const menuPopularity = document.querySelector('#menu-popularity');
 const menuTitle = document.querySelector('#menu-title');
+const menuDate = document.querySelector('#menu-date');
 
 
 // bind event with element
 menuPopularity.addEventListener("click", sortByPopularity);
 menuTitle.addEventListener("click", sortByTitle);
+menuDate.addEventListener("click", sortByDate);
 
 
 // load json data
@@ -75,18 +77,38 @@ function sortByPopularity () {
 
         } else {
 
-            // when same score: sort by title
+            // when same likes: sort by title
             return a.title > b.title ? 1 : -1;
         }
     });
     displayMedias();
 }
 
-//sort medias by title (title)
+//sort medias by title
 function sortByTitle (){
     mediasForId.sort (function (a,b) {
 
         return a.title > b.title ? 1 : -1;
+        
+    });
+    displayMedias();
+}
+
+//sort medias by date
+function sortByDate (){
+    mediasForId.sort (function (a,b) {
+
+        if (a.date.getTime() < b.date.getTime()) {
+            return 1; // a after b
+        
+        } else if (a.date.getTime() > b.date.getTime()) {
+            return -1; // b after a
+
+        } else {
+
+            // when same date: sort by title
+            return a.title > b.title ? 1 : -1;
+        }
         
     });
     displayMedias();

@@ -21,8 +21,14 @@ class Media {
         this.video = video;
         this.tags = tags;
         this.likes = likes;
-        this.date = date;
+        this.date = this.computeDate(date);
         this.price = price;
+    }
+
+    // compute string date to object date
+    computeDate = function (strDate) {
+        let parts = strDate.split('-');
+        return new Date(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10));
     }
 
     displayMediaTemplate = async function () {
