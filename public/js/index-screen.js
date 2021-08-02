@@ -62,7 +62,7 @@ async function filterByTag () {
     computeScore(tagsEnabled);
     sortPhotographers();
     await displayPhotographerCards();
-    highlightPhotographerTags(inputTagsEnabled);
+    synchronizePhotographerTags(inputTagsEnabled);
 }
 
 // get all checked tags
@@ -120,7 +120,7 @@ function sortPhotographers () {
 }
 
 // highlight photographer tags from filter tags
-function highlightPhotographerTags (inputTagsEnabled) {
+function synchronizePhotographerTags (inputTagsEnabled) {
     const tagsDisabled = document.querySelectorAll('.tag--disabled');
     for (let inputTag of inputTagsEnabled) {
         let tag = inputTag.parentElement;
