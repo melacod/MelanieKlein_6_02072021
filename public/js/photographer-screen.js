@@ -1,11 +1,10 @@
 import { Modal } from './modules/modal.js';
 import { LightBox } from './modules/lightBox.js';
-
 import { Utils } from './modules/utils.js';
 import { Data } from './modules/data.js';
-
 import { PhotographerFactory } from './modules/photographer.js';
 import { MediaFactory } from './modules/media.js';
+import { Tag } from './modules/tag.js' ;
 
 // Get DOM elements where elements will be generated
 const genCard = document.querySelector('#gen-card');
@@ -47,7 +46,11 @@ await displayMedias();
 async function displayMedias () {
     genMedias.innerHTML = "";
     for (let media of mediasForId) {
-        genMedias.insertAdjacentHTML('beforeend', await media.display());
+        // if media score is -1 = no filter tags selected = display all
+        // if media score > 0 = at least one selected filter tag match
+        if (media.score === -1 || media.score > 0) {
+            genMedias.insertAdjacentHTML('beforeend', await media.display());
+        }
     }
 }
 
@@ -109,6 +112,16 @@ function sortByDate (){
         
     });
     displayMedias();
+}
+
+// add events for tags
+Tag.addEventForEnabledTags(filterByTag);
+
+// filter media on selected filter tags (no filter : all medias displayed)
+async function filterByTag () {
+    Tag.computeScore(mediasForId);
+    Tag.sortObjects(mediasForId);
+    await displayMedias();
 }
 
 // Add modal / lighbox events

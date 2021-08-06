@@ -19,21 +19,21 @@ class Photographer {
 
     // display a photographer card
     displayCard = async function () {
-        await this.computeHtmlTags();
+        await this.computeHtmlTags("tag--disabled");
         return await Template.fillTemplate("photographer-card", this);
     }
 
     // display an horizontal card of the photographer
     displayHorizontalCard = async function () {
-        await this.computeHtmlTags();
+        await this.computeHtmlTags("tag--enabled");
         return await Template.fillTemplate("photographer-card-horizontal", this);
     }
 
     // compute html tags for the photographer
-    computeHtmlTags = async function () {
+    computeHtmlTags = async function (tagClassValue) {
         let htmlTags = "";
         for (const tag of this.tags) {
-            htmlTags += await Template.fillTemplate("tag", { tagName: tag, tagClass: "tag--disabled" });
+            htmlTags += await Template.fillTemplate("tag", { tagName: tag, tagClass: tagClassValue });
         }
         this.htmlTags = htmlTags;
     }

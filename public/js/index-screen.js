@@ -1,6 +1,7 @@
 import { Data } from './modules/data.js';
 import { PhotographerFactory } from './modules/photographer.js';
 import { Template } from './modules/template.js';
+import { Tag } from './modules/tag.js' ;
 
 // Get DOM elements where elements will be generated
 const genCards = document.querySelector('#gen-cards');
@@ -19,7 +20,7 @@ await createFilterTags();
 async function createFilterTags () {
     let filterTags = getFilterTags();
     await createHtmlForFilterTags(filterTags);
-    addEventForFilterTags();
+    Tag.addEventForEnabledTags(filterByTag);
 }
 
 // compute filter tags (unique tag names)
@@ -46,96 +47,29 @@ async function createHtmlForFilterTags (filterTags) {
     genNav.innerHTML = htmlFilterTags;
 }
 
-// add event click on input for filter tags
-function addEventForFilterTags () {
-    const inputTagsEnabled = document.querySelectorAll('.tag--enabled > input');
-    for (let inputTag of inputTagsEnabled) {
-        inputTag.addEventListener("click", filterByTag);
-    }
-}
-
 // filter photographers based on filter tags
 async function filterByTag () {
-    const inputTagsEnabled = document.querySelectorAll('.tag--enabled > input');
-    let tagsEnabled = getTagsEnabled(inputTagsEnabled);
-    computeScore(tagsEnabled);
-    sortPhotographers();
+    Tag.computeScore(photographers);
+    Tag.sortObjects(photographers);
     await displayPhotographerCards();
-    synchronizePhotographerTags(inputTagsEnabled);
-}
-
-// get all checked tags
-function getTagsEnabled (inputTagsEnabled) {
-    let tagsEnabled = [];
-    for (let inputTag of inputTagsEnabled) {
-        if (inputTag.checked) {
-            let tag = inputTag.parentElement;
-            let tagName = getTagName(tag);
-            tagsEnabled.push(tagName);
-        }     
-    }
-    return tagsEnabled;
-}
-
-// compute filter score
-function computeScore (tagsEnabled) {
-    for (let photographer of photographers) {
-        photographer.score = 0;
-        for (let tag of photographer.tags) {
-            // check if tag is in tagsEnabled, increase photographer score by 1
-            if (tagsEnabled.indexOf(tag) >= 0) {
-                photographer.score ++;
-            }
-        }
-    }
-}
-
-// sort photographers by score
-function sortPhotographers () {
-    photographers.sort( function(a,b) {
-        
-        if (a.score < b.score) {
-            return 1; // a after b
-        
-        } else if (a.score > b.score) {
-            return -1; // b after a
-
-        } else {
-
-            // when same score: sort by number of tags
-            if (a.tags.length < b.tags.length) {
-                return 1; // a after b
-
-            } else if (a.tags.length > b.tags.length) {
-                return -1; // b after a
-            
-            } else {
-                return a.name > b.name ? 1 : -1;
-            }
-        }
-    });
+    synchronizePhotographerTags();
 }
 
 // synchronize state of disabled tags (from photographers) with enabled tags (from filter tags)
-function synchronizePhotographerTags (inputTagsEnabled) {
+function synchronizePhotographerTags () {
     const tagsDisabled = document.querySelectorAll('.tag--disabled');
-    for (let inputTag of inputTagsEnabled) {
+    for (let inputTag of Tag.getInputEnabledTags()) {
         let tag = inputTag.parentElement;
-        let tagName = getTagName(tag);
+        let tagName = Tag.getTagName(tag);
 
         for (let tagDisabled of tagsDisabled) {
-            let tagDisabledName = getTagName(tagDisabled);
+            let tagDisabledName = Tag.getTagName(tagDisabled);
             if (tagDisabledName == tagName) {
                 tagDisabled.children[0].checked = inputTag.checked;
             }
         }
         
     }
-}
-
-// get tag name from tag label
-function getTagName (tag) {
-    return tag.children[1].textContent.substring(4);
 }
 
 // display photographer cards
