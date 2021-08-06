@@ -1,17 +1,16 @@
-import { loadData } from './modules/data.js';
-import { loadPhotographers, Photographer } from './modules/photographer.js';
-import { fillTemplate } from './modules/template.js';
+import { Data } from './modules/data.js';
+import { PhotographerFactory } from './modules/photographer.js';
+import { Template } from './modules/template.js';
 
 // Get DOM elements where elements will be generated
 const genCards = document.querySelector('#gen-cards');
 const genNav = document.querySelector('#gen-nav')
 
 // load json data
-const data = await loadData();
-//console.log(data);
+const data = await Data.loadJsonData();
 
 // load photographers objects from json data
-const photographers = loadPhotographers(data);
+const photographers = PhotographerFactory.createPhotographers(data.photographers);
 
 // create filter tags
 await createFilterTags();
@@ -42,7 +41,7 @@ function getFilterTags () {
 async function createHtmlForFilterTags (filterTags) {
     let htmlFilterTags = "";
     for (const filterTag of filterTags) {
-        htmlFilterTags += await fillTemplate("tag", { tagName: filterTag, tagClass: "tag--enabled" });
+        htmlFilterTags += await Template.fillTemplate("tag", { tagName: filterTag, tagClass: "tag--enabled" });
     }
     genNav.innerHTML = htmlFilterTags;
 }
@@ -69,13 +68,11 @@ async function filterByTag () {
 function getTagsEnabled (inputTagsEnabled) {
     let tagsEnabled = [];
     for (let inputTag of inputTagsEnabled) {
-        
-        let tag = inputTag.parentElement;
-        let tagName = getTagName(tag);
         if (inputTag.checked) {
+            let tag = inputTag.parentElement;
+            let tagName = getTagName(tag);
             tagsEnabled.push(tagName);
-        }
-       
+        }     
     }
     return tagsEnabled;
 }
@@ -119,7 +116,7 @@ function sortPhotographers () {
     });
 }
 
-// highlight photographer tags from filter tags
+// synchronize state of disabled tags (from photographers) with enabled tags (from filter tags)
 function synchronizePhotographerTags (inputTagsEnabled) {
     const tagsDisabled = document.querySelectorAll('.tag--disabled');
     for (let inputTag of inputTagsEnabled) {
@@ -145,7 +142,7 @@ function getTagName (tag) {
 async function displayPhotographerCards () {
     genCards.innerHTML = "";
     for (let photographer of photographers){
-        genCards.insertAdjacentHTML('beforeend', await photographer.displayCardTemplate());
+        genCards.insertAdjacentHTML('beforeend', await photographer.displayCard());
     }
 }
 

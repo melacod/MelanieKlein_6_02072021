@@ -1,11 +1,11 @@
-import { addModalEvents } from './modules/modal.js';
-import { addLightBoxEvents } from './modules/lightBox.js';
+import { Modal } from './modules/modal.js';
+import { LightBox } from './modules/lightBox.js';
 
-import { loadData } from './modules/data.js';
-import { findGetParameter } from './modules/utils.js';
+import { Utils } from './modules/utils.js';
+import { Data } from './modules/data.js';
 
-import { loadPhotographers, Photographer } from './modules/photographer.js';
-import { loadMedias, Media } from './modules/media.js';
+import { PhotographerFactory } from './modules/photographer.js';
+import { MediaFactory } from './modules/media.js';
 
 // Get DOM elements where elements will be generated
 const genCard = document.querySelector('#gen-card');
@@ -14,43 +14,40 @@ const menuPopularity = document.querySelector('#menu-popularity');
 const menuTitle = document.querySelector('#menu-title');
 const menuDate = document.querySelector('#menu-date');
 
-
 // bind event with element
 menuPopularity.addEventListener("click", sortByPopularity);
 menuTitle.addEventListener("click", sortByTitle);
 menuDate.addEventListener("click", sortByDate);
 
-
 // load json data
-const data = await loadData();
-//console.log(data);
+const data = await Data.loadJsonData();
 
 // load photographers objects from json data
-const photographers = loadPhotographers(data);
+const photographers = PhotographerFactory.createPhotographers(data.photographers);
 
 //load medias objects fron json data
-const medias = loadMedias(data);
+const medias = MediaFactory.createMedias(data.media);
 
 // get photographer id from url parameters
-let id = findGetParameter("id");
+let id = Utils.findGetParameter("id");
+
+// display photographer info
+for (let photographer of photographers) {
+    if (photographer.id == id) {
+        genCard.insertAdjacentHTML('beforeend', await photographer.displayHorizontalCard());
+        break;
+    }
+}
 
 // get medias for photographer id
 let mediasForId = getMediasForId();
 await displayMedias();
 
-// display photographer info
-for (let photographer of photographers) {
-    if (photographer.id == id) {
-        genCard.insertAdjacentHTML('beforeend', await photographer.displayHorizontalCardTemplate());
-        break;
-    }
-}
-
 // display photographer medias
 async function displayMedias () {
     genMedias.innerHTML = "";
     for (let media of mediasForId) {
-        genMedias.insertAdjacentHTML('beforeend', await media.displayMediaTemplate());
+        genMedias.insertAdjacentHTML('beforeend', await media.display());
     }
 }
 
@@ -114,7 +111,6 @@ function sortByDate (){
     displayMedias();
 }
 
-
 // Add modal / lighbox events
-addModalEvents();
-addLightBoxEvents();
+Modal.addModalEvents();
+LightBox.addLightBoxEvents();

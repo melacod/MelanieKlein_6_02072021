@@ -1,15 +1,8 @@
-import { fillTemplate } from './template.js';
+import { Template } from './template.js';
 
-export { loadPhotographers, Photographer };
+export { PhotographerFactory };
 
-function loadPhotographers (data) {
-    const photographers = [];
-    for (let photographer of data.photographers){
-        const photographerObj = new Photographer(photographer);
-        photographers.push(photographerObj);
-    }
-    return photographers;
-}
+// class with photographer attributes
 class Photographer {
 
     constructor ({id, name, portrait, city, country, price, tagline, tags}){
@@ -24,22 +17,39 @@ class Photographer {
         this.score = 0;
     }
 
-    displayCardTemplate = async function () {
+    // display a photographer card
+    displayCard = async function () {
         await this.computeHtmlTags();
-        return await fillTemplate("photographer-card", this);
+        return await Template.fillTemplate("photographer-card", this);
     }
 
-    displayHorizontalCardTemplate = async function () {
+    // display an horizontal card of the photographer
+    displayHorizontalCard = async function () {
         await this.computeHtmlTags();
-        return await fillTemplate("photographer-card-horizontal", this);
+        return await Template.fillTemplate("photographer-card-horizontal", this);
     }
 
+    // compute html tags for the photographer
     computeHtmlTags = async function () {
         let htmlTags = "";
         for (const tag of this.tags) {
-            htmlTags += await fillTemplate("tag", { tagName: tag, tagClass: "tag--disabled" });
+            htmlTags += await Template.fillTemplate("tag", { tagName: tag, tagClass: "tag--disabled" });
         }
         this.htmlTags = htmlTags;
+    }
+
+}
+
+// factory to create photographers
+class PhotographerFactory {
+
+    static createPhotographers (photographers) {
+        const photographersObj = [];
+        for (let photographer of photographers){
+            const photographerObj = new Photographer(photographer);
+            photographersObj.push(photographerObj);
+        }
+        return photographersObj;
     }
 
 }

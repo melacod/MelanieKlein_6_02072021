@@ -1,10 +1,13 @@
-export { loadData };
+export { Data };
 
-// load JSON data file
-async function loadData () {
+// data manager
+class Data {
 
-    return fetch('./public/data/data.json')
-        
+    // load JSON data file
+    static async loadJsonData () {
+
+        return fetch('./public/data/data.json')
+
         .then(function(response) {
             if (response.status !== 200) {
                 console.log('Bad response from server! Status Code: ' + response.status);
@@ -16,3 +19,6 @@ async function loadData () {
             console.log('Error occurred!', err);
         });
     }
+
+}
+
