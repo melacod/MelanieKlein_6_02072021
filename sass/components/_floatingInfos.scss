@@ -1,0 +1,17 @@
+.floatingInfos {
+    position: fixed;
+    z-index: 10;
+    left: calc(((100% - min(100%, #{$container-width})) / 2) + min(100%, #{$container-width}) - 17em);
+    bottom: 0vh;
+    
+    width: 15em;
+    padding: 1em;
+    
+    display: flex;
+    justify-content: space-between;
+
+    color: black;
+    background-color: $color-primary;
+    text-align: center;
+    @include font-texte;
+}

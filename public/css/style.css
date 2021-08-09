@@ -443,6 +443,21 @@ h3 {
   }
 }
 
+.floatingInfos {
+  position: fixed;
+  z-index: 10;
+  left: calc(((100% - min(100%, 1400px)) / 2) + min(100%, 1400px) - 17em);
+  bottom: 0vh;
+  width: 15em;
+  padding: 1em;
+  display: flex;
+  justify-content: space-between;
+  color: black;
+  background-color: #DB8876;
+  text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 .container {
   position: relative;
   height: 100%;
