@@ -9,6 +9,7 @@ import { Tag } from './modules/tag.js' ;
 // Get DOM elements where elements will be generated
 const genCard = document.querySelector('#gen-card');
 const genMedias = document.querySelector('#gen-medias');
+const genInfos = document.querySelector('#gen-infos');
 const menuPopularity = document.querySelector('#menu-popularity');
 const menuTitle = document.querySelector('#menu-title');
 const menuDate = document.querySelector('#menu-date');
@@ -30,17 +31,20 @@ const medias = MediaFactory.createMedias(data.media);
 // get photographer id from url parameters
 let id = Utils.findGetParameter("id");
 
-// display photographer info
-for (let photographer of photographers) {
-    if (photographer.id == id) {
-        genCard.insertAdjacentHTML('beforeend', await photographer.displayHorizontalCard());
-        break;
-    }
-}
 
 // get medias for photographer id
 let mediasForId = getMediasForId();
 await displayMedias();
+
+// display photographer info
+for (let photographer of photographers) {
+    if (photographer.id == id) {
+        genCard.insertAdjacentHTML('beforeend', await photographer.displayHorizontalCard());
+        photographer.likes = getTotalLikes(mediasForId);
+        genInfos.insertAdjacentHTML('beforeend', await photographer.displayFloatingInfos());
+        break;
+    }
+}
 
 // display photographer medias
 async function displayMedias () {
@@ -63,6 +67,15 @@ function getMediasForId () {
         }
     }
     return mediasForId;
+}
+
+// get total likes for photographer medias
+function getTotalLikes (mediasForId) {
+    let totalLikes = 0;
+    for (let media of mediasForId){
+        totalLikes += media.likes;
+    }
+    return totalLikes;
 }
 
 // sort medias by popularity (likes)

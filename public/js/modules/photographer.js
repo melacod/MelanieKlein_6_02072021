@@ -16,6 +16,7 @@ class Photographer {
         this.tagline = tagline;
         this.tags = tags;
         this.score = 0;
+        this.likes = 0;
     }
 
     // display a photographer card
@@ -28,6 +29,11 @@ class Photographer {
     displayHorizontalCard = async function () {
         await this.computeHtmlTags("tag--enabled");
         return await Template.fillTemplate("photographer-card-horizontal", this);
+    }
+
+    // display photographer informations
+    displayFloatingInfos = async function () {
+        return await Template.fillTemplate("photographer-infos", this);
     }
 
     // compute html tags for the photographer
