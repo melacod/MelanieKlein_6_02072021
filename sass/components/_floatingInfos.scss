@@ -14,4 +14,8 @@
     background-color: $color-primary;
     text-align: center;
     @include font-texte;
+
+    @include screen_max(mobile){
+        display: none;
+    }
 }

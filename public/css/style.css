@@ -457,6 +457,11 @@ h3 {
   text-align: center;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+@media (orientation: portrait) and (max-width: 767px) {
+  .floatingInfos {
+    display: none;
+  }
+}
 
 .container {
   position: relative;
