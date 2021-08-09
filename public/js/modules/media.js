@@ -9,7 +9,7 @@ class Media {
     constructor ({id, photographerId, title, tags, likes, date, price}) {
         this.id = id;
         this.photographerId = photographerId;
-        this.title = title;
+        this.title = title
         this.tags = tags;
         this.likes = likes;
         this.date = Utils.computeDate(date);
@@ -38,9 +38,10 @@ class Video extends Media {
 // class for photo media
 class Photo extends Media {
 
-    constructor ({id, photographerId, title, image, tags, likes, date, price}) {
+    constructor ({id, photographerId, title, altText, image, tags, likes, date, price}) {
         super({id, photographerId, title, tags, likes, date, price});
         this.image = image;
+        this.altText = altText;
         this.templateName = "media-photo";
     }
 
