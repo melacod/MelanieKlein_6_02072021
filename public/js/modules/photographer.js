@@ -5,10 +5,11 @@ export { PhotographerFactory };
 // class with photographer attributes
 class Photographer {
 
-    constructor ({id, name, portrait, city, country, price, tagline, tags}){
+    constructor ({id, name, portrait, altText, city, country, price, tagline, tags}){
         this.id = id;
         this.name = name;
         this.portrait = portrait;
+        this.altText = altText;
         this.city = city;
         this.country = country;
         this.price = price;
