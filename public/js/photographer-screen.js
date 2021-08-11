@@ -31,19 +31,32 @@ const medias = createMedias(data.media);
 // get photographer id from url parameters
 let id = Utils.findGetParameter("id");
 
+// get the photographer with the given id
+let photographer = getPhotographerById();
 
 // get medias for photographer id
 let mediasForId = getMediasForId();
 await displayMedias();
 
-// display photographer info
-for (let photographer of photographers) {
-    if (photographer.id == id) {
-        genCard.insertAdjacentHTML('beforeend', await photographer.displayHorizontalCard());
-        photographer.likes = getTotalLikes(mediasForId);
-        genInfos.insertAdjacentHTML('beforeend', await photographer.displayFloatingInfos());
-        break;
+// display photographer horizontal card and floating infos
+genCard.innerHTML = "";
+genCard.insertAdjacentHTML('beforeend', await photographer.displayHorizontalCard());
+await displayFloatingInfos();
+
+// search the photographer to display
+function getPhotographerById () {
+    for (let currentPhotographer of photographers) {
+        if (currentPhotographer.id == id) {
+            return currentPhotographer;
+        }
     }
+}
+
+// display photographer floating infos
+async function displayFloatingInfos () {
+    photographer.likes = getTotalLikes(mediasForId);
+    genInfos.innerHTML = "";
+    genInfos.insertAdjacentHTML('beforeend', await photographer.displayFloatingInfos());
 }
 
 // display photographer medias
@@ -56,6 +69,7 @@ async function displayMedias () {
             genMedias.insertAdjacentHTML('beforeend', await media.display());
         }
     }
+    addEventsForLikes();
 }
 
 // get medias only for photographer id
@@ -135,6 +149,26 @@ async function filterByTag () {
     Tag.computeScore(mediasForId);
     Tag.sortObjects(mediasForId);
     await displayMedias();
+}
+
+// add events for likes
+function addEventsForLikes () {
+    const iconLikes = document.querySelectorAll('.likes');
+    for (let iconLike of iconLikes) {
+        iconLike.addEventListener('click', updateLikes);
+    }
+}
+
+// update number of likes in the media and display medias/photographer
+function updateLikes (event) {
+    let iconLike = event.target;
+    for (let media of mediasForId) {
+        if (media.id == iconLike.dataset.mediaId) {
+            media.likes ++;
+        }
+    }
+    displayMedias();
+    displayFloatingInfos();
 }
 
 // Add modal / lighbox events
