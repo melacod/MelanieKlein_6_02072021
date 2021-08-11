@@ -63,14 +63,4 @@ class MediaFactory {
         return mediaObj;
     }
 
-    // create an array of medias
-    static createMedias (medias) {
-        const mediasObj = [];
-        for (let media of medias){
-            const mediaObj = MediaFactory.createMedia(media);
-            mediasObj.push(mediaObj);
-        }
-        return mediasObj;
-    }
-
 }

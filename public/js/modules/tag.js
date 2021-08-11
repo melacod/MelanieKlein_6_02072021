@@ -4,29 +4,33 @@ export { Tag };
 class Tag {
     
     // get all enabled tags
-    static getInputEnabledTags () {
+    static getEnabledInputTags () {
         return document.querySelectorAll('.tag--enabled > input');
+    }
+
+    // get all disabled tags
+    static getDisabledInputTags () {
+        return document.querySelectorAll('.tag--disabled > input');
     }
 
     // add event click on input for enbaled tags
     static addEventForEnabledTags (clickFunction) {
-        for (let inputTag of Tag.getInputEnabledTags()) {
+        for (let inputTag of Tag.getEnabledInputTags()) {
             inputTag.addEventListener("click", clickFunction);
         }
     }
 
-    // get tag name from tag label (from <span>Tag xxx</span> => remove 4 characters = [Tag ])
-    static getTagName (tag) {
-        return tag.children[1].textContent.substring(4);
+    // get tag name from input tag label (from <input data-tag="xxx">)
+    static getTagName (inputTag) {
+        return inputTag.dataset.tag;
     }
 
     // get all checked tags
     static getTagNamesEnabled () {
         let tagsEnabled = [];
-        for (let inputTag of Tag.getInputEnabledTags()) {
+        for (let inputTag of Tag.getEnabledInputTags()) {
             if (inputTag.checked) {
-                let tag = inputTag.parentElement;
-                let tagName = Tag.getTagName(tag);
+                let tagName = Tag.getTagName(inputTag);
                 tagsEnabled.push(tagName);
             }     
         }

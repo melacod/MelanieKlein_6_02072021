@@ -1,6 +1,6 @@
 import { Template } from './template.js';
 
-export { PhotographerFactory };
+export { Photographer };
 
 // class with photographer attributes
 class Photographer {
@@ -43,20 +43,6 @@ class Photographer {
             htmlTags += await Template.fillTemplate("tag", { tagName: tag, tagClass: tagClassValue });
         }
         this.htmlTags = htmlTags;
-    }
-
-}
-
-// factory to create photographers
-class PhotographerFactory {
-
-    static createPhotographers (photographers) {
-        const photographersObj = [];
-        for (let photographer of photographers){
-            const photographerObj = new Photographer(photographer);
-            photographersObj.push(photographerObj);
-        }
-        return photographersObj;
     }
 
 }

@@ -1,7 +1,8 @@
 import { Data } from './modules/data.js';
-import { PhotographerFactory } from './modules/photographer.js';
 import { Template } from './modules/template.js';
 import { Tag } from './modules/tag.js' ;
+
+import { createPhotographers } from './modules/factory.js';
 
 // Get DOM elements where elements will be generated
 const genCards = document.querySelector('#gen-cards');
@@ -11,7 +12,7 @@ const genNav = document.querySelector('#gen-nav')
 const data = await Data.loadJsonData();
 
 // load photographers objects from json data
-const photographers = PhotographerFactory.createPhotographers(data.photographers);
+const photographers = createPhotographers(data.photographers);
 
 // create filter tags
 await createFilterTags();
@@ -57,15 +58,17 @@ async function filterByTag () {
 
 // synchronize state of disabled tags (from photographers) with enabled tags (from filter tags)
 function synchronizePhotographerTags () {
-    const tagsDisabled = document.querySelectorAll('.tag--disabled');
-    for (let inputTag of Tag.getInputEnabledTags()) {
-        let tag = inputTag.parentElement;
-        let tagName = Tag.getTagName(tag);
+    const enabledInputTags = Tag.getEnabledInputTags();
+    const disabledInputTags = Tag.getDisabledInputTags();
 
-        for (let tagDisabled of tagsDisabled) {
-            let tagDisabledName = Tag.getTagName(tagDisabled);
-            if (tagDisabledName == tagName) {
-                tagDisabled.children[0].checked = inputTag.checked;
+    for (let enabledInputTag of enabledInputTags) {
+        let enabledTagName = Tag.getTagName(enabledInputTag);
+
+        for (let disabledInputTag of disabledInputTags) {
+            let disabledTagName = Tag.getTagName(disabledInputTag);
+
+            if (disabledTagName == enabledTagName) {
+                disabledInputTag.checked = enabledInputTag.checked;
             }
         }
         

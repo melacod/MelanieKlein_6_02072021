@@ -2,9 +2,9 @@ import { Modal } from './modules/modal.js';
 import { LightBox } from './modules/lightBox.js';
 import { Utils } from './modules/utils.js';
 import { Data } from './modules/data.js';
-import { PhotographerFactory } from './modules/photographer.js';
-import { MediaFactory } from './modules/media.js';
 import { Tag } from './modules/tag.js' ;
+
+import { createPhotographers, createMedias } from './modules/factory.js';
 
 // Get DOM elements where elements will be generated
 const genCard = document.querySelector('#gen-card');
@@ -23,10 +23,10 @@ menuDate.addEventListener("click", sortByDate);
 const data = await Data.loadJsonData();
 
 // load photographers objects from json data
-const photographers = PhotographerFactory.createPhotographers(data.photographers);
+const photographers = createPhotographers(data.photographers);
 
 //load medias objects fron json data
-const medias = MediaFactory.createMedias(data.media);
+const medias = createMedias(data.media);
 
 // get photographer id from url parameters
 let id = Utils.findGetParameter("id");
