@@ -10,14 +10,13 @@ import { createPhotographers, createMedias } from './modules/factory.js';
 const genCard = document.querySelector('#gen-card');
 const genMedias = document.querySelector('#gen-medias');
 const genInfos = document.querySelector('#gen-infos');
-const menuPopularity = document.querySelector('#menu-popularity');
-const menuTitle = document.querySelector('#menu-title');
-const menuDate = document.querySelector('#menu-date');
+const menuSelected = document.querySelector('#menu--selected');
+const menuItems = document.querySelectorAll('.menu--items > p');
 
 // bind event with element
-menuPopularity.addEventListener("click", sortByPopularity);
-menuTitle.addEventListener("click", sortByTitle);
-menuDate.addEventListener("click", sortByDate);
+for (let menuItem of menuItems) {
+    menuItem.addEventListener("click", selectMenuItem);
+}
 
 // load json data
 const data = await Data.loadJsonData();
@@ -62,6 +61,7 @@ async function displayFloatingInfos () {
 // display photographer medias
 async function displayMedias () {
     genMedias.innerHTML = "";
+    sortMedias();
     for (let media of mediasForId) {
         // if media score is -1 = no filter tags selected = display all
         // if media score > 0 = at least one selected filter tag match
@@ -92,6 +92,32 @@ function getTotalLikes (mediasForId) {
     return totalLikes;
 }
 
+// select menu item
+async function selectMenuItem (event) {
+    let menuItem = event.target;
+    if (menuSelected.textContent !== menuItem.textContent) {
+        menuSelected.textContent = menuItem.textContent;
+        await displayMedias();
+    }
+}
+
+// sot medias by menu item selected
+function sortMedias () {
+    switch (menuSelected.textContent) {
+        case 'Popularité':
+            sortByPopularity();
+            break;
+        case 'Date':
+            sortByDate();
+            break;
+        case 'Titre':
+            sortByTitle();
+            break;
+        default:
+            sortByPopularity();
+    }
+}
+
 // sort medias by popularity (likes)
 function sortByPopularity () {
     mediasForId.sort( function(a,b) {
@@ -108,7 +134,6 @@ function sortByPopularity () {
             return a.title > b.title ? 1 : -1;
         }
     });
-    displayMedias();
 }
 
 //sort medias by title
@@ -118,7 +143,6 @@ function sortByTitle (){
         return a.title > b.title ? 1 : -1;
         
     });
-    displayMedias();
 }
 
 //sort medias by date
@@ -138,7 +162,6 @@ function sortByDate (){
         }
         
     });
-    displayMedias();
 }
 
 // add events for tags

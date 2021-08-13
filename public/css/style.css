@@ -1,3 +1,4 @@
+@charset "UTF-8";
 *,
 *::after,
 *::before {
@@ -404,6 +405,7 @@ h3 {
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin-top: 1em;
 }
 .menu--content {
   position: relative;
@@ -417,8 +419,27 @@ h3 {
   padding: 1em;
   margin-left: 1em;
 }
+.menu--content::after {
+  content: "⮝";
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  padding: 1em;
+  transition: all 0.3s;
+}
+.menu--content:hover span {
+  font-weight: bold;
+}
 .menu--content:hover .menu--items {
   display: block;
+}
+.menu--content:hover::after {
+  transform: rotate(180deg);
 }
 .menu--items {
   display: none;
@@ -428,6 +449,7 @@ h3 {
   top: 3.1em;
   left: 0;
   z-index: 1;
+  cursor: pointer;
 }
 .menu--items p {
   padding: 1em;

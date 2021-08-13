@@ -2,46 +2,75 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-
+    margin-top: 1em;
+  
     &--content {
-        position: relative;
-        display: inline-block;
-        color: white;
-        background-color: $color-secondary;
-        @include font-texte;
-        font-weight: 500;
-        font-size: 1.2em;
-        width: 9em;
-        padding: 1em;
-        margin-left: 1em;
-        
-        &:hover .menu--items {
-            display: block;
-        }
-    }
-
-    &--items {
-        display: none;
+      position: relative;
+      display: inline-block;
+      color: white;
+      background-color: $color-secondary;
+      @include font-texte;
+      font-weight: 500;
+      font-size: 1.2em;
+      width: 9em;
+      padding: 1em;
+      margin-left: 1em;
+  
+      &::after {
+        content: "\2b9d";
         position: absolute;
+        top: 0;
+        right: 0;
         color: white;
-        background-color: $color-secondary;
-        top: 3.1em;
-        left: 0;
-        z-index: 1;
-
-        p {
-            padding: 1em;
-            width: 9em;
-            border-top: 1px solid white;
-
-            &:hover {
-                font-weight: bold;
-            }
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 20px;
+        padding: 1em;
+        transition: all 0.3s;
+      }
+  
+      &:hover {
+  
+        span {
+          font-weight: bold;
         }
+        
+        .menu--items {
+          display: block;
+        }
+  
+        &::after {
+          transform: rotate(180deg);
+        }
+  
+      }
+  
     }
-
-    @include screen_max(mobile){
-        display: none;
+  
+    &--items {
+      display: none;
+      position: absolute;
+      color: white;
+      background-color: $color-secondary;
+      top: 3.1em;
+      left: 0;
+      z-index: 1;
+      cursor: pointer;
+  
+      p {
+        padding: 1em;
+        width: 9em;
+        border-top: 1px solid white;
+  
+        &:hover {
+          font-weight: bold;
+        }
+      }
     }
-
-}
+  
+    @include screen_max(mobile) {
+      display: none;
+    }
+  }
+  
