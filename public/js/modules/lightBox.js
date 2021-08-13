@@ -18,7 +18,16 @@ class LightBox {
     }
     
     // open lightBox dialog
-    static openLightBoxDialog () {
+    static openLightBoxDialog (event) {
+        let media = event.target;
+        let mediaId = media.dataset.mediaId;
+        let parent = media.parentElement;
+        let clone = parent.cloneNode(true);
+        
+        const genLightBoxMedia = document.querySelector('.lightBox--media');
+        genLightBoxMedia.innerHTML = "";
+        genLightBoxMedia.appendChild(clone);
+
         const lightBox = document.querySelector('.lightBox');
         lightBox.style.display = "block";
     }
