@@ -60,6 +60,14 @@
             height: 55em;
             object-fit: cover;
             border-radius: 0.5em;
+
+            @include screen-max (mobile) {
+                height: 25em;
+            }
+
+            @include screen-max (mobile, landscape) {
+                height: 25em;
+            }
         }
 
         figcaption {
