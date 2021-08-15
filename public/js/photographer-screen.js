@@ -1,9 +1,9 @@
+import { Data } from './modules/data.js';
+import { Template } from './modules/template.js';
+import { Utils } from './modules/utils.js';
 import { Modal } from './modules/modal.js';
 import { LightBox } from './modules/lightBox.js';
-import { Utils } from './modules/utils.js';
-import { Data } from './modules/data.js';
 import { Tag } from './modules/tag.js' ;
-
 import { createPhotographers, createMedias } from './modules/factory.js';
 
 // Get DOM elements where elements will be generated
@@ -17,6 +17,9 @@ const menuItems = document.querySelectorAll('.menu--items > p');
 for (let menuItem of menuItems) {
     menuItem.addEventListener("click", selectMenuItem);
 }
+
+// load all templates
+await Template.loadTemplates();
 
 // load json data
 const data = await Data.loadJsonData();
@@ -35,12 +38,18 @@ let photographer = getPhotographerById();
 
 // get medias for photographer id
 let mediasForId = getMediasForId();
-await displayMedias();
+displayMedias();
 
 // display photographer horizontal card and floating infos
 genCard.innerHTML = "";
-genCard.insertAdjacentHTML('beforeend', await photographer.displayHorizontalCard());
-await displayFloatingInfos();
+genCard.insertAdjacentHTML('beforeend', photographer.displayHorizontalCard());
+displayFloatingInfos();
+
+// add events for tags
+Tag.addEventForEnabledTags(filterByTag);
+
+// Add modal / lighbox events
+Modal.addModalEvents();
 
 // search the photographer to display
 function getPhotographerById () {
@@ -52,21 +61,21 @@ function getPhotographerById () {
 }
 
 // display photographer floating infos
-async function displayFloatingInfos () {
+function displayFloatingInfos () {
     photographer.likes = getTotalLikes(mediasForId);
     genInfos.innerHTML = "";
-    genInfos.insertAdjacentHTML('beforeend', await photographer.displayFloatingInfos());
+    genInfos.insertAdjacentHTML('beforeend', photographer.displayFloatingInfos());
 }
 
 // display photographer medias
-async function displayMedias () {
+function displayMedias () {
     genMedias.innerHTML = "";
     sortMedias();
     for (let media of mediasForId) {
         // if media score is -1 = no filter tags selected = display all
         // if media score > 0 = at least one selected filter tag match
         if (media.score === -1 || media.score > 0) {
-            genMedias.insertAdjacentHTML('beforeend', await media.display());
+            genMedias.insertAdjacentHTML('beforeend', media.display());
         }
     }
     addEventsForLikes();
@@ -94,11 +103,11 @@ function getTotalLikes (mediasForId) {
 }
 
 // select menu item
-async function selectMenuItem (event) {
+function selectMenuItem (event) {
     let menuItem = event.target;
     if (menuSelected.textContent !== menuItem.textContent) {
         menuSelected.textContent = menuItem.textContent;
-        await displayMedias();
+        displayMedias();
     }
 }
 
@@ -165,14 +174,11 @@ function sortByDate (){
     });
 }
 
-// add events for tags
-Tag.addEventForEnabledTags(filterByTag);
-
 // filter media on selected filter tags (no filter : all medias displayed)
-async function filterByTag () {
+function filterByTag () {
     Tag.computeScore(mediasForId);
     Tag.sortObjects(mediasForId);
-    await displayMedias();
+    displayMedias();
 }
 
 // add events for likes
@@ -194,6 +200,3 @@ function updateLikes (event) {
     displayMedias();
     displayFloatingInfos();
 }
-
-// Add modal / lighbox events
-Modal.addModalEvents();

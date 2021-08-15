@@ -20,27 +20,27 @@ class Photographer {
     }
 
     // display a photographer card
-    displayCard = async function () {
-        await this.computeHtmlTags("tag--disabled");
-        return await Template.fillTemplate("photographer-card", this);
+    displayCard = function () {
+        this.computeHtmlTags("tag--disabled");
+        return Template.fillTemplate("photographer-card", this);
     }
 
     // display an horizontal card of the photographer
-    displayHorizontalCard = async function () {
-        await this.computeHtmlTags("tag--enabled");
-        return await Template.fillTemplate("photographer-card-horizontal", this);
+    displayHorizontalCard = function () {
+        this.computeHtmlTags("tag--enabled");
+        return Template.fillTemplate("photographer-card-horizontal", this);
     }
 
     // display photographer informations
-    displayFloatingInfos = async function () {
-        return await Template.fillTemplate("photographer-infos", this);
+    displayFloatingInfos = function () {
+        return Template.fillTemplate("photographer-infos", this);
     }
 
     // compute html tags for the photographer
-    computeHtmlTags = async function (tagClassValue) {
+    computeHtmlTags = function (tagClassValue) {
         let htmlTags = "";
         for (const tag of this.tags) {
-            htmlTags += await Template.fillTemplate("tag", { tagName: tag, tagClass: tagClassValue });
+            htmlTags += Template.fillTemplate("tag", { tagName: tag, tagClass: tagClassValue });
         }
         this.htmlTags = htmlTags;
     }

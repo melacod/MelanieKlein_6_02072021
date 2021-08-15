@@ -18,8 +18,8 @@ class Media {
     }
 
     // add display method for photo and video media
-    display = async function () {
-        return await Template.fillTemplate(this.templateName, this);
+    display = function () {
+        return Template.fillTemplate(this.templateName, this);
     }
 
 }

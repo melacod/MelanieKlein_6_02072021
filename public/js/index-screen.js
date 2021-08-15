@@ -8,6 +8,9 @@ import { createPhotographers } from './modules/factory.js';
 const genCards = document.querySelector('#gen-cards');
 const genNav = document.querySelector('#gen-nav')
 
+// load all templates
+await Template.loadTemplates();
+
 // load json data
 const data = await Data.loadJsonData();
 
@@ -15,12 +18,15 @@ const data = await Data.loadJsonData();
 const photographers = createPhotographers(data.photographers);
 
 // create filter tags
-await createFilterTags();
+createFilterTags();
+
+// display photographer cards loading first time (no filter tags enabled)
+filterByTag();
 
 // compute all filter tags, create html and add event
-async function createFilterTags () {
+function createFilterTags () {
     let filterTags = getFilterTags();
-    await createHtmlForFilterTags(filterTags);
+    createHtmlForFilterTags(filterTags);
     Tag.addEventForEnabledTags(filterByTag);
 }
 
@@ -40,19 +46,19 @@ function getFilterTags () {
 }
 
 // create html for filter tags
-async function createHtmlForFilterTags (filterTags) {
+function createHtmlForFilterTags (filterTags) {
     let htmlFilterTags = "";
     for (const filterTag of filterTags) {
-        htmlFilterTags += await Template.fillTemplate("tag", { tagName: filterTag, tagClass: "tag--enabled" });
+        htmlFilterTags += Template.fillTemplate("tag", { tagName: filterTag, tagClass: "tag--enabled" });
     }
     genNav.innerHTML = htmlFilterTags;
 }
 
 // filter photographers based on filter tags
-async function filterByTag () {
+function filterByTag () {
     Tag.computeScore(photographers);
     Tag.sortObjects(photographers);
-    await displayPhotographerCards();
+    displayPhotographerCards();
     synchronizePhotographerTags();
 }
 
@@ -76,12 +82,9 @@ function synchronizePhotographerTags () {
 }
 
 // display photographer cards
-async function displayPhotographerCards () {
+function displayPhotographerCards () {
     genCards.innerHTML = "";
     for (let photographer of photographers){
-        genCards.insertAdjacentHTML('beforeend', await photographer.displayCard());
+        genCards.insertAdjacentHTML('beforeend', photographer.displayCard());
     }
 }
-
-// display photographer cards loading first time (no filter tags enabled)
-await filterByTag();

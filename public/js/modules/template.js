@@ -3,6 +3,19 @@ export { Template };
 // template manager
 class Template {
 
+    // all templates
+    static templates = {};
+
+    // load all template HTML files
+    static async loadTemplates () {
+        Template.templates['media-photo'] = await Template.loadTemplate("media-photo");
+        Template.templates['media-video'] = await Template.loadTemplate("media-video");
+        Template.templates['photographer-card-horizontal'] = await Template.loadTemplate("photographer-card-horizontal");
+        Template.templates['photographer-card'] = await Template.loadTemplate("photographer-card");
+        Template.templates['photographer-infos'] = await Template.loadTemplate("photographer-infos");
+        Template.templates['tag'] = await Template.loadTemplate("tag");
+    }
+
     // load template HTML file
     static async loadTemplate (templateName) {
         return fetch('./public/templates/' + templateName + '.html')
@@ -20,8 +33,8 @@ class Template {
     }
 
     // load template HTML file and replace {attribute} tags
-    static async fillTemplate ( templateName, object ) {
-        const templateContent = await Template.loadTemplate(templateName);
+    static fillTemplate ( templateName, object ) {
+        const templateContent = Template.templates[templateName];
         return templateContent.replace(
             /{(\w*)}/g, 
             function( m, key ) {
