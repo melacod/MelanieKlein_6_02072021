@@ -36,6 +36,9 @@ let id = Utils.findGetParameter("id");
 // get the photographer with the given id
 let photographer = getPhotographerById();
 
+// light box
+const lightBox = new LightBox();
+
 // get medias for photographer id
 let mediasForId = getMediasForId();
 displayMedias();
@@ -71,15 +74,17 @@ function displayFloatingInfos () {
 function displayMedias () {
     genMedias.innerHTML = "";
     sortMedias();
+    let mediasForLightBox = [];
     for (let media of mediasForId) {
         // if media score is -1 = no filter tags selected = display all
         // if media score > 0 = at least one selected filter tag match
         if (media.score === -1 || media.score > 0) {
+            mediasForLightBox.push(media);
             genMedias.insertAdjacentHTML('beforeend', media.display());
         }
     }
     addEventsForLikes();
-    new LightBox(mediasForId);
+    lightBox.setMedias(mediasForLightBox);
 }
 
 // get medias only for photographer id

@@ -3,32 +3,40 @@ export { LightBox };
 // light box manager
 class LightBox {
 
-    constructor (medias) {
-        this.medias = medias;
-        this.id = undefined;
-        this.addLightBoxEvents();
+    constructor () {
+        this.addStaticEvents();
     }
 
-    // add events to light box DOM elements
-    addLightBoxEvents () {
+    setMedias (medias) {
+        this.medias = medias;
+        this.id = undefined;
+        this.addDynamicEvents();
+    }
 
+    // Add static event: html elements not re generated
+    addStaticEvents () {
         // DOM elements
-        const btnOpens = document.querySelectorAll('.lightBox--open');
         const btnClose = document.querySelector('.lightBox--close');
         const btnPrevious = document.querySelector(".btn--previous");
         const btnNext = document.querySelector(".btn--next");
+    
+        // add listener events to lightBox
+        btnClose.addEventListener("click", this.closeLightBoxDialog);
+        btnNext.addEventListener("click", function (event) { this.nextLightBoxDialog(event)}.bind(this));
+        btnPrevious.addEventListener("click", function (event) { this.previousLightBoxDialog(event)}.bind(this));
+    }
 
+    // add dynamic events: html re generated
+    addDynamicEvents () {
+        // DOM elements
+        const btnOpens = document.querySelectorAll('.lightBox--open');
     
         // add listener events to lightBox
         for (let btnOpen of btnOpens) {
             btnOpen.addEventListener("click", function (event) { this.openLightBoxDialog(event)}.bind(this));
         }
-        btnClose.addEventListener("click", this.closeLightBoxDialog);
-        btnNext.addEventListener("click", function (event) { this.nextLightBoxDialog(event)}.bind(this));
-        btnPrevious.addEventListener("click", function (event) { this.previousLightBoxDialog(event)}.bind(this));
-
     }
-    
+
     // open lightBox dialog
     openLightBoxDialog (event) {
         let htmlMedia = event.target;
