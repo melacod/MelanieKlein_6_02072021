@@ -22,6 +22,11 @@ class Media {
         return Template.fillTemplate(this.templateName, this);
     }
 
+    // add display method for lightbox media
+    displayForLightBox = function () {
+        return this.display();
+    }
+
 }
 
 // class for video media
@@ -31,6 +36,11 @@ class Video extends Media {
         super({id, photographerId, title, tags, likes, date, price});
         this.video = video;
         this.templateName = "media-video";
+    }
+
+    // add display method for lightbox video media
+    displayForLightBox = function () {
+        return Template.fillTemplate(this.templateName, {...this, controls: "controls"});
     }
 
 }

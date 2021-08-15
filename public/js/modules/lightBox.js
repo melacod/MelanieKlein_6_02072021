@@ -43,8 +43,18 @@ class LightBox {
 
         // Set currently display media id
         this.id = htmlMedia.dataset.id;
-        this.display(htmlMedia);
 
+        // search current media to display 
+        for (let media of this.medias) {
+            
+            // found current media to display
+            if (this.id == media.id) {
+                this.display(media);
+                break;
+            }
+        }
+
+        // Display light box
         const lightBox = document.querySelector('.lightBox');
         lightBox.style.display = "block";
     }
@@ -97,18 +107,14 @@ class LightBox {
         this.id = nextMedia.id;
 
         // display next media in lightbox
-        let htmlMedia = document.querySelector('.lightBox--open[data-id="' + nextMedia.id + '"]');
-        this.display (htmlMedia);
+        this.display (nextMedia);
     }
 
-    // display current media in lightbox
-    display (htmlMedia) {
-        let parent = htmlMedia.parentElement;
-        let clone = parent.cloneNode(true);
-        
+    // display media in lightbox
+    display (media) {
         const genLightBoxMedia = document.querySelector('.lightBox--media');
         genLightBoxMedia.innerHTML = "";
-        genLightBoxMedia.appendChild(clone);
+        genLightBoxMedia.insertAdjacentHTML('beforeend', media.displayForLightBox());
     }
 
 }
