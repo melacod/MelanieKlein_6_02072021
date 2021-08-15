@@ -79,7 +79,7 @@ function displayMedias () {
         }
     }
     addEventsForLikes();
-    LightBox.addLightBoxEvents();
+    new LightBox(mediasForId);
 }
 
 // get medias only for photographer id
