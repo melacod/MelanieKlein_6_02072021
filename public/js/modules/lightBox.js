@@ -9,6 +9,10 @@ class LightBox {
         // DOM elements
         const lightBoxOpenButtons = document.querySelectorAll('.lightBox--open');
         const lightBoxCloseButton = document.querySelector('.lightBox--close');
+
+        const lightBoxPreviewButtons = document.querySelector(".btn--preview");
+        const lightBoxNextButtons = document.querySelector(".btn--next");
+
     
         // add listener events to lightBox
         for (let lightBoxOpenButton of lightBoxOpenButtons) {

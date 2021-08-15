@@ -70,6 +70,7 @@ async function displayMedias () {
         }
     }
     addEventsForLikes();
+    LightBox.addLightBoxEvents();
 }
 
 // get medias only for photographer id
@@ -196,4 +197,3 @@ function updateLikes (event) {
 
 // Add modal / lighbox events
 Modal.addModalEvents();
-LightBox.addLightBoxEvents();
