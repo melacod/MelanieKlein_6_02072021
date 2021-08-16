@@ -36,11 +36,15 @@ class Video extends Media {
         super({id, photographerId, title, tags, likes, date, price});
         this.video = video;
         this.templateName = "media-video";
+        this.controls = "";
     }
 
     // add display method for lightbox video media
     displayForLightBox = function () {
-        return Template.fillTemplate(this.templateName, {...this, controls: "controls"});
+        this.controls = "controls";
+        let content = Template.fillTemplate(this.templateName, this);
+        this.controls = "";
+        return content;
     }
 
 }
