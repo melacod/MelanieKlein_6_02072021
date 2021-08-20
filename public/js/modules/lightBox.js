@@ -67,40 +67,22 @@ class LightBox {
 
     // display next media lightbox dialog
     nextLightBoxDialog (event) {
-        this.displayNext();
-    }
-    
-    // display previous media lightbox dialog
-    previousLightBoxDialog (event) {
-        this.medias.reverse();
-        this.displayNext();
-        this.medias.reverse();
-    }
 
-    // found next media in medias list and display it
-    displayNext () {
-        let foundMedia = false;
+        // Get index of current dismlayed media from medias array
+        let mediaIndex = this.findMediaIndex();
+        
+        // Variable for next media to display
         let nextMedia = undefined;
         
-        // search current media displayed 
-        for (let media of this.medias) {
-            
-            // found current media display, take next media
-            if (this.id == media.id) {
-                foundMedia = true;
-                continue;
-            }
-
-            // next media to display
-            if (foundMedia == true) {
-                nextMedia = media;
-                break;
-            }
-        }
-
-        // if no next media found, display first media
-        if (nextMedia === undefined) {
+        // Take first media if 
+        // - media not found in medias array (should never happen)
+        // - current media is the last in the medias array
+        if (mediaIndex == -1 || mediaIndex == this.medias.length - 1) {
             nextMedia = this.medias[0];
+        
+        // Take next media from medias array
+        } else {
+            nextMedia = this.medias[mediaIndex + 1];
         }
 
         // Update currently display media id
@@ -108,6 +90,38 @@ class LightBox {
 
         // display next media in lightbox
         this.display (nextMedia);
+    }
+
+    // display previous media lightbox dialog
+    previousLightBoxDialog (event) {
+        
+        // Get index of current dismlayed media from medias array
+        let mediaIndex = this.findMediaIndex();
+        
+        // Variable for previous media to display
+        let previousMedia = undefined;
+        
+        // Take last media if 
+        // - media not found in medias array (should never happen)
+        // - current media is the first in the medias array
+        if (mediaIndex == -1 || mediaIndex == 0) {
+            previousMedia = this.medias[this.medias.length - 1];
+        
+        // Take previous media from medias array
+        } else {
+            previousMedia = this.medias[mediaIndex - 1];
+        }
+
+        // Update currently display media id
+        this.id = previousMedia.id;
+
+        // display next media in lightbox
+        this.display (previousMedia);
+    }
+    
+    // Return the media index from medias array from the current displayed media
+    findMediaIndex () {
+        return this.medias.findIndex( (media) => this.id == media.id );
     }
 
     // display media in lightbox
