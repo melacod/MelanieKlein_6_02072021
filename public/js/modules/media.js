@@ -15,6 +15,7 @@ class Media {
         this.date = Utils.computeDate(date);
         this.price = price;
         this.score = -1; // displayed when no filter tag selected
+        this.likedClass = "";
     }
 
     // add display method for photo and video media

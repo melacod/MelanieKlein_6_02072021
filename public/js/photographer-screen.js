@@ -197,10 +197,17 @@ function addEventsForLikes () {
 // update number of likes in the media and display medias/photographer
 function updateLikes (event) {
     let iconLike = event.target;
+    
     for (let media of mediasForId) {
         if (media.id == iconLike.dataset.mediaId) {
-            media.likes ++;
-        }
+            if (media.likedClass == "") {
+                media.likedClass = "liked";
+                media.likes ++;
+            } else {
+                media.likedClass = "";
+                media.likes --;
+            }
+       }
     }
     displayMedias();
     displayFloatingInfos();

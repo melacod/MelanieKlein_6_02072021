@@ -400,6 +400,9 @@ h3 {
   object-fit: cover;
   border-radius: 0.5em;
 }
+.media .liked {
+  color: #e20707;
+}
 
 .menu {
   display: flex;
@@ -690,6 +693,7 @@ header.index {
 }
 header.index .logo {
   width: 30%;
+  height: 5em;
 }
 @media (orientation: portrait) and (max-width: 991px) {
   header.index .logo {

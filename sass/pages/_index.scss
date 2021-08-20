@@ -17,6 +17,7 @@ header.index {
 
     .logo {
         width: 30%;
+        height: 5em;
 
         @include screen_max(tablet){
             width: 100%;
