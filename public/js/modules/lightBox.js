@@ -24,6 +24,7 @@ class LightBox {
         btnClose.addEventListener("click", this.closeLightBoxDialog);
         btnNext.addEventListener("click", function (event) { this.nextLightBoxDialog(event)}.bind(this));
         btnPrevious.addEventListener("click", function (event) { this.previousLightBoxDialog(event)}.bind(this));
+        document.addEventListener('keyup', function (event) { this.keyUpLightBoxDialog(event)}.bind(this));
     }
 
     // add dynamic events: html re generated
@@ -34,6 +35,7 @@ class LightBox {
         // add listener events to lightBox
         for (let btnOpen of btnOpens) {
             btnOpen.addEventListener("click", function (event) { this.openLightBoxDialog(event)}.bind(this));
+            btnOpen.addEventListener('keyup', function(event) {this.enterOpenLightBoxDialog(event)}.bind(this));
         }
     }
 
@@ -57,6 +59,33 @@ class LightBox {
         // Display light box
         const lightBox = document.querySelector('.lightBox');
         lightBox.style.display = "block";
+    }
+
+    // add event keyup to open lightbox when enter pressed
+    enterOpenLightBoxDialog (event) {
+        if (event.key === "Enter") {
+            this.openLightBoxDialog (event);
+        }
+    }
+
+    // add event keyup for lightbox
+    // - escape pressed = close lightbox
+    // - left pressed = previous
+    // - right pressed = next
+    keyUpLightBoxDialog (event) {
+        const lightBox = document.querySelector('.lightBox');
+        if (lightBox.style.display != "none") {
+            
+            if (event.key === "Escape") {
+                this.closeLightBoxDialog();
+            
+            } else if (event.key === "ArrowLeft") {
+                this.previousLightBoxDialog (event);
+            
+            } else if (event.key === "ArrowRight") {
+                this.nextLightBoxDialog (event);
+            }
+        }
     }
 
     // close lightBox dialog
