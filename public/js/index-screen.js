@@ -3,6 +3,7 @@ import { Template } from './modules/template.js';
 import { Tag } from './modules/tag.js' ;
 
 import { createPhotographers } from './modules/factory.js';
+import { Utils } from './modules/utils.js';
 
 // Get DOM elements where elements will be generated
 const genCards = document.querySelector('#gen-cards');
@@ -27,7 +28,27 @@ filterByTag();
 function createFilterTags () {
     let filterTags = getFilterTags();
     createHtmlForFilterTags(filterTags);
-    Tag.addEventForEnabledTags(filterByTag);
+    addEventForEnabledTags();
+}
+
+// add event click on input for enbaled tags
+function addEventForEnabledTags () {
+    for (let labelTag of Tag.getEnabledLabelTags()) {
+        labelTag.addEventListener("keyup", enterFilterByTag);
+    }
+    for (let inputTag of Tag.getEnabledInputTags()) {
+        inputTag.addEventListener("click", filterByTag);
+    }
+}
+
+// add event keyup for label enabled tags : filter tags when enter pressed
+function enterFilterByTag (event) {
+    if (event.key === "Enter") {
+        const labelTag = event.target;
+        const inputTag = labelTag.querySelector('input');
+        inputTag.checked = !inputTag.checked;
+        filterByTag();
+    }
 }
 
 // compute filter tags (unique tag names)
@@ -49,7 +70,7 @@ function getFilterTags () {
 function createHtmlForFilterTags (filterTags) {
     let htmlFilterTags = "";
     for (const filterTag of filterTags) {
-        htmlFilterTags += Template.fillTemplate("tag", { tagName: filterTag, tagClass: "tag--enabled" });
+        htmlFilterTags += Template.fillTemplate("tag", { tagName: filterTag, tagClass: "tag--enabled", tagTabIndex: "0" });
     }
     genNav.innerHTML = htmlFilterTags;
 }

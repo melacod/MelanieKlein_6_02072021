@@ -4,6 +4,11 @@ export { Tag };
 class Tag {
     
     // get all enabled tags
+    static getEnabledLabelTags () {
+        return document.querySelectorAll('.tag--enabled');
+    }
+
+    // get all enabled tags
     static getEnabledInputTags () {
         return document.querySelectorAll('.tag--enabled > input');
     }
@@ -11,13 +16,6 @@ class Tag {
     // get all disabled tags
     static getDisabledInputTags () {
         return document.querySelectorAll('.tag--disabled > input');
-    }
-
-    // add event click on input for enbaled tags
-    static addEventForEnabledTags (clickFunction) {
-        for (let inputTag of Tag.getEnabledInputTags()) {
-            inputTag.addEventListener("click", clickFunction);
-        }
     }
 
     // get tag name from input tag label (from <input data-tag="xxx">)

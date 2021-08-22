@@ -48,8 +48,28 @@ genCard.innerHTML = "";
 genCard.insertAdjacentHTML('beforeend', photographer.displayHorizontalCard());
 displayFloatingInfos();
 
-// add events for tags
-Tag.addEventForEnabledTags(filterByTag);
+// add event for tags
+addEventForEnabledTags();
+
+// add event click on input for enbaled tags
+function addEventForEnabledTags (clickFunction) {
+    for (let labelTag of Tag.getEnabledLabelTags()) {
+        labelTag.addEventListener("keyup", enterFilterByTag);
+    }
+    for (let inputTag of Tag.getEnabledInputTags()) {
+        inputTag.addEventListener("click", filterByTag);
+    }
+}
+
+// add event keyup for label enabled tags : filter tags when enter pressed
+function enterFilterByTag (event) {
+    if (event.key === "Enter") {
+        const labelTag = event.target;
+        const inputTag = labelTag.querySelector('input');
+        inputTag.checked = !inputTag.checked;
+        filterByTag();
+    }
+}
 
 // Add modal / lighbox events
 Modal.addModalEvents();
@@ -191,6 +211,14 @@ function addEventsForLikes () {
     const iconLikes = document.querySelectorAll('.likes');
     for (let iconLike of iconLikes) {
         iconLike.addEventListener('click', updateLikes);
+        iconLike.addEventListener('keyup', enterUpdateLikes);
+    }
+}
+
+// add event keyup for likes : update likes when enter pressed
+function enterUpdateLikes (event) {
+    if (event.key === "Enter") {
+        updateLikes(event);
     }
 }
 

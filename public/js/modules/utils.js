@@ -22,6 +22,17 @@ class Utils {
         }
         return null;
     }
+
+    // Execute an event on an element
+    static executeEvent (element, event){
+        if (element.fireEvent) {
+            element.fireEvent(event);
+        } else {
+          var objEvent = document.createEvent('Events');
+          objEvent.initEvent(event, true, false);
+          element.dispatchEvent(objEvent);
+        }
+      }
 }
 
 

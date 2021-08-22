@@ -21,13 +21,13 @@ class Photographer {
 
     // display a photographer card
     displayCard = function () {
-        this.computeHtmlTags("tag--disabled");
+        this.computeHtmlTags("tag--disabled", "-1");
         return Template.fillTemplate("photographer-card", this);
     }
 
     // display an horizontal card of the photographer
     displayHorizontalCard = function () {
-        this.computeHtmlTags("tag--enabled");
+        this.computeHtmlTags("tag--enabled", "0");
         return Template.fillTemplate("photographer-card-horizontal", this);
     }
 
@@ -37,10 +37,10 @@ class Photographer {
     }
 
     // compute html tags for the photographer
-    computeHtmlTags = function (tagClassValue) {
+    computeHtmlTags = function (tagClassValue, tagTabIndexValue) {
         let htmlTags = "";
         for (const tag of this.tags) {
-            htmlTags += Template.fillTemplate("tag", { tagName: tag, tagClass: tagClassValue });
+            htmlTags += Template.fillTemplate("tag", { tagName: tag, tagClass: tagClassValue, tagTabIndex: tagTabIndexValue });
         }
         this.htmlTags = htmlTags;
     }

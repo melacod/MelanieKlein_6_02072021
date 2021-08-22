@@ -4,19 +4,20 @@ export { Modal };
 class Modal {
 
     // add events to modal DOM elements
-    static addModalEvents() {
+    static addModalEvents () {
 
         // DOM elements
         const modalOpenButton = document.querySelector('.modal--open');
         const modalCloseButton = document.querySelector('.modal--close');
-    
+        
         // add listener events to modal
         modalOpenButton.addEventListener("click", Modal.openModalDialog);
         modalCloseButton.addEventListener("click", Modal.closeModalDialog);
+        document.addEventListener('keyup', Modal.keyupModalDialog)
     }
     
     // close modal dialog
-    static closeModalDialog() {
+    static closeModalDialog () {
         const modal = document.querySelector('.modal');
         modal.style.display = "none";
         const modalOpenButton = document.querySelector('.modal--open');
@@ -24,11 +25,19 @@ class Modal {
     }
     
     // open modal dialog
-    static openModalDialog() {
+    static openModalDialog () {
         const modal = document.querySelector('.modal');
         modal.style.display = "block";
         const modalOpenButton = document.querySelector('.modal--open');
         modalOpenButton.style.display = "none";
+    }
+
+    // check if press enter in modal
+    static keyupModalDialog (event) {
+        const modal = document.querySelector('.modal');
+        if (modal.style.display != "none" && event.key === "Escape") {
+            Modal.closeModalDialog();
+        }
     }
 }
 
