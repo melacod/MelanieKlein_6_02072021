@@ -32,6 +32,7 @@ class Modal {
         modal.style.display = "block";
         const modalOpenButton = document.querySelector('.modal--open');
         modalOpenButton.style.display = "none";
+        modal.querySelector('input').focus();
     }
 
     // check if press enter in modal

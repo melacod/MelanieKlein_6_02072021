@@ -59,6 +59,7 @@ class LightBox {
         // Display light box
         const lightBox = document.querySelector('.lightBox');
         lightBox.style.display = "block";
+        lightBox.querySelector('img,video').focus();
     }
 
     // add event keyup to open lightbox when enter pressed
