@@ -148,11 +148,12 @@ function keyUpMenuSelected (event) {
         menuItemsContainer.style.display = 'block';
     
     } else if (event.key === "Enter") {
-
-        if (menuItemsContainer.style.display != 'none') {
-            menuItemsContainer.style.display = 'none';
-        } else {
+        
+        const firstTime = menuItemsContainer.style.display == "";
+        if (firstTime || menuItemsContainer.style.display == 'none') {
             menuItemsContainer.style.display = 'block';
+        } else {
+            menuItemsContainer.style.display = 'none';
         }
     }
 }
