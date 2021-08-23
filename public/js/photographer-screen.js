@@ -16,7 +16,9 @@ const menuItems = document.querySelectorAll('.menu--items > p');
 // bind event with element
 for (let menuItem of menuItems) {
     menuItem.addEventListener("click", selectMenuItem);
+    menuItem.addEventListener("keyup", keyUpMenuItem);
 }
+menuSelected.addEventListener("keyup", keyUpMenuSelected);
 
 // load all templates
 await Template.loadTemplates();
@@ -133,6 +135,33 @@ function selectMenuItem (event) {
     if (menuSelected.textContent !== menuItem.textContent) {
         menuSelected.textContent = menuItem.textContent;
         displayMedias();
+    }
+}
+
+// Display or hide menu items on menu selected
+function keyUpMenuSelected (event) {
+    const menuItemsContainer = document.querySelector('.menu--items');
+    if (event.key === "ArrowUp") {
+        menuItemsContainer.style.display = 'none';
+    
+    } else if (event.key === "ArrowDown") {
+        menuItemsContainer.style.display = 'block';
+    
+    } else if (event.key === "Enter") {
+
+        if (menuItemsContainer.style.display != 'none') {
+            menuItemsContainer.style.display = 'none';
+        } else {
+            menuItemsContainer.style.display = 'block';
+        }
+    }
+}
+
+
+// Display or hide menu items on menu selected
+function keyUpMenuItem (event) {
+    if (event.key === "Enter") {
+        selectMenuItem(event);
     }
 }
 
