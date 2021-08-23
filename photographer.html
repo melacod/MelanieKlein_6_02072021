@@ -35,10 +35,10 @@
 
     <!-- Menu to sort medias -->
     <div class="menu">
-      <h3>Trier par</h3>
+      <h3 id="menu--label">Trier par</h3>
       <div class="menu--content">
-        <span tabindex="0" id="menu--selected">Popularité</span>
-        <div class="menu--items">
+        <span tabindex="0" id="menu--selected" role="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Order by" aria-labelledby="menu--label">Popularité</span>
+        <div class="menu--items" role="listbox" aria-activedescendant="true" aria-selected="true" aria-labelledby="menu--label">
           <p tabindex="0">Popularité</p>
           <p tabindex="0">Date</p>
           <p tabindex="0">Titre</p>
@@ -52,45 +52,45 @@
   </div> <!-- end container-->
 
   <!-- Contact modal -->
-  <div class="modal" role="dialog">
+  <div class="modal" role="dialog" aria-labelledby="modal--header">
     <div class="modal--content">
-      <button class="modal--close btn btn--action btn--action--white btn--close">&times;</button>
+      <button class="modal--close btn btn--action btn--action--white btn--close" aria-label="Close Contact form">&times;</button>
       <aside class ="modal--body">
-        <h1>Contactez moi Mimi Keel</h1>
+        <h1 id="modal--header">Contactez moi Mimi Keel</h1>
         <form name="contact" onsubmit="return false;">
           <div class="form--data">
-            <label for="first">Prénom</label>
-            <input tabindex="0" class="form--control" type="text" id="first" name="first" minlength="2" aria-labelledby="First name" />
+            <label id="label--first" for="first">Prénom</label>
+            <input tabindex="0" class="form--control" type="text" id="first" name="first" minlength="2" aria-labelledby="label--first" />
           </div>
           <div class="form--data">
-            <label for="last">Nom</label>
-            <input tabindex="0" class="form--control" type="text" id="last" name="last" minlength="2" />
+            <label id="label--last" for="last">Nom</label>
+            <input tabindex="0" class="form--control" type="text" id="last" name="last" minlength="2" aria-labelledby="label--last" />
           </div>
           <div class="form--data">
-            <label for="email">E-mail</label>
-            <input tabindex="0" class="form--control" type="text" id="email" name="email" />
+            <label id="label--email" for="email">E-mail</label>
+            <input tabindex="0" class="form--control" type="text" id="email" name="email" aria-labelledby="label--email" />
           </div>
           <div class="form--data">
-            <label for="message">Votre message</label>
-            <textarea tabindex="0" class="modal--msg" rows="8" cols="53.5" id="message" name="message"></textarea>
+            <label id="label--message" for="message">Votre message</label>
+            <textarea tabindex="0" class="modal--msg" rows="8" cols="53.5" id="message" name="message" aria-labelledby="label--message"></textarea>
           </div>
-          <button tabindex="0" class="btn btn--modal modal--send">Envoyer</button> 
+          <button tabindex="0" class="btn btn--modal modal--send" aria-label="Send">Envoyer</button> 
         </form>
       </aside>
     </div>
   </div>
 
   <!-- Light box modal -->
-  <div class="lightBox" role="dialog">
-    <button class="lightBox--close btn btn--action btn--action--red btn--close">&times;</button>
+  <div class="lightBox" role="dialog" aria-label="Image closeup view">
+    <button class="lightBox--close btn btn--action btn--action--red btn--close" aria-label="Close dialog">&times;</button>
     <div class="lightBox--content">
       <div class="lightBox--nav">
-        <button class="btn btn--action btn--action--red btn--previous">&lt;</button>
+        <button class="btn btn--action btn--action--red btn--previous" aria-label="Previous image">&lt;</button>
       </div>
       <div class="lightBox--media">
       </div>
       <div class="lightBox--nav">
-        <button class="btn btn--action btn--action--red btn--next">&gt;</button>
+        <button class="btn btn--action btn--action--red btn--next" aria-label="Next image">&gt;</button>
       </div>
     </div>
   </div>
