@@ -232,7 +232,6 @@ function sortByDate (){
 // filter media on selected filter tags (no filter : all medias displayed)
 function filterByTag () {
     Tag.computeScore(mediasForId);
-    Tag.sortObjects(mediasForId);
     displayMedias();
 }
 

@@ -56,33 +56,4 @@ class Tag {
         }
     }
 
-    // sort objects by 
-    // 1. score (descendant)
-    // 2. number of tags (descendant)
-    // 3. name (ascendant)
-    static sortObjects (objects) {
-        objects.sort( function(a,b) {
-            
-            if (a.score < b.score) {
-                return 1; // a after b
-            
-            } else if (a.score > b.score) {
-                return -1; // b after a
-
-            } else {
-
-                // when same score: sort by number of tags
-                if (a.tags.length < b.tags.length) {
-                    return 1; // a after b
-
-                } else if (a.tags.length > b.tags.length) {
-                    return -1; // b after a
-                
-                } else {
-                    return a.name > b.name ? 1 : -1;
-                }
-            }
-        });
-    }
-
 }
