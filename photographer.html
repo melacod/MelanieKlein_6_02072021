@@ -22,7 +22,7 @@
   
   <div class="container">
 
-    <header class="mediagrapher" role="banner">
+    <header class="mediagrapher">
       <div class="logo">
         <a href="index.html">
           <img alt="Fisheye Home page" src="./public/media/fisheyeLogo.png" />
@@ -37,8 +37,8 @@
     <div class="menu">
       <h3 id="menu--label">Trier par</h3>
       <div class="menu--content">
-        <span tabindex="0" id="menu--selected" role="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Order by" aria-labelledby="menu--label">Popularité</span>
-        <div class="menu--items" role="listbox" aria-activedescendant="true" aria-selected="true" aria-labelledby="menu--label">
+        <span tabindex="0" id="menu--selected" role="button" aria-activedescendant="all-menu-items" aria-haspopup="listbox" aria-expanded="false" aria-label="Order by" aria-labelledby="menu--label">Popularité</span>
+        <div id="all-menu-items" class="menu--items" role="listbox" aria-labelledby="menu--label">
           <p tabindex="0">Popularité</p>
           <p tabindex="0">Date</p>
           <p tabindex="0">Titre</p>
@@ -72,7 +72,7 @@
           </div>
           <div class="form--data">
             <label id="label--message" for="message">Votre message</label>
-            <textarea tabindex="0" class="modal--msg" rows="8" cols="53.5" id="message" name="message" aria-labelledby="label--message"></textarea>
+            <textarea tabindex="0" class="modal--msg" rows="8" cols="53" id="message" name="message" aria-labelledby="label--message"></textarea>
           </div>
           <button tabindex="0" class="btn btn--modal modal--send" aria-label="Send">Envoyer</button> 
         </form>
