@@ -1,7 +1,14 @@
 .lightBox {
-    display: none;
-    
-    position: fixed;
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.75);
+
+  &--container {
+    position: relative;
     z-index: 1;
     left: 50%;
     top: 50%;
@@ -13,79 +20,77 @@
     height: 60em;
     width: 60em;
 
-    @include screen-max (mobile) {
-        height: 30em;
-        width: 30em;
+    @include screen-max(mobile) {
+      height: 30em;
+      width: 30em;
     }
 
-    @include screen-max (mobile, landscape) {
-        height: 30em;
-        width: 30em;
+    @include screen-max(mobile, landscape) {
+      height: 30em;
+      width: 30em;
     }
+  }
 
-    &--content {
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: space-between;
-    }
+  &--content {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
 
-    &--media {
+  &--media {
+    padding-top: 2em;
+    width: 80%;
 
-        padding-top: 2em;
-        width: 80%;
+    .media {
+      width: 100%;
 
-        .media {
-            width: 100%;
+      figure {
+        margin: 0;
+      }
 
-            figure {
-                margin: 0;
-            }
-    
-            img {
-                height: 55em;
-    
-                @include screen-max (mobile) {
-                    height: 25em;
-                }
-    
-                @include screen-max (mobile, landscape) {
-                    height: 25em;
-                }
-            }
-    
-            video {
-                height: 55em;
-    
-                @include screen-max (mobile) {
-                    height: 25em;
-                }
-    
-                @include screen-max (mobile, landscape) {
-                    height: 25em;
-                }
-            }
-    
-            figcaption {
-                padding-top: 0.2em;
-    
-                :nth-child(2) {
-                    display: none;
-                }
-    
-            }
+      img {
+        height: 55em;
+
+        @include screen-max(mobile) {
+          height: 25em;
         }
-    }
 
-    &--nav {
-        width: 10%;
-        button {
-            position: relative;
-            left: 50%;
-            top: 50%;
-            transform: translateX(-50%) translateY(-50%);
+        @include screen-max(mobile, landscape) {
+          height: 25em;
         }
-    }
+      }
 
+      video {
+        height: 55em;
+
+        @include screen-max(mobile) {
+          height: 25em;
+        }
+
+        @include screen-max(mobile, landscape) {
+          height: 25em;
+        }
+      }
+
+      figcaption {
+        padding-top: 0.2em;
+
+        :nth-child(2) {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &--nav {
+    width: 10%;
+    button {
+      position: relative;
+      left: 50%;
+      top: 50%;
+      transform: translateX(-50%) translateY(-50%);
+    }
+  }
 }
