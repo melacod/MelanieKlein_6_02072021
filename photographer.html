@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>FishEye</title>
+  <title>FishEye - Photographe</title>
 
   <script src="https://kit.fontawesome.com/23ff18c19e.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" type="text/css" href="public/css/style.css" />
@@ -21,7 +21,7 @@
   
   <div class="container">
 
-    <header class="mediagrapher">
+    <header class="mediagrapher" role="banner">
       <div class="logo">
         <a href="index.html">
           <img alt="Fisheye Home page" src="./public/media/fisheyeLogo.png" />
@@ -56,24 +56,24 @@
       <button class="modal--close btn btn--action btn--action--white btn--close">&times;</button>
       <aside class ="modal--body">
         <h1>Contactez moi Mimi Keel</h1>
-        <form name="contact">
+        <form name="contact" onsubmit="return false;">
           <div class="form--data">
             <label for="first">Prénom</label>
-            <input class="form--control" type="text" id="first" name="first" minlength="2" aria-labelledby="First name" />
+            <input tabindex="0" class="form--control" type="text" id="first" name="first" minlength="2" aria-labelledby="First name" />
           </div>
           <div class="form--data">
             <label for="last">Nom</label>
-            <input class="form--control" type="text" id="last" name="last" minlength="2" />
+            <input tabindex="0" class="form--control" type="text" id="last" name="last" minlength="2" />
           </div>
           <div class="form--data">
             <label for="email">E-mail</label>
-            <input class="form--control" type="text" id="email" name="email" />
+            <input tabindex="0" class="form--control" type="text" id="email" name="email" />
           </div>
           <div class="form--data">
             <label for="message">Votre message</label>
-            <textarea class="modal--msg" rows="8" cols="53.5" id="message" name="message"></textarea>
+            <textarea tabindex="0" class="modal--msg" rows="8" cols="53.5" id="message" name="message"></textarea>
           </div>
-          <button class="btn btn--modal">Envoyer</button> 
+          <button tabindex="0" class="btn btn--modal modal--send">Envoyer</button> 
         </form>
       </aside>
     </div>

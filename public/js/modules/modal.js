@@ -9,10 +9,12 @@ class Modal {
         // DOM elements
         const modalOpenButton = document.querySelector('.modal--open');
         const modalCloseButton = document.querySelector('.modal--close');
+        const modalSendButton = document.querySelector('.modal--send');
         
         // add listener events to modal
         modalOpenButton.addEventListener("click", Modal.openModalDialog);
         modalCloseButton.addEventListener("click", Modal.closeModalDialog);
+        modalSendButton.addEventListener("click", Modal.sendMessageModalDialog);
         document.addEventListener('keyup', Modal.keyupModalDialog)
     }
     
@@ -38,6 +40,22 @@ class Modal {
         if (modal.style.display != "none" && event.key === "Escape") {
             Modal.closeModalDialog();
         }
+    }
+
+    // Send a message from modal dialog and close it
+    static sendMessageModalDialog () {
+        let firstName = document.querySelector('.modal #first');
+        let lastName = document.querySelector('.modal #last');
+        let email = document.querySelector('.modal #email');
+        let message = document.querySelector('.modal #message');
+        
+        console.log("Sending message ...");
+        console.log("First name: " + firstName.value);
+        console.log("Last name: " + lastName.value);
+        console.log("Email: " + email.value);
+        console.log("Message: " + message.value);
+        
+        Modal.closeModalDialog();
     }
 }
 
