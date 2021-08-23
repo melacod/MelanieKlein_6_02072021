@@ -400,6 +400,11 @@ h3 {
   object-fit: cover;
   border-radius: 0.5em;
 }
+@media (orientation: landscape) and (max-width: 767px) {
+  .media video {
+    height: 15em;
+  }
+}
 .media .liked {
   color: #e20707;
 }
@@ -508,8 +513,18 @@ h3 {
 }
 
 .modal {
+  display: none;
   position: fixed;
   z-index: 1;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.75);
+}
+.modal--content {
+  position: relative;
   left: 50%;
   top: 50%;
   transform: translateX(-50%) translateY(-50%);
@@ -517,28 +532,24 @@ h3 {
   width: 40em;
   background-color: #DB8876;
   border-radius: 0.3em;
-  box-shadow: 0.1em 0.1em 0.1em 0.1em #525252;
-  display: none;
+  border: 1px solid black;
+  padding-top: 2em;
+  padding-left: 1.5em;
 }
 @media (orientation: portrait) and (max-width: 767px) {
-  .modal {
+  .modal--content {
     width: 100%;
     box-shadow: 0 0 0 0;
     height: 45em;
   }
 }
 @media (orientation: landscape) and (max-width: 767px) {
-  .modal {
+  .modal--content {
     box-shadow: 0 0 0 0;
     height: 25em;
     overflow: scroll;
     padding-bottom: 2em;
   }
-}
-.modal--content {
-  padding-top: 2em;
-  width: 100%;
-  padding-left: 1.5em;
 }
 .modal--content h1 {
   width: 60%;
