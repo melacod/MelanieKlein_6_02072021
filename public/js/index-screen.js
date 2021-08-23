@@ -2,7 +2,7 @@ import { Data } from './modules/data.js';
 import { Template } from './modules/template.js';
 import { Tag } from './modules/tag.js' ;
 
-import { createPhotographers } from './modules/factory.js';
+import { Factory } from './modules/factory.js';
 import { Utils } from './modules/utils.js';
 
 // Get DOM elements where elements will be generated
@@ -16,7 +16,7 @@ await Template.loadTemplates();
 const data = await Data.loadJsonData();
 
 // load photographers objects from json data
-const photographers = createPhotographers(data.photographers);
+const photographers = Factory.createPhotographers(data.photographers);
 
 // create filter tags
 createFilterTags();

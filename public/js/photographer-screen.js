@@ -4,7 +4,7 @@ import { Utils } from './modules/utils.js';
 import { Modal } from './modules/modal.js';
 import { LightBox } from './modules/lightBox.js';
 import { Tag } from './modules/tag.js' ;
-import { createPhotographers, createMedias } from './modules/factory.js';
+import { Factory } from './modules/factory.js';
 
 // Get DOM elements where elements will be generated
 const genCard = document.querySelector('#gen-card');
@@ -27,10 +27,10 @@ await Template.loadTemplates();
 const data = await Data.loadJsonData();
 
 // load photographers objects from json data
-const photographers = createPhotographers(data.photographers);
+const photographers = Factory.createPhotographers(data.photographers);
 
 //load medias objects fron json data
-const medias = createMedias(data.media);
+const medias = Factory.createMedias(data.media);
 
 // get photographer id from url parameters
 let id = Utils.findGetParameter("id");
