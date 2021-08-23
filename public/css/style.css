@@ -38,11 +38,6 @@ input {
   border: 0;
 }
 
-:focus {
-  outline-color: goldenrod;
-  outline-width: 5px;
-}
-
 html {
   /* 10px = 1em */
   font-size: 62.5%;
