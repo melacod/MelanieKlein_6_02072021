@@ -43,6 +43,10 @@
         flex-direction: row;
         flex-wrap: nowrap;
         justify-content: space-between;
+
+        .fa-heart{
+            border-color: $color-secondary 2em solid;
+        }
     }
 
     img {
@@ -68,8 +72,7 @@
     }
 
     .liked {
-        color: rgb(226, 7, 7);
-        
+        color: $color-secondary;
     }
 
 }

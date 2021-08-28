@@ -257,11 +257,11 @@ function updateLikes (event) {
     
     for (let media of mediasForId) {
         if (media.id == iconLike.dataset.mediaId) {
-            if (media.likedClass == "") {
-                media.likedClass = "liked";
+            if (media.likedClass == "far fa-heart") {
+                media.likedClass = "fas fa-heart";
                 media.likes ++;
             } else {
-                media.likedClass = "";
+                media.likedClass = "far fa-heart";
                 media.likes --;
             }
        }

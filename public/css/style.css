@@ -383,6 +383,9 @@ h3 {
   flex-wrap: nowrap;
   justify-content: space-between;
 }
+.media figcaption .fa-heart {
+  border-color: #901C1C 2em solid;
+}
 .media img {
   height: 25em;
   width: 100%;
@@ -406,7 +409,7 @@ h3 {
   }
 }
 .media .liked {
-  color: #e20707;
+  color: #901C1C;
 }
 
 .menu {
