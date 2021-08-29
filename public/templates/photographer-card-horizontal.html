@@ -1,15 +1,15 @@
 <div class="card card__photographer">
     <div class="card--info">
-        <h2 class="card--name">{name}</h2>
-        <div class="card--localisation">{city}, {country}</div>
-        <div class="card--description">{tagline}</div>
-        <nav class="card--nav tags tags--left" aria-label="Card tag navigation">
+        <h2 tabindex="0" class="card--name" aria-label="Photographe: {name}">{name}</h2>
+        <div tabindex="0" class="card--localisation" aria-label="Ville: {city} - Pays: {country}" >{city}, {country}</div>
+        <div tabindex="0" class="card--description" aria-label="Accroche: {tagline}">{tagline}</div>
+        <nav tabindex="0" class="card--nav tags tags--left" aria-label="Navigation principale par tag">
             {htmlTags}
         </nav>
     </div>
 
     <div class="card--contact">
-        <button class="modal--open btn btn--contact" aria-label="Contact Me">Contactez-moi</button>
+        <button class="modal--open btn btn--contact" aria-label="Contactez-moi">Contactez-moi</button>
     </div>
 
     <a class="card--link" href="#" alt="{name}" tabindex="-1">
