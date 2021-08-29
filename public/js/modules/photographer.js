@@ -20,24 +20,24 @@ class Photographer {
     }
 
     // display a photographer card
-    displayCard = function () {
+    displayCard () {
         this.computeHtmlTags("tag--disabled", "-1");
         return Template.fillTemplate("photographer-card", this);
     }
 
     // display an horizontal card of the photographer
-    displayHorizontalCard = function () {
+    displayHorizontalCard () {
         this.computeHtmlTags("tag--enabled", "0");
         return Template.fillTemplate("photographer-card-horizontal", this);
     }
 
     // display photographer informations
-    displayFloatingInfos = function () {
+    displayFloatingInfos () {
         return Template.fillTemplate("photographer-infos", this);
     }
 
     // compute html tags for the photographer
-    computeHtmlTags = function (tagClassValue, tagTabIndexValue) {
+    computeHtmlTags (tagClassValue, tagTabIndexValue) {
         let htmlTags = "";
         for (const tag of this.tags) {
             htmlTags += Template.fillTemplate("tag", { tagName: tag, tagClass: tagClassValue, tagTabIndex: tagTabIndexValue });

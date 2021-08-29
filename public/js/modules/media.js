@@ -19,12 +19,12 @@ class Media {
     }
 
     // add display method for photo and video media
-    display = function () {
+    display () {
         return Template.fillTemplate(this.templateName, this);
     }
 
     // add display method for lightbox media
-    displayForLightBox = function () {
+    displayForLightBox () {
         return this.display();
     }
 
@@ -41,7 +41,7 @@ class Video extends Media {
     }
 
     // add display method for lightbox video media
-    displayForLightBox = function () {
+    displayForLightBox () {
         this.controls = "controls";
         let content = Template.fillTemplate(this.templateName, this);
         this.controls = "";
@@ -66,7 +66,7 @@ class Photo extends Media {
 class MediaFactory {
 
     // create a media (use factory method pattern = use the target class depending on the type of the media)
-    static createMedia = function (media) {
+    static createMedia (media) {
         let mediaObj;
         if (media.video !== undefined) {
             // media is a video => use Video class
