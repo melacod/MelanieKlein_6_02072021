@@ -1,0 +1,28 @@
+<!-- Contact modal -->
+<div class="modal" role="dialog" aria-labelledby="modal--header">
+    <div class="modal--content">
+        <button class="modal--close btn btn--action btn--action--white btn--close" aria-label="Fermer la boîte de dialogue de contact">&times;</button>
+        <aside class ="modal--body">
+        <h1 id="modal--header" aria-label="Contactez {name}">Contactez moi {name}</h1>
+        <form name="contact" onsubmit="return false;">
+            <div class="form--data">
+            <label id="label--first" for="first">Prénom</label>
+            <input tabindex="0" class="form--control" type="text" id="first" name="first" minlength="2" aria-labelledby="label--first" />
+            </div>
+            <div class="form--data">
+            <label id="label--last" for="last">Nom</label>
+            <input tabindex="0" class="form--control" type="text" id="last" name="last" minlength="2" aria-labelledby="label--last" />
+            </div>
+            <div class="form--data">
+            <label id="label--email" for="email">E-mail</label>
+            <input tabindex="0" class="form--control" type="text" id="email" name="email" aria-labelledby="label--email" />
+            </div>
+            <div class="form--data">
+            <label id="label--message" for="message">Votre message</label>
+            <textarea tabindex="0" class="modal--msg" rows="8" cols="53" id="message" name="message" aria-labelledby="label--message"></textarea>
+            </div>
+            <button tabindex="0" class="btn btn--modal modal--send" aria-label="Envoyer">Envoyer</button> 
+        </form>
+        </aside>
+    </div>
+</div>

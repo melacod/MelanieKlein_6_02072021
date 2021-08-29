@@ -1,6 +1,6 @@
 <div class="media">
     <figure>
-        <video tabindex="0" {controls} class="lightBox--open" data-id="{id}">
+        <video tabindex="0" {controls} class="lightBox--open" data-id="{id}" aria-label="Titre de la vidéo: {title}">
             <source src="./public/media/{photographerId}/{video}" type="video/mp4">
             <p>
                 Votre navigateur ne prend pas en charge les vidéos HTML5.
@@ -8,8 +8,13 @@
             </p>
         </video>
         <figcaption>
-            <span>{title}</span>
-            <span>{likes} <i tabindex="0" class="{likedClass} likes" aria-hidden="true" data-media-id="{id}"></i></span>
+            <span aria-label="Titre de la vidéo: {title}">{title}</span>
+            <span id="likes-{id}" aria-label="Aimer la vidéo {title} - {likes} j'aime">{likes} 
+                <span class="likes" tabindex="0">
+                    <i class="likes {likedClass}" data-media-id="{id}" aria-hidden="true" title="Aimer la vidéo {title}"></i>
+                    <span class="sr-only" aria-labelledby="likes-{id}"></span>
+                </span>
+            </span>
         </figcaption>
     </figure>
 </div>

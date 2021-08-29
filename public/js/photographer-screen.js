@@ -8,6 +8,8 @@ import { Factory } from './modules/factory.js';
 
 // Get DOM elements where elements will be generated
 const genCard = document.querySelector('#gen-card');
+const genModalContact = document.querySelector('#gen-modal-contact');
+const genModalLightbox = document.querySelector('#gen-modal-lightbox');
 const genMedias = document.querySelector('#gen-medias');
 const genInfos = document.querySelector('#gen-infos');
 const menuSelected = document.querySelector('#menu--selected');
@@ -38,7 +40,11 @@ let id = Utils.findGetParameter("id");
 // get the photographer with the given id
 let photographer = getPhotographerById();
 
+// display modal contact
+genModalContact.insertAdjacentHTML('beforeend', Template.fillTemplate('modal-contact', photographer));
+
 // light box
+genModalLightbox.insertAdjacentHTML('beforeend', Template.fillTemplate('modal-lightbox', {}));
 const lightBox = new LightBox();
 
 // get medias for photographer id
@@ -54,7 +60,7 @@ displayFloatingInfos();
 addEventForEnabledTags();
 
 // add event click on input for enbaled tags
-function addEventForEnabledTags (clickFunction) {
+function addEventForEnabledTags () {
     for (let labelTag of Tag.getEnabledLabelTags()) {
         labelTag.addEventListener("keyup", enterFilterByTag);
     }
@@ -134,6 +140,7 @@ function selectMenuItem (event) {
     let menuItem = event.target;
     if (menuSelected.textContent !== menuItem.textContent) {
         menuSelected.textContent = menuItem.textContent;
+        menuSelected.setAttribute('aria-label', 'Tri actif: ' + menuSelected.textContent);
         displayMedias();
     }
 }
@@ -237,24 +244,33 @@ function filterByTag () {
 
 // add events for likes
 function addEventsForLikes () {
-    const iconLikes = document.querySelectorAll('.likes');
+    const spanLikes = document.querySelectorAll('span.likes');
+    for (let spanLike of spanLikes) {
+        spanLike.addEventListener('keyup', enterUpdateLikes);
+    }
+    const iconLikes = document.querySelectorAll('i.likes');
     for (let iconLike of iconLikes) {
         iconLike.addEventListener('click', updateLikes);
-        iconLike.addEventListener('keyup', enterUpdateLikes);
     }
 }
 
 // add event keyup for likes : update likes when enter pressed
+// the target element is span
 function enterUpdateLikes (event) {
     if (event.key === "Enter") {
-        updateLikes(event);
+        let icon = event.target.querySelector('i');
+        updateLikesIcon(icon);
     }
 }
 
 // update number of likes in the media and display medias/photographer
+// the target element is icon
 function updateLikes (event) {
-    let iconLike = event.target;
-    
+    updateLikesIcon(event.target);
+}
+
+// update number of likes in the media and display medias/photographer from icon
+function updateLikesIcon (iconLike) {
     for (let media of mediasForId) {
         if (media.id == iconLike.dataset.mediaId) {
             if (media.likedClass == "far fa-heart") {

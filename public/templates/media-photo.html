@@ -1,9 +1,14 @@
 <div class="media">
     <figure>
-        <img tabindex="0" src="./public/media/{photographerId}/{image}" alt="{altText}" class="lightBox--open" data-id="{id}">
+        <img tabindex="0" src="./public/media/{photographerId}/{image}" alt="Photo: {altText}" class="lightBox--open" data-id="{id}">
         <figcaption>
-            <span>{title}</span>
-            <span>{likes} <i tabindex="0" class="{likedClass} likes" aria-hidden="true" aria-label="likes" data-media-id="{id}"></i></span>
+            <span aria-label="Titre de la photo: {title}">{title}</span>
+            <span id="likes-{id}" aria-label="Aimer la photo {title} - {likes} j'aime">{likes} 
+                <span class="likes" tabindex="0">
+                    <i class="likes {likedClass}" data-media-id="{id}" aria-hidden="true" title="Aimer la photo {title}"></i>
+                    <span class="sr-only" aria-labelledby="likes-{id}"></span>
+                </span>
+            </span>
         </figcaption>
     </figure>
 </div>

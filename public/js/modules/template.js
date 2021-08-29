@@ -14,6 +14,8 @@ class Template {
         Template.templates['photographer-card'] = await Template.loadTemplate("photographer-card");
         Template.templates['photographer-infos'] = await Template.loadTemplate("photographer-infos");
         Template.templates['tag'] = await Template.loadTemplate("tag");
+        Template.templates['modal-contact'] = await Template.loadTemplate("modal-contact");
+        Template.templates['modal-lightbox'] = await Template.loadTemplate("modal-lightbox");
     }
 
     // load template HTML file
