@@ -59,6 +59,9 @@ displayFloatingInfos();
 // add event for tags
 addEventForEnabledTags();
 
+// Add modal / lighbox events
+Modal.addModalEvents();
+
 // add event click on input for enbaled tags
 function addEventForEnabledTags () {
     for (let labelTag of Tag.getEnabledLabelTags()) {
@@ -78,9 +81,6 @@ function enterFilterByTag (event) {
         filterByTag();
     }
 }
-
-// Add modal / lighbox events
-Modal.addModalEvents();
 
 // search the photographer to display
 function getPhotographerById () {
@@ -165,7 +165,6 @@ function keyUpMenuSelected (event) {
     }
 }
 
-
 // Display or hide menu items on menu selected
 function keyUpMenuItem (event) {
     if (event.key === "Enter") {
@@ -222,10 +221,10 @@ function sortByDate (){
     mediasForId.sort (function (a,b) {
 
         if (a.date.getTime() < b.date.getTime()) {
-            return 1; // a after b
+            return -1; // b older than a => b after a
         
         } else if (a.date.getTime() > b.date.getTime()) {
-            return -1; // b after a
+            return 1; // a older than b => a after b
 
         } else {
 
