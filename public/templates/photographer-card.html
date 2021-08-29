@@ -1,12 +1,12 @@
 <div class="card">
-  <a class="card--link" href="photographer.html?id={id}" aria-label="Lien vers le photographe {name}">
+  <a id="photographe-{id}" class="card--link" href="photographer.html?id={id}" aria-label="Photographe: {name}">
     <img class="card--image" src="./public/media/Photographers_ID/{portrait}" alt="Photo de {altText}">
-    <h2 class="card--name">{name}</h2>
+    <h2 class="card--name" aria-labelledby="photographe-{id}">{name}</h2>
   </a>
-  <div class="card--localisation">{city}, {country}</div>
-  <div class="card--description">{tagline}</div>
-  <div class="card--price">{price}€/jour</div>
-  <nav class="tags card--nav" aria-label="Card tag navigation">
+  <div class="card--localisation" aria-label="Ville: {city} - Pays: {country}">{city}, {country}</div>
+  <div class="card--description" aria-label="Slogan: {tagline}">{tagline}</div>
+  <div class="card--price" aria-label="Tarif: {price}€ par jour">{price}€/jour</div>
+  <nav class="tags card--nav">
     {htmlTags}
   </nav>
 </div>
