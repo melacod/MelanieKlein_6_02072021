@@ -113,13 +113,6 @@
             &--contact {
                 align-self: flex-start;
                 text-align: left;
-
-                @include screen_max(desktop){
-                    position: absolute;
-                    bottom: 2em;
-                    left: 50%;
-                    transform: translateX(-50%);
-                }
             }
 
             &--link {
@@ -157,3 +150,24 @@
         }
     }
 }
+
+.card--contact {
+
+    @include screen_max(desktop){
+        position: fixed;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 100;
+    }
+
+    @include screen_max(desktop, landscape){
+        position: fixed;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 100;
+    }
+    
+}
+

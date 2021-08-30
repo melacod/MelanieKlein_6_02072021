@@ -54,6 +54,7 @@ displayMedias();
 // display photographer horizontal card and floating infos
 genCard.innerHTML = "";
 genCard.insertAdjacentHTML('beforeend', photographer.displayHorizontalCard());
+moveCardContact();
 displayFloatingInfos();
 
 // add event for tags
@@ -283,4 +284,23 @@ function updateLikesIcon (iconLike) {
     }
     displayMedias();
     displayFloatingInfos();
+}
+
+// move card contact if change on media query
+let mediaQuery = window.matchMedia("(max-width: 1199px)");
+mediaQuery.addEventListener( "change", (event) => {
+    moveCardContact ();
+});
+
+// move card contact button under body for fixed position
+// else put in before card link
+function moveCardContact () {
+    let mediaQuery = window.matchMedia("(max-width: 1199px)");
+    let cardContact = document.querySelector('.card--contact');
+    if (mediaQuery.matches) {
+        document.body.appendChild(cardContact);
+    } else {
+        let cardLink = document.querySelector('.card--link');
+        cardLink.parentElement.insertBefore(cardContact, cardLink);
+    }
 }
