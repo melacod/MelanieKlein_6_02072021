@@ -2,12 +2,10 @@ export { Template };
 
 // template manager
 class Template {
-
-    // all templates
-    static templates = {};
-
+   
     // load all template HTML files
     static async loadTemplates () {
+        Template.templates = {};
         Template.templates['media-photo'] = await Template.loadTemplate("media-photo");
         Template.templates['media-video'] = await Template.loadTemplate("media-video");
         Template.templates['photographer-card-horizontal'] = await Template.loadTemplate("photographer-card-horizontal");
@@ -40,7 +38,7 @@ class Template {
         return templateContent.replace(
             /{(\w*)}/g, 
             function( m, key ) {
-                if (object.hasOwnProperty(key)) {
+                if (Object.prototype.hasOwnProperty.call(object, key)) {
                     return object[key];
                 } else {
                     return "";

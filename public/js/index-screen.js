@@ -3,7 +3,6 @@ import { Template } from './modules/template.js';
 import { Tag } from './modules/tag.js' ;
 
 import { Factory } from './modules/factory.js';
-import { Utils } from './modules/utils.js';
 
 // Get DOM elements where elements will be generated
 const genCards = document.querySelector('#gen-cards');

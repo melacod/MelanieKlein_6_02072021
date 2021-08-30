@@ -81,10 +81,10 @@ class LightBox {
                 this.closeLightBoxDialog();
             
             } else if (event.key === "ArrowLeft") {
-                this.previousLightBoxDialog (event);
+                this.previousLightBoxDialog ();
             
             } else if (event.key === "ArrowRight") {
-                this.nextLightBoxDialog (event);
+                this.nextLightBoxDialog ();
             }
         }
     }
@@ -96,7 +96,7 @@ class LightBox {
     }
 
     // display next media lightbox dialog
-    nextLightBoxDialog (event) {
+    nextLightBoxDialog () {
 
         // Get index of current dismlayed media from medias array
         let mediaIndex = this.findMediaIndex();
@@ -123,7 +123,7 @@ class LightBox {
     }
 
     // display previous media lightbox dialog
-    previousLightBoxDialog (event) {
+    previousLightBoxDialog () {
         
         // Get index of current dismlayed media from medias array
         let mediaIndex = this.findMediaIndex();
