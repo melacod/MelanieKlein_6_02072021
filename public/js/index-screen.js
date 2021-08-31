@@ -8,20 +8,32 @@ import { Factory } from './modules/factory.js';
 const genCards = document.querySelector('#gen-cards');
 const genNav = document.querySelector('#gen-nav')
 
+// loaded json data
+let data = {};
+
+// created photographers
+let photographers = [];
+
 // load all templates
-await Template.loadTemplates();
+Template.loadTemplates().then( () => {
 
-// load json data
-const data = await Data.loadJsonData();
+    // load json data
+    Data.loadJsonData().then( (jsonData) => {
 
-// load photographers objects from json data
-const photographers = Factory.createPhotographers(data.photographers);
+        // set data from loaded json data
+        data = jsonData;
 
-// create filter tags
-createFilterTags();
+        // load photographers objects from json data
+        photographers = Factory.createPhotographers(data.photographers);
 
-// display photographer cards loading first time (no filter tags enabled)
-filterByTag();
+        // create filter tags
+        createFilterTags();
+
+        // display photographer cards loading first time (no filter tags enabled)
+        filterByTag();
+
+    });
+});
 
 // compute all filter tags, create html and add event
 function createFilterTags () {

@@ -22,46 +22,73 @@ for (let menuItem of menuItems) {
 }
 menuSelected.addEventListener("keyup", keyUpMenuSelected);
 
+// loaded json data
+let data = {};
+
+// array of all photographer objects
+let photographers = [];
+
+// array of all medias objects
+let medias = [];
+
+// id of photographer from URL parameter
+let id = 0;
+
+// photographer to display
+let photographer = {};
+
+// array of medias for photographer to display
+let mediasForId = [];
+
+// light box object
+let lightBox = {};
+
 // load all templates
-await Template.loadTemplates();
+Template.loadTemplates().then( () => {
 
-// load json data
-const data = await Data.loadJsonData();
+    // load json data
+    Data.loadJsonData().then( (jsonData) => {
 
-// load photographers objects from json data
-const photographers = Factory.createPhotographers(data.photographers);
+        // set data from loaded json data
+        data = jsonData;
 
-//load medias objects fron json data
-const medias = Factory.createMedias(data.media);
+        // load photographers objects from json data
+        photographers = Factory.createPhotographers(data.photographers);
 
-// get photographer id from url parameters
-let id = Utils.findGetParameter("id");
+        //load medias objects fron json data
+        medias = Factory.createMedias(data.media);
 
-// get the photographer with the given id
-let photographer = getPhotographerById();
+        // get photographer id from url parameters
+        id = Utils.findGetParameter("id");
 
-// display modal contact
-genModalContact.insertAdjacentHTML('beforeend', Template.fillTemplate('modal-contact', photographer));
+        // get the photographer with the given id
+        photographer = getPhotographerById();
 
-// light box
-genModalLightbox.insertAdjacentHTML('beforeend', Template.fillTemplate('modal-lightbox', {}));
-const lightBox = new LightBox();
+        // display modal contact
+        genModalContact.insertAdjacentHTML('beforeend', Template.fillTemplate('modal-contact', photographer));
 
-// get medias for photographer id
-let mediasForId = getMediasForId();
-displayMedias();
+        // light box
+        genModalLightbox.insertAdjacentHTML('beforeend', Template.fillTemplate('modal-lightbox', {}));
+        lightBox = new LightBox();
 
-// display photographer horizontal card and floating infos
-genCard.innerHTML = "";
-genCard.insertAdjacentHTML('beforeend', photographer.displayHorizontalCard());
-moveCardContact();
-displayFloatingInfos();
+        // get medias for photographer id
+        mediasForId = getMediasForId();
+        displayMedias();
 
-// add event for tags
-addEventForEnabledTags();
+        // display photographer horizontal card and floating infos
+        genCard.innerHTML = "";
+        genCard.insertAdjacentHTML('beforeend', photographer.displayHorizontalCard());
+        moveCardContact();
+        displayFloatingInfos();
 
-// Add modal / lighbox events
-Modal.addModalEvents();
+        // add event for tags
+        addEventForEnabledTags();
+
+        // Add modal / lighbox events
+        Modal.addModalEvents();
+
+    });
+});
 
 // add event click on input for enbaled tags
 function addEventForEnabledTags () {
@@ -288,7 +315,7 @@ function updateLikesIcon (iconLike) {
 
 // move card contact if change on media query
 let mediaQuery = window.matchMedia("(max-width: 1199px)");
-mediaQuery.addEventListener( "change", (event) => {
+mediaQuery.addEventListener( "change", () => {
     moveCardContact ();
 });
 
