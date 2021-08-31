@@ -6,7 +6,8 @@
   "scripts": {
     "sass": "sass --style expanded --watch ./sass/main.scss:./public/css/style.css",
     "compress": "sass --style compressed --no-source-map ./sass/main.scss:./public/css/style.css",
-    "prefix": "postcss ./public/css/style.css --use autoprefixer --replace"
+    "prefix": "postcss ./public/css/style.css --use autoprefixer --replace",
+    "lint": "eslint ./public/js/**/*.js"
   },
   "repository": {
     "type": "git",
